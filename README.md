@@ -1,0 +1,79 @@
+# 🌿 LeafScan
+
+**Plant disease detection from leaf photos — and, later, a RAG assistant that explains how to treat it.**
+
+[![CI](https://github.com/marconcini/leafscan/actions/workflows/ci.yml/badge.svg)](https://github.com/marconcini/leafscan/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-timm-ee4c2c)
+
+> 🚧 Work in progress — built step by step, see the [roadmap](#roadmap).
+
+## Overview
+
+LeafScan is an end-to-end applied AI project built in two phases:
+
+1. **Vision** — fine-tune pretrained image models (CNNs and Vision Transformers) to recognise
+   **38 crop/disease classes** from a single leaf photo, compare them rigorously, and explain
+   predictions with Grad-CAM.
+2. **RAG** — given the detected disease, answer the user's questions ("how do I treat it?",
+   "is it contagious?") from a curated corpus of agronomic fact sheets, **citing sources**, with
+   a proper evaluation of retrieval quality and hallucinations.
+
+## Data
+
+[PlantVillage](https://github.com/spMohanty/PlantVillage-Dataset) (color version, CC BY-SA 3.0):
+54,305 leaf images, 14 crops, 38 classes, loaded from the
+[Hugging Face Hub](https://huggingface.co/datasets/mohanty/PlantVillage).
+
+**Avoiding data leakage.** Each physical leaf was photographed ~4 times. A naive random split puts
+photos of the *same leaf* in both train and validation, which inflates scores. LeafScan:
+
+- uses the **official test split** (10,709 images) for final results only;
+- builds the validation set with a **group split by physical leaf**, using the dataset's
+  `leaf-map.json` (0 leaves shared between train and validation, checked by a unit test).
+
+| Split | Images |
+|---|---|
+| Train | 39,251 |
+| Validation | 4,345 |
+| Test (official) | 10,709 |
+
+## Quickstart
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+
+python scripts/download_data.py      # ~2.2 GB download, color images only kept
+pytest
+```
+
+## Project structure
+
+```
+src/leafscan/
+└── data.py       # download, leak-free splits, dataset & augmentations
+tests/            # unit tests on a synthetic PlantVillage-like dataset
+```
+
+## Roadmap
+
+**Phase 1 — Vision**
+- [x] Data pipeline with leak-free validation split
+- [x] Tests & CI
+- [ ] Training & evaluation pipeline
+- [ ] Baseline: EfficientNet-B0
+- [ ] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
+- [ ] Error analysis + Grad-CAM explanations
+- [ ] Robustness to real field photos (lab → field domain shift)
+- [ ] Gradio demo on Hugging Face Spaces
+
+**Phase 2 — RAG assistant**
+- [ ] Corpus of agronomic fact sheets per disease
+- [ ] Retrieval pipeline (embeddings + vector store) and grounded generation with citations
+- [ ] Evaluation: test question set, retrieval metrics, faithfulness / hallucination rate
+- [ ] Full app: photo → diagnosis → Q&A
+
+## License
+
+Code: MIT. Dataset: PlantVillage, CC BY-SA 3.0.
