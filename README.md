@@ -38,6 +38,29 @@ photos of the *same leaf* in both train and validation, which inflates scores. L
 | Validation | 4,345 |
 | Test (official) | 10,709 |
 
+## Results
+
+Official PlantVillage test split (10,709 images, never used for model selection).
+
+| Model | Params | Accuracy | Macro-F1 | Top-5 | Train time (Apple M-series, MPS) |
+|---|---|---|---|---|---|
+| EfficientNet-B0 | 5.3M | **99.65%** | **99.46%** | 99.99% | 21 min (5 epochs) |
+
+- 38 errors out of 10,709. Almost half (18) are between two **corn** diseases, *Cercospora / gray
+  leaf spot* and *Northern leaf blight*, which both form elongated lesions on the leaf.
+- 5 errors confuse **potato late blight** with **tomato late blight**: same disease, same
+  pathogen (*Phytophthora infestans*), wrong crop.
+- Wrong predictions are much less confident (0.64 on average vs 0.89 for correct ones), which
+  suggests a confidence threshold could flag uncertain diagnoses.
+
+Details: [`reports/efficientnet_b0/`](reports/efficientnet_b0) · analysis in the
+[research log](docs/research-log.md).
+
+<img src="reports/efficientnet_b0/confusion_matrix.png" width="600" alt="Confusion matrix">
+
+> These scores are on lab images with uniform backgrounds. How they hold up on real field photos
+> is one of the next questions on the [roadmap](ROADMAP.md).
+
 ## Quickstart
 
 ```bash
@@ -72,7 +95,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 **Phase 1 — Vision**
 - [x] Data pipeline with leak-free validation split
 - [x] Training & evaluation pipeline, tests, CI
-- [ ] Baseline: EfficientNet-B0
+- [x] Baseline: EfficientNet-B0 (99.65% test accuracy)
 - [ ] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
 - [ ] Error analysis + Grad-CAM explanations
 - [ ] Robustness to real field photos (lab → field domain shift)

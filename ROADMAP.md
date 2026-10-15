@@ -7,7 +7,7 @@ Each step is small, testable and pushed on its own. Research questions are track
 
 - [x] **Data pipeline** — PlantVillage download, leak-free validation split by physical leaf
 - [x] **Training & evaluation pipeline** — fine-tuning loop, metrics, confusion matrix, CI
-- [ ] **Baseline** — EfficientNet-B0 on the full dataset
+- [x] **Baseline** — EfficientNet-B0 on the full dataset (99.65% test accuracy)
 - [ ] **Model comparison** — ResNet-50 · ConvNeXt-T · ViT-S: accuracy, macro-F1, latency, size
   - *Q: does a Vision Transformer bring anything on such a "clean" lab dataset?*
 - [ ] **Error analysis & Grad-CAM**
