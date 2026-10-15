@@ -67,6 +67,8 @@ tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 
 ## Roadmap
 
+Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment journal: [docs/research-log.md](docs/research-log.md) · papers: [docs/references.md](docs/references.md)
+
 **Phase 1 — Vision**
 - [x] Data pipeline with leak-free validation split
 - [x] Training & evaluation pipeline, tests, CI
