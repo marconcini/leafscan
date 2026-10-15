@@ -1,0 +1,6 @@
+# Modern CNN (28.6M params), ImageNet-22k pretraining.
+model: convnext_tiny.fb_in22k_ft_in1k
+img_size: 224
+epochs: 5
+batch_size: 32
+lr: 2.0e-4

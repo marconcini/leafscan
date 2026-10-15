@@ -1,0 +1,6 @@
+# Lightweight CNN baseline (5.3M params) — good accuracy/speed trade-off.
+model: efficientnet_b0.ra_in1k
+img_size: 224
+epochs: 5
+batch_size: 64
+lr: 1.0e-3

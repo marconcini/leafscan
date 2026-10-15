@@ -44,24 +44,32 @@ photos of the *same leaf* in both train and validation, which inflates scores. L
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
-python scripts/download_data.py      # ~2.2 GB download, color images only kept
-pytest
+python scripts/download_data.py                      # ~2.2 GB download, color images only kept
+python -m leafscan.train --config configs/efficientnet_b0.yaml
+python -m leafscan.evaluate models/efficientnet_b0/best.pt
 ```
+
+Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
+
+Training runs on CUDA, Apple Silicon (MPS) or CPU.
 
 ## Project structure
 
 ```
 src/leafscan/
-└── data.py       # download, leak-free splits, dataset & augmentations
-tests/            # unit tests on a synthetic PlantVillage-like dataset
+├── data.py       # download, leak-free splits, dataset & augmentations
+├── model.py      # timm backbones, device selection, checkpoints
+├── train.py      # fine-tuning loop (AdamW, warmup + cosine, label smoothing)
+└── evaluate.py   # accuracy, macro-F1, top-5, per-class report, confusion matrix
+configs/          # one YAML per compared model
+tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
 
 ## Roadmap
 
 **Phase 1 — Vision**
 - [x] Data pipeline with leak-free validation split
-- [x] Tests & CI
-- [ ] Training & evaluation pipeline
+- [x] Training & evaluation pipeline, tests, CI
 - [ ] Baseline: EfficientNet-B0
 - [ ] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
 - [ ] Error analysis + Grad-CAM explanations

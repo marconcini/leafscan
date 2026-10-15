@@ -1,0 +1,6 @@
+# Vision Transformer (22M params), ImageNet-21k pretraining.
+model: vit_small_patch16_224.augreg_in21k_ft_in1k
+img_size: 224
+epochs: 5
+batch_size: 64
+lr: 2.0e-4

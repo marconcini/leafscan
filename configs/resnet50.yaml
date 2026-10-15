@@ -1,0 +1,6 @@
+# Classic CNN reference (25.6M params).
+model: resnet50.a1_in1k
+img_size: 224
+epochs: 5
+batch_size: 64
+lr: 5.0e-4
