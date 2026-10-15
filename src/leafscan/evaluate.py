@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections import Counter
 from pathlib import Path
 
 import matplotlib
@@ -58,6 +59,26 @@ def plot_confusion(cm: np.ndarray, classes: list[str], path: Path) -> None:
     plt.close(fig)
 
 
+def error_analysis(samples: list[Sample], classes: list[str], y_true: np.ndarray,
+                   probs: np.ndarray, top: int = 10) -> tuple[dict, list[dict]]:
+    """Most frequent confusions, confidence of right vs wrong predictions, list of errors."""
+    y_pred, conf = probs.argmax(1), probs.max(1)
+    correct = y_pred == y_true
+    wrong = np.flatnonzero(~correct)
+    pairs = Counter((classes[y_true[i]], classes[y_pred[i]]) for i in wrong)
+    summary = {
+        "n_errors": len(wrong),
+        "top_confusions": [{"true": t, "pred": p, "count": n}
+                           for (t, p), n in pairs.most_common(top)],
+        "mean_confidence_correct": float(conf[correct].mean()) if correct.any() else None,
+        "mean_confidence_wrong": float(conf[wrong].mean()) if len(wrong) else None,
+    }
+    errors = [{"path": str(samples[i].path), "true": classes[y_true[i]],
+               "pred": classes[y_pred[i]], "confidence": round(float(conf[i]), 4)}
+              for i in wrong[np.argsort(-conf[wrong])]]
+    return summary, errors
+
+
 def evaluate_checkpoint(ckpt_path: Path, samples: list[Sample], out_dir: Path,
                         batch_size: int = 64, num_workers: int = 4) -> dict:
     device = get_device()
@@ -77,11 +98,15 @@ def evaluate_checkpoint(ckpt_path: Path, samples: list[Sample], out_dir: Path,
         # top-5 is meaningless (always 1.0) with 5 classes or fewer
         "top5_accuracy": (top_k_accuracy_score(y_true, probs, k=5, labels=labels)
                           if len(classes) > 5 else None),
+        "errors": None,  # filled below
         "per_class": classification_report(y_true, y_pred, labels=labels, target_names=classes,
                                            output_dict=True, zero_division=0),
     }
 
+    report["errors"], errors = error_analysis(samples, classes, y_true, probs)
+
     out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "test_errors.json").write_text(json.dumps(errors, indent=2))
     (out_dir / "test_metrics.json").write_text(json.dumps(report, indent=2))
     plot_confusion(confusion_matrix(y_true, y_pred, labels=labels), classes,
                    out_dir / "confusion_matrix.png")

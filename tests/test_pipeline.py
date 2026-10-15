@@ -22,4 +22,22 @@ def test_end_to_end_training_and_evaluation(fake_data_dir, tmp_path):
     metrics = json.loads((out / "test_metrics.json").read_text())
     assert 0.0 <= metrics["accuracy"] <= 1.0
     assert (out / "confusion_matrix.png").exists()
+    errors = json.loads((out / "test_errors.json").read_text())
+    assert len(errors) == metrics["errors"]["n_errors"]
     assert len(json.loads((out / "history.json").read_text())) == 1
+
+
+def test_error_analysis_counts_confusions():
+    import numpy as np
+
+    from leafscan.data import Sample
+    from leafscan.evaluate import error_analysis
+
+    classes = ["a", "b", "c"]
+    samples = [Sample(f"img{i}.jpg", "x") for i in range(4)]
+    y_true = np.array([0, 0, 1, 2])
+    probs = np.array([[0.9, 0.1, 0.0], [0.2, 0.7, 0.1], [0.1, 0.8, 0.1], [0.6, 0.0, 0.4]])
+    summary, errors = error_analysis(samples, classes, y_true, probs)
+    assert summary["n_errors"] == 2
+    assert {(c["true"], c["pred"]) for c in summary["top_confusions"]} == {("a", "b"), ("c", "a")}
+    assert [e["confidence"] for e in errors] == [0.7, 0.6]  # most confident errors first
