@@ -64,6 +64,27 @@ def to_markdown(rows: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def error_overlap(reports_dir: Path, runs: list[str]) -> dict:
+    """Do models fail on the same images? Shared errors point at the data, not the model."""
+    errors = {r: {e["path"] for e in json.loads((reports_dir / r / "test_errors.json").read_text())}
+              for r in runs if (reports_dir / r / "test_errors.json").exists()}
+    if len(errors) < 2:
+        return {}
+    names = list(errors)
+    jaccard = {
+        f"{a} / {b}": len(errors[a] & errors[b]) / max(1, len(errors[a] | errors[b]))
+        for i, a in enumerate(names) for b in names[i + 1:]
+    }
+    common = set.intersection(*errors.values())
+    return {
+        "n_errors": {r: len(e) for r, e in errors.items()},
+        "jaccard": jaccard,
+        "n_wrong_for_all": len(common),
+        "n_wrong_for_any": len(set.union(*errors.values())),
+        "wrong_for_all": sorted(common),
+    }
+
+
 def plot(rows: list[dict], path: Path) -> None:
     """Accuracy vs CPU latency: the trade-off that matters for a CPU-hosted demo."""
     ink, muted, grid, mark = "#1f2328", "#59636e", "#e6e8eb", "#2f7d4f"
@@ -102,8 +123,13 @@ def main() -> None:
         raise SystemExit("No run has both test_metrics.json and benchmark.json.")
     table = to_markdown(rows)
     (args.reports_dir / "comparison.md").write_text(table)
+    overlap = error_overlap(args.reports_dir, [r["run"] for r in rows])
+    (args.reports_dir / "error_overlap.json").write_text(json.dumps(overlap, indent=2))
     plot(rows, args.reports_dir / "comparison.png")
     print(table)
+    if overlap:
+        print(f"Wrong for all models: {overlap['n_wrong_for_all']} / "
+              f"wrong for at least one: {overlap['n_wrong_for_any']}")
 
 
 if __name__ == "__main__":
