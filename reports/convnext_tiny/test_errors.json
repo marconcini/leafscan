@@ -1,0 +1,188 @@
+[
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/629273b6-9eaa-4084-b72b-ac856a9ef899___RS_GLSp 4636.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.8635
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___healthy/c89af5ca-be92-4d72-af08-56598771c4c3___RS_HL 5695.JPG",
+    "true": "Apple___healthy",
+    "pred": "Soybean___healthy",
+    "confidence": 0.8631
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/e8527ec9-d83a-49c6-b0ed-1833e6350e23___RS_NLB 3796.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.8619
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/c190660f-6116-465c-8ca6-fc56f9844a30___FREC_Scab 3432.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Apple___healthy",
+    "confidence": 0.835
+  },
+  {
+    "path": "data/plantvillage/raw/color/Pepper,_bell___healthy/42f083e2-272d-4f83-ad9a-573ee90e50ec___Screen Shot 2015-05-06 at 4.01.13 PM.png",
+    "true": "Pepper,_bell___healthy",
+    "pred": "Tomato___Early_blight",
+    "confidence": 0.8209
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a401fce7-28ad-4d2f-bf98-3ef87ae65ba5___RS_GLSp 4614.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.8152
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/f0519795-ad80-4e8c-9b03-71843202c86e___RS_GLSp 7284.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.7818
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/4cd3f6c7-18ed-45eb-ba31-013241482123___RS_GLSp 4292.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.753
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/1bc4fef1-35f3-40da-9675-8b6a986839a1___RS_NLB 3791.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.737
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/8b0ef54c-6d28-47bb-a657-287afbb8a620___RS_LB 3298.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.731
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Late_blight/5c715755-192c-4d69-8740-e778e4a66618___RS_Late.B 6215.JPG",
+    "true": "Tomato___Late_blight",
+    "pred": "Potato___Late_blight",
+    "confidence": 0.7226
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/87705bdf-957a-4abb-b8b6-159d64de4e02___RS_NLB 3985.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.6974
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/61373045-a7a5-4213-94fb-7d81638d5561___FREC_Scab 3430.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Apple___healthy",
+    "confidence": 0.6965
+  },
+  {
+    "path": "data/plantvillage/raw/color/Peach___healthy/1ef09571-8a75-4c3e-8275-321d0d670509___Rutg._HL 2465.JPG",
+    "true": "Peach___healthy",
+    "pred": "Apple___healthy",
+    "confidence": 0.6761
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Spider_mites Two-spotted_spider_mite/3046afbf-4a9a-41fb-a64f-3f9e75af08e7___Com.G_SpM_FL 1623.JPG",
+    "true": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.6679
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Spider_mites Two-spotted_spider_mite/8d3bb7dc-a5fa-42c2-8bb0-f5703c9125de___Com.G_SpM_FL 1666.JPG",
+    "true": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "pred": "Tomato___Leaf_Mold",
+    "confidence": 0.623
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/93935af4-3aae-4dd6-90d9-fb28e439faf0___RS_LB 3299.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.6195
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/13e25fae-97ee-44c0-92c0-05328de64148___RS_GLSp 4645.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.5965
+  },
+  {
+    "path": "data/plantvillage/raw/color/Peach___healthy/edebdf94-67a7-4d5e-8e0d-bc06494ad3d5___Rutg._HL 2464.JPG",
+    "true": "Peach___healthy",
+    "pred": "Apple___healthy",
+    "confidence": 0.5617
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Target_Spot/047144a4-3164-41d5-a4cd-6fba8b4bfdd5___Com.G_TgS_FL 0024.JPG",
+    "true": "Tomato___Target_Spot",
+    "pred": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "confidence": 0.5549
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/d007f0d4-30a4-4d9c-b193-09cef70b547b___RS_GLSp 4617 copy.jpg",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.5391
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a9e08234-c1be-4519-a3e3-dd8d9456fab0___RS_GLSp 7336.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.538
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/f528b00d-99a6-41db-8d96-9eed58b519c1___RS_LB 4544.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.5309
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/15803dee-8071-49f1-81b6-fd3dedbc1c58___RS_NLB 4020 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.4867
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___healthy/15bacfc9-1875-48b3-9b91-8b60f030d7ca___RS_HL 7240.JPG",
+    "true": "Apple___healthy",
+    "pred": "Blueberry___healthy",
+    "confidence": 0.474
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Late_blight/933211e0-2013-485a-8a05-25f4dc78c41c___RS_Late.B 6281.JPG",
+    "true": "Tomato___Late_blight",
+    "pred": "Potato___Late_blight",
+    "confidence": 0.4568
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/2162861c-60d9-4831-b922-362d70a47b92___RS_GLSp 4554.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.4098
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/c4eb96b2-1345-46d0-a796-161042da21df___RS_NLB 0824 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.4063
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/93d91b96-e024-477c-9b76-796e3f1614d4___RS_LB 3297.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.382
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Black_rot/1021c460-93e4-48cd-9c84-c576b2c5117c___JR_FrgE.S 2983.JPG",
+    "true": "Apple___Black_rot",
+    "pred": "Peach___Bacterial_spot",
+    "confidence": 0.3459
+  },
+  {
+    "path": "data/plantvillage/raw/color/Soybean___healthy/b32e4516-9cd7-4226-be52-26f413c97834___RS_HL 3512.JPG",
+    "true": "Soybean___healthy",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.1783
+  }
+]
