@@ -1,0 +1,11 @@
+{
+  "model": "convnext_tiny.fb_in22k_ft_in1k",
+  "params_m": 27.84935,
+  "gflops": 8.909584896,
+  "checkpoint_mb": 106.29122829437256,
+  "cpu_latency_ms": 435.23822949646274,
+  "cpu": "arm",
+  "torch_threads": 8,
+  "gpu_device": "mps",
+  "gpu_throughput_img_s": 420.3538265385971
+}

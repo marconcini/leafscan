@@ -1,0 +1,11 @@
+{
+  "model": "vit_small_patch16_224.augreg_in21k_ft_in1k",
+  "params_m": 21.680294,
+  "gflops": 8.481698304,
+  "checkpoint_mb": 82.74974536895752,
+  "cpu_latency_ms": 28.771792000043206,
+  "cpu": "arm",
+  "torch_threads": 8,
+  "gpu_device": "mps",
+  "gpu_throughput_img_s": 809.773587602447
+}

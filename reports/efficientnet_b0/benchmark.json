@@ -1,0 +1,11 @@
+{
+  "model": "efficientnet_b0.ra_in1k",
+  "params_m": 4.056226,
+  "gflops": 0.769166784,
+  "checkpoint_mb": 15.732518196105957,
+  "cpu_latency_ms": 291.24981250060955,
+  "cpu": "arm",
+  "torch_threads": 8,
+  "gpu_device": "mps",
+  "gpu_throughput_img_s": 664.3262452988325
+}

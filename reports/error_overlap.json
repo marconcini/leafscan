@@ -1,0 +1,36 @@
+{
+  "n_errors": {
+    "efficientnet_b0": 38,
+    "vit_small": 29,
+    "resnet50": 60,
+    "convnext_tiny": 31
+  },
+  "jaccard": {
+    "efficientnet_b0 / vit_small": 0.28846153846153844,
+    "efficientnet_b0 / resnet50": 0.2894736842105263,
+    "efficientnet_b0 / convnext_tiny": 0.40816326530612246,
+    "vit_small / resnet50": 0.17105263157894737,
+    "vit_small / convnext_tiny": 0.2765957446808511,
+    "resnet50 / convnext_tiny": 0.22972972972972974
+  },
+  "mcnemar_p": {
+    "efficientnet_b0 / vit_small": 0.18774155899882317,
+    "efficientnet_b0 / resnet50": 0.003838265880326096,
+    "efficientnet_b0 / convnext_tiny": 0.26493089646101,
+    "vit_small / resnet50": 0.00011705541630032304,
+    "vit_small / convnext_tiny": 0.8641662404406816,
+    "resnet50 / convnext_tiny": 0.0001538890224443423
+  },
+  "n_wrong_for_all": 8,
+  "n_wrong_for_any": 94,
+  "wrong_for_all": [
+    "data/plantvillage/raw/color/Apple___Apple_scab/c190660f-6116-465c-8ca6-fc56f9844a30___FREC_Scab 3432.JPG",
+    "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a401fce7-28ad-4d2f-bf98-3ef87ae65ba5___RS_GLSp 4614.JPG",
+    "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/15803dee-8071-49f1-81b6-fd3dedbc1c58___RS_NLB 4020 copy.jpg",
+    "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/1bc4fef1-35f3-40da-9675-8b6a986839a1___RS_NLB 3791.JPG",
+    "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/c4eb96b2-1345-46d0-a796-161042da21df___RS_NLB 0824 copy.jpg",
+    "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/e8527ec9-d83a-49c6-b0ed-1833e6350e23___RS_NLB 3796.JPG",
+    "data/plantvillage/raw/color/Pepper,_bell___healthy/42f083e2-272d-4f83-ad9a-573ee90e50ec___Screen Shot 2015-05-06 at 4.01.13 PM.png",
+    "data/plantvillage/raw/color/Soybean___healthy/b32e4516-9cd7-4226-be52-26f413c97834___RS_HL 3512.JPG"
+  ]
+}
