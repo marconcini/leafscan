@@ -1,6 +1,6 @@
 import json
 
-from leafscan.compare import error_overlap, load_runs, plot, to_markdown
+from leafscan.compare import error_overlap, load_runs, mcnemar_p, plot, to_markdown
 
 
 def _write_run(reports, run, acc, params, with_bench=True):
@@ -41,3 +41,11 @@ def test_error_overlap(tmp_path):
     assert ov["wrong_for_all"] == ["y"]
     assert ov["n_wrong_for_any"] == 3
     assert ov["jaccard"]["a / b"] == 1 / 3
+
+
+def test_mcnemar():
+    assert mcnemar_p({"x"}, {"x"}) == 1.0  # identical errors: no evidence of a difference
+    same_count = mcnemar_p({f"a{i}" for i in range(10)}, {f"b{i}" for i in range(10)})
+    assert same_count == 1.0  # 10 vs 10 discordant: perfectly balanced
+    lopsided = mcnemar_p({f"a{i}" for i in range(20)}, set())
+    assert lopsided < 1e-5  # 20 vs 0: clearly different

@@ -16,6 +16,7 @@ dependencies = [
     "pillow",
     "numpy",
     "scikit-learn",
+    "scipy",
     "matplotlib",
     "pyyaml",
 ]

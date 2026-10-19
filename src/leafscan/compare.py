@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 
 import matplotlib
+from scipy.stats import binomtest
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
@@ -64,6 +65,18 @@ def to_markdown(rows: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def mcnemar_p(errors_a: set, errors_b: set) -> float:
+    """Exact McNemar test: are two classifiers' error rates different on the same test set?
+
+    Only discordant images matter: wrong for A but right for B, and vice versa. Under the
+    null hypothesis each discordant image is equally likely to go either way.
+    """
+    only_a, only_b = len(errors_a - errors_b), len(errors_b - errors_a)
+    if only_a + only_b == 0:
+        return 1.0
+    return float(binomtest(only_a, only_a + only_b, 0.5).pvalue)
+
+
 def error_overlap(reports_dir: Path, runs: list[str]) -> dict:
     """Do models fail on the same images? Shared errors point at the data, not the model."""
     errors = {r: {e["path"] for e in json.loads((reports_dir / r / "test_errors.json").read_text())}
@@ -75,10 +88,13 @@ def error_overlap(reports_dir: Path, runs: list[str]) -> dict:
         f"{a} / {b}": len(errors[a] & errors[b]) / max(1, len(errors[a] | errors[b]))
         for i, a in enumerate(names) for b in names[i + 1:]
     }
+    mcnemar = {f"{a} / {b}": mcnemar_p(errors[a], errors[b])
+               for i, a in enumerate(names) for b in names[i + 1:]}
     common = set.intersection(*errors.values())
     return {
         "n_errors": {r: len(e) for r, e in errors.items()},
         "jaccard": jaccard,
+        "mcnemar_p": mcnemar,
         "n_wrong_for_all": len(common),
         "n_wrong_for_any": len(set.union(*errors.values())),
         "wrong_for_all": sorted(common),
