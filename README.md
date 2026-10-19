@@ -41,22 +41,40 @@ photos of the *same leaf* in both train and validation, which inflates scores. L
 ## Results
 
 Official PlantVillage test split (10,709 images, never used for model selection).
+Same recipe for every model (5 epochs, batch 64, same augmentations and seed; only the
+learning rate differs). Latency: 1 image on an Apple M-series CPU; throughput: batch 64 on its GPU (MPS).
 
-| Model | Params | Accuracy | Macro-F1 | Top-5 | Train time (Apple M-series, MPS) |
-|---|---|---|---|---|---|
-| EfficientNet-B0 | 5.3M | **99.65%** | **99.46%** | 99.99% | 21 min (5 epochs) |
+| Model | Params | GFLOPs | Size | Accuracy | Macro-F1 | Errors | CPU latency | GPU throughput |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| EfficientNet-B0 | 4.1M | 0.8 | 16 MB | 99.65% | 99.46% | 38 | 291 ms | 664 img/s |
+| ViT-S/16 | 21.7M | 8.5 | 83 MB | **99.73%** | 99.59% | 29 | 29 ms | 810 img/s |
+| ResNet-50 | 23.6M | 8.2 | 90 MB | 99.44% | 99.20% | 60 | 25 ms | 570 img/s |
+| ConvNeXt-T | 27.8M | 8.9 | 106 MB | 99.71% | 99.55% | 31 | 435 ms | 420 img/s |
 
-- 38 errors out of 10,709. Almost half (18) are between two **corn** diseases, *Cercospora / gray
-  leaf spot* and *Northern leaf blight*, which both form elongated lesions on the leaf.
-- 5 errors confuse **potato late blight** with **tomato late blight**: same disease, same
-  pathogen (*Phytophthora infestans*), wrong crop.
-- Wrong predictions are much less confident (0.64 on average vs 0.89 for correct ones), which
-  suggests a confidence threshold could flag uncertain diagnoses.
+**Takeaways**
 
-Details: [`reports/efficientnet_b0/`](reports/efficientnet_b0) · analysis in the
-[research log](docs/research-log.md).
+- **Architecture barely matters on lab images.** All four models are within 0.3 points.
+  An exact McNemar test finds **no significant difference between ViT-S, ConvNeXt-T and
+  EfficientNet-B0** (p > 0.18); only ResNet-50 is significantly worse (p < 0.004, still
+  significant after Bonferroni correction).
+- **Fewer FLOPs ≠ faster.** EfficientNet-B0 needs 10× fewer FLOPs than ResNet-50 but is 11×
+  slower on this CPU: the PyTorch macOS build has no oneDNN, and the depthwise convolutions
+  used by EfficientNet and ConvNeXt fall back to slow kernels. ViT-S is the most accurate *and*
+  among the fastest here.
+- **Models fail on different images** (pairwise Jaccard overlap of errors 0.17–0.41): 94 images
+  fooled at least one model, only 8 fooled all four. Among those 8, two are **dataset errors**
+  (a photo of rotten pepper *fruits* labelled "healthy pepper leaf", an empty background labelled
+  "healthy soybean") and five are corn leaves with ambiguous lesions.
 
-<img src="reports/efficientnet_b0/confusion_matrix.png" width="600" alt="Confusion matrix">
+<img src="reports/comparison.png" width="600" alt="Accuracy vs CPU latency">
+
+<sub>Y-axis zoomed: the whole range is 0.3 points.</sub>
+
+Images misclassified by all four models (label / most frequent prediction):
+
+<img src="reports/wrong_for_all_models.jpg" width="700" alt="Images all models get wrong">
+
+Details per model in [`reports/`](reports) · full analysis in the [research log](docs/research-log.md).
 
 > These scores are on lab images with uniform backgrounds. How they hold up on real field photos
 > is one of the next questions on the [roadmap](ROADMAP.md).
@@ -70,6 +88,8 @@ pip install -e ".[dev]"
 python scripts/download_data.py                      # ~2.2 GB download, color images only kept
 python -m leafscan.train --config configs/efficientnet_b0.yaml
 python -m leafscan.evaluate models/efficientnet_b0/best.pt
+python -m leafscan.benchmark models/*/best.pt         # run on an idle machine
+python -m leafscan.compare                             # -> reports/comparison.md / .png
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -83,7 +103,9 @@ src/leafscan/
 ├── data.py       # download, leak-free splits, dataset & augmentations
 ├── model.py      # timm backbones, device selection, checkpoints
 ├── train.py      # fine-tuning loop (AdamW, warmup + cosine, label smoothing)
-└── evaluate.py   # accuracy, macro-F1, top-5, per-class report, confusion matrix
+├── evaluate.py   # accuracy, macro-F1, top-5, per-class report, confusion matrix, errors
+├── benchmark.py  # params, FLOPs, size, CPU latency, GPU throughput
+└── compare.py    # comparison table & plot, error overlap, McNemar tests
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -96,7 +118,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Data pipeline with leak-free validation split
 - [x] Training & evaluation pipeline, tests, CI
 - [x] Baseline: EfficientNet-B0 (99.65% test accuracy)
-- [ ] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
+- [x] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
 - [ ] Error analysis + Grad-CAM explanations
 - [ ] Robustness to real field photos (lab → field domain shift)
 - [ ] Gradio demo on Hugging Face Spaces

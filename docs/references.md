@@ -15,6 +15,7 @@ What each paper brings to this project. Grouped by phase; extended as the projec
 | Dosovitskiy et al. (2021). *An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.* ICLR | ViT. |
 | Liu et al. (2022). *A ConvNet for the 2020s.* CVPR | ConvNeXt. |
 | Selvaraju et al. (2017). *Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization.* ICCV | Explaining predictions. |
+| Dietterich (1998). *Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms.* Neural Computation | McNemar's test to compare two classifiers on one test set. |
 | Guo et al. (2017). *On Calibration of Modern Neural Networks.* ICML | Temperature scaling; are confidence scores trustworthy? |
 
 ## Phase 2 — RAG

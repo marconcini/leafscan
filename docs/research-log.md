@@ -5,6 +5,56 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-19 — Model comparison: architecture barely matters, FLOPs lie, the data has errors
+
+**Results** (test split, 10,709 images):
+
+| Model | Accuracy | Macro-F1 | Errors | Params | GFLOPs | CPU latency |
+|---|---:|---:|---:|---:|---:|---:|
+| ViT-S/16 | 99.73% | 99.59% | 29 | 21.7M | 8.5 | 29 ms |
+| ConvNeXt-T | 99.71% | 99.55% | 31 | 27.8M | 8.9 | 435 ms |
+| EfficientNet-B0 | 99.65% | 99.46% | 38 | 4.1M | 0.8 | 291 ms |
+| ResNet-50 | 99.44% | 99.20% | 60 | 23.6M | 8.2 | 25 ms |
+
+**Hypotheses vs. results.**
+1. *All within ~0.3 points* → **confirmed** (0.29). Exact McNemar tests [Dietterich 1998]:
+   ViT-S vs ConvNeXt-T p = 0.86, vs EfficientNet-B0 p = 0.19, ConvNeXt-T vs EfficientNet-B0
+   p = 0.26 — no evidence of a difference. ResNet-50 is significantly worse than all three
+   (p = 0.0038, 0.0001, 0.0002; Bonferroni threshold for 6 tests: 0.0083).
+2. *21k/22k-pretrained models slightly ahead* → **consistent but not significant**: they are
+   the top two, but not distinguishable from EfficientNet-B0. Pretraining data and architecture
+   are confounded here.
+3. *EfficientNet-B0 has the best accuracy/CPU-latency trade-off* → **refuted.** It is 11×
+   slower than ResNet-50 on CPU despite 10× fewer FLOPs.
+
+**Why FLOPs lied.** `torch.backends.mkldnn.is_available()` is False in this PyTorch macOS
+build. Isolated test: a depthwise 7×7 conv (0.03 GFLOP) takes 5.8 ms, a dense 3×3 conv
+(0.58 GFLOP) 0.9 ms. EfficientNet and ConvNeXt are built on depthwise convolutions, ViT and
+ResNet on dense matmuls/convs that are well optimised. Latency depends on the kernels the
+runtime has, not just on FLOPs. Open question: same measurement on x86 with oneDNN, or with
+ONNX Runtime (the demo will probably run on such a server).
+
+**Do models make the same errors?** No. Pairwise Jaccard overlap of error sets: 0.17–0.41.
+94 test images fool at least one model, only 8 fool all four (`reports/wrong_for_all_models.jpg`):
+- 1 photo of rotten **pepper fruits** labelled *Pepper bell / healthy* (a leaf class) → label error.
+- 1 image of an **empty grey background** labelled *Soybean / healthy* → no leaf at all.
+- 5 corn leaves (gray leaf spot ↔ northern leaf blight; one with no visible lesion).
+- 1 apple scab leaf with barely visible symptoms, predicted healthy.
+
+**Takeaways.**
+- On PlantVillage, pick the model on cost, not on accuracy: differences are within noise.
+- Measure latency on the target hardware; FLOPs are a poor proxy.
+- Different errors → an ensemble might help (new roadmap item).
+- At 99.7%, part of the remaining "errors" are the dataset's. Next: look for mislabelled and
+  empty images systematically (new roadmap item).
+
+**Engineering note.** The first ViT run slowed down ~30× (step 100 after 21 min) while the
+Mac was idle; in isolation ViT-S trains as fast as EfficientNet-B0. Rerun under `caffeinate`
+at normal speed. ConvNeXt-T epochs (~10 min) may have been affected too, so training times are
+not compared.
+
+---
+
 ## 2026-10-19 — Plan: does model choice matter on a near-solved dataset?
 
 *Written before the runs finished, so the hypothesis can't be adjusted after the fact.*
