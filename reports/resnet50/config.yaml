@@ -1,0 +1,19 @@
+batch_size: 64
+epochs: 5
+img_size: 224
+label_smoothing: 0.1
+limit_per_class: null
+lr: 0.0005
+model: resnet50.a1_in1k
+num_workers: 4
+pretrained: true
+run_info:
+  device: mps
+  git_commit: 83cfcf7
+  python: 3.12.7
+  timm: 1.0.30
+  torch: 2.14.1
+seed: 42
+val_fraction: 0.1
+warmup_epochs: 0.5
+weight_decay: 0.05

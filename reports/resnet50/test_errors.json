@@ -1,0 +1,362 @@
+[
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/629273b6-9eaa-4084-b72b-ac856a9ef899___RS_GLSp 4636.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.9442
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/1bc4fef1-35f3-40da-9675-8b6a986839a1___RS_NLB 3791.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.9113
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Target_Spot/da0e1f6d-8daa-4ca4-9776-08ce115d3d04___Com.G_TgS_FL 9680.JPG",
+    "true": "Tomato___Target_Spot",
+    "pred": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "confidence": 0.8841
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Target_Spot/0ff11bec-6751-47dc-86a0-cf28682f13d3___Com.G_TgS_FL 7907.JPG",
+    "true": "Tomato___Target_Spot",
+    "pred": "Tomato___Septoria_leaf_spot",
+    "confidence": 0.8759
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/ac804481-f1b0-498c-a6af-a66da467f84e___RS_Erly.B 7760.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.8729
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/617766d7-75ff-4b18-b37d-ce2b5a7255bd___RS_GLSp 7312.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.8713
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a9e08234-c1be-4519-a3e3-dd8d9456fab0___RS_GLSp 7336.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.8614
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Common_rust_/RS_Rust 1949.JPG",
+    "true": "Corn_(maize)___Common_rust_",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.8577
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/13e25fae-97ee-44c0-92c0-05328de64148___RS_GLSp 4645.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.8545
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/3167dea8-47ef-4761-9e14-f7b66dcd976f___YLCV_NREC 2538.JPG",
+    "true": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "pred": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "confidence": 0.8379
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/5ac54e63-40a4-4651-a900-fd3ab4d32bae___RS_Erly.B 7727.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.8344
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/057c3f91-c15e-464b-b4ba-66b16dbe5149___RS_NLB 3565 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.8191
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/15803dee-8071-49f1-81b6-fd3dedbc1c58___RS_NLB 4020 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.8126
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/e8527ec9-d83a-49c6-b0ed-1833e6350e23___RS_NLB 3796.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.8101
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/197fa869-c124-436e-b3cd-bced95f52a8e___RS_Erly.B 7834.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Septoria_leaf_spot",
+    "confidence": 0.8035
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/c190660f-6116-465c-8ca6-fc56f9844a30___FREC_Scab 3432.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Apple___healthy",
+    "confidence": 0.8003
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/ad47f4e8-308f-4c56-b50b-19e4f7fedd6d___RS_GLSp 4583.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.7939
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Spider_mites Two-spotted_spider_mite/3046afbf-4a9a-41fb-a64f-3f9e75af08e7___Com.G_SpM_FL 1623.JPG",
+    "true": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.7816
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Black_rot/1021c460-93e4-48cd-9c84-c576b2c5117c___JR_FrgE.S 2983.JPG",
+    "true": "Apple___Black_rot",
+    "pred": "Apple___healthy",
+    "confidence": 0.7734
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Tomato_Yellow_Leaf_Curl_Virus/71c057a9-9b84-4424-96a4-3c307eb1dad6___YLCV_NREC 2534.JPG",
+    "true": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "pred": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "confidence": 0.7675
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/6021f415-8463-41eb-ad4c-4033f7d16798___RS_Erly.B 7710.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.7512
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/f7beb64a-f8be-46d8-b4ea-637fb71e7509___RS_Erly.B 7711.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.7168
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Early_blight/21ca5caf-147b-4a1a-a2da-edfc1c81b62e___RS_Early.B 8926.JPG",
+    "true": "Potato___Early_blight",
+    "pred": "Tomato___Early_blight",
+    "confidence": 0.7122
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a401fce7-28ad-4d2f-bf98-3ef87ae65ba5___RS_GLSp 4614.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.7118
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/eea79799-a869-4a1f-bfa2-5c85a27716ae___RS_Erly.B 8391.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Septoria_leaf_spot",
+    "confidence": 0.7084
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/87705bdf-957a-4abb-b8b6-159d64de4e02___RS_NLB 3985.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.6886
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/f18c0441-917e-4f34-b26e-a1a71d0adec2___FREC_Scab 3429.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Apple___healthy",
+    "confidence": 0.685
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/cbc265da-87e2-449e-8585-b744f9371772___FREC_Scab 3431.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Apple___healthy",
+    "confidence": 0.6822
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/f0519795-ad80-4e8c-9b03-71843202c86e___RS_GLSp 7284.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.6771
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/75d924d6-a630-4e26-9e74-5b1e6dfc5e22___RS_GLSp 4475.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.6561
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Late_blight/63dfc6c7-3521-4a3d-a279-7ec8065e8e71___RS_Late.B 5400.JPG",
+    "true": "Tomato___Late_blight",
+    "pred": "Potato___Late_blight",
+    "confidence": 0.652
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/a46e1d1c-13bb-419b-b69c-a03dec0d53c1___RS_NLB 3790.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.648
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Bacterial_spot/927b90a6-6318-47b0-93fd-a1c33d2d36c5___GCREC_Bact.Sp 3641.JPG",
+    "true": "Tomato___Bacterial_spot",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.6428
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/2586a260-ecf6-40e8-aa11-4b8a50845575___RS_Erly.B 7833.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Septoria_leaf_spot",
+    "confidence": 0.6389
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/c4eb96b2-1345-46d0-a796-161042da21df___RS_NLB 0824 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___healthy",
+    "confidence": 0.6315
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Late_blight/a7049041-4ef3-4c55-b4bf-7721ca5630f4___RS_Late.B 5142.JPG",
+    "true": "Tomato___Late_blight",
+    "pred": "Potato___Late_blight",
+    "confidence": 0.6294
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Spider_mites Two-spotted_spider_mite/d9d22025-cee6-4963-ac70-bfa8a7af30a2___Com.G_SpM_FL 1624.JPG",
+    "true": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.6234
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/bc690bb9-1611-4744-844d-0ab174467f54___RS_GLSp 4582.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.612
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Target_Spot/d10a8e5b-bf53-45de-adbe-ea42f9bcb937___Com.G_TgS_FL 9910.JPG",
+    "true": "Tomato___Target_Spot",
+    "pred": "Tomato___Early_blight",
+    "confidence": 0.6116
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/c5ab9d87-f1bf-4fce-8133-c80ac2d52dd5___RS_Erly.B 7849.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Septoria_leaf_spot",
+    "confidence": 0.5452
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/d007f0d4-30a4-4d9c-b193-09cef70b547b___RS_GLSp 4617 copy.jpg",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.5439
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/2162861c-60d9-4831-b922-362d70a47b92___RS_GLSp 4554.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.543
+  },
+  {
+    "path": "data/plantvillage/raw/color/Grape___Black_rot/e667c381-1ea6-41d6-ad41-8c6f4626b19d___FAM_B.Rot 3267.JPG",
+    "true": "Grape___Black_rot",
+    "pred": "Grape___Esca_(Black_Measles)",
+    "confidence": 0.527
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Spider_mites Two-spotted_spider_mite/cb50c515-6885-4fc5-903e-b9fbac229a37___Com.G_SpM_FL 1667.JPG",
+    "true": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.5235
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/bd632f59-ff1c-452f-b504-053fa95ab000___RS_LB 4356.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.508
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/b2980d13-da6a-4475-bb60-abed664c5506___RS_GLSp 4678.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.507
+  },
+  {
+    "path": "data/plantvillage/raw/color/Pepper,_bell___Bacterial_spot/65a84ec0-79dc-4ae3-bfce-81c3f4b50a08___JR_B.Spot 8858.JPG",
+    "true": "Pepper,_bell___Bacterial_spot",
+    "pred": "Pepper,_bell___healthy",
+    "confidence": 0.4619
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/527b87bb-91fb-4b6b-bb7f-6ff64b09ef80___RS_GLSp 7305.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.461
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/c66ca8bd-a004-4efb-a66c-3be5168aaaca___RS_Erly.B 7826.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.4509
+  },
+  {
+    "path": "data/plantvillage/raw/color/Peach___Bacterial_spot/59de7146-9e54-476d-9483-5904929b2452___Rutg._Bact.S 1454.JPG",
+    "true": "Peach___Bacterial_spot",
+    "pred": "Pepper,_bell___Bacterial_spot",
+    "confidence": 0.4508
+  },
+  {
+    "path": "data/plantvillage/raw/color/Peach___Bacterial_spot/153704bc-6462-4d50-8e99-66ef95718086___Rut._Bact.S 1294.JPG",
+    "true": "Peach___Bacterial_spot",
+    "pred": "Peach___healthy",
+    "confidence": 0.44
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/506f85e7-6f27-40e2-bb9c-5ddb6f35a787___RS_Erly.B 8406.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.437
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Septoria_leaf_spot/5e23a1a8-d7b8-4bf4-9f02-941159d8ed44___JR_Sept.L.S 8382.JPG",
+    "true": "Tomato___Septoria_leaf_spot",
+    "pred": "Tomato___Early_blight",
+    "confidence": 0.432
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Bacterial_spot/4707268c-7dea-4327-9b13-a8da598c4356___GCREC_Bact.Sp 3643.JPG",
+    "true": "Tomato___Bacterial_spot",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.4081
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/2b7c8b0d-d906-4c93-9dc4-554ae46a3ec3___RS_Erly.B 7825.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.4048
+  },
+  {
+    "path": "data/plantvillage/raw/color/Peach___healthy/789d2e40-b2fc-45d0-81e6-b210f09ac71e___Rutg._HL 2463.JPG",
+    "true": "Peach___healthy",
+    "pred": "Apple___healthy",
+    "confidence": 0.4006
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/c0f4f71a-8f53-4a0a-816f-d400a445680a___FREC_Scab 3459.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Cherry_(including_sour)___Powdery_mildew",
+    "confidence": 0.3856
+  },
+  {
+    "path": "data/plantvillage/raw/color/Pepper,_bell___healthy/42f083e2-272d-4f83-ad9a-573ee90e50ec___Screen Shot 2015-05-06 at 4.01.13 PM.png",
+    "true": "Pepper,_bell___healthy",
+    "pred": "Tomato___Septoria_leaf_spot",
+    "confidence": 0.2772
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Late_blight/15581dd8-f562-4301-856c-30be9302c470___GHLB2 Leaf 70.1.JPG",
+    "true": "Tomato___Late_blight",
+    "pred": "Tomato___Bacterial_spot",
+    "confidence": 0.2586
+  },
+  {
+    "path": "data/plantvillage/raw/color/Soybean___healthy/b32e4516-9cd7-4226-be52-26f413c97834___RS_HL 3512.JPG",
+    "true": "Soybean___healthy",
+    "pred": "Corn_(maize)___healthy",
+    "confidence": 0.2161
+  }
+]
