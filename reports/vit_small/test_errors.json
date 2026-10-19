@@ -1,0 +1,176 @@
+[
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/93d91b96-e024-477c-9b76-796e3f1614d4___RS_LB 3297.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.957
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/8b0ef54c-6d28-47bb-a657-287afbb8a620___RS_LB 3298.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.9313
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/2565077d-44d3-4213-82c2-bf5ae9a64368___RS_LB 3295.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.9082
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___healthy/15bacfc9-1875-48b3-9b91-8b60f030d7ca___RS_HL 7240.JPG",
+    "true": "Apple___healthy",
+    "pred": "Blueberry___healthy",
+    "confidence": 0.8952
+  },
+  {
+    "path": "data/plantvillage/raw/color/Potato___Late_blight/93935af4-3aae-4dd6-90d9-fb28e439faf0___RS_LB 3299.JPG",
+    "true": "Potato___Late_blight",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.8884
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___Apple_scab/c190660f-6116-465c-8ca6-fc56f9844a30___FREC_Scab 3432.JPG",
+    "true": "Apple___Apple_scab",
+    "pred": "Apple___healthy",
+    "confidence": 0.876
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/e8527ec9-d83a-49c6-b0ed-1833e6350e23___RS_NLB 3796.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.8747
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/1bc4fef1-35f3-40da-9675-8b6a986839a1___RS_NLB 3791.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.8669
+  },
+  {
+    "path": "data/plantvillage/raw/color/Raspberry___healthy/63423c9f-f5c7-4d38-be89-391cbc9ecab9___Mary_HL 6231.JPG",
+    "true": "Raspberry___healthy",
+    "pred": "Cherry_(including_sour)___healthy",
+    "confidence": 0.824
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/0527ab7c-4ebe-4fd5-8254-ceea1b147005___RS_NLB 3925.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.7946
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a401fce7-28ad-4d2f-bf98-3ef87ae65ba5___RS_GLSp 4614.JPG",
+    "true": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "pred": "Corn_(maize)___Northern_Leaf_Blight",
+    "confidence": 0.7737
+  },
+  {
+    "path": "data/plantvillage/raw/color/Raspberry___healthy/b1a516b2-f06e-4ed8-b402-493f65d9ab9f___Mary_HL 6237.JPG",
+    "true": "Raspberry___healthy",
+    "pred": "Cherry_(including_sour)___healthy",
+    "confidence": 0.755
+  },
+  {
+    "path": "data/plantvillage/raw/color/Raspberry___healthy/caa9c1d8-620e-46fa-a8c8-038ee145dd20___Mary_HL 6230.JPG",
+    "true": "Raspberry___healthy",
+    "pred": "Cherry_(including_sour)___healthy",
+    "confidence": 0.7501
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/6021f415-8463-41eb-ad4c-4033f7d16798___RS_Erly.B 7710.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.7261
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Target_Spot/05991e8b-e178-450f-8da9-d7c10bd2cda9___Com.G_TgS_FL 9731.JPG",
+    "true": "Tomato___Target_Spot",
+    "pred": "Tomato___Late_blight",
+    "confidence": 0.7054
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/15803dee-8071-49f1-81b6-fd3dedbc1c58___RS_NLB 4020 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.7033
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/c66ca8bd-a004-4efb-a66c-3be5168aaaca___RS_Erly.B 7826.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.6881
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/028a7e62-b520-42fe-8607-ee4d4bc6764d___RS_NLB 3844.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.6377
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Early_blight/f7beb64a-f8be-46d8-b4ea-637fb71e7509___RS_Erly.B 7711.JPG",
+    "true": "Tomato___Early_blight",
+    "pred": "Tomato___Target_Spot",
+    "confidence": 0.6274
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/c4eb96b2-1345-46d0-a796-161042da21df___RS_NLB 0824 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___healthy",
+    "confidence": 0.6248
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/057c3f91-c15e-464b-b4ba-66b16dbe5149___RS_NLB 3565 copy.jpg",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.5345
+  },
+  {
+    "path": "data/plantvillage/raw/color/Raspberry___healthy/2acf2191-96db-4afa-bcdf-77590e0b7428___Mary_HL 6233.JPG",
+    "true": "Raspberry___healthy",
+    "pred": "Cherry_(including_sour)___healthy",
+    "confidence": 0.5294
+  },
+  {
+    "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/a46e1d1c-13bb-419b-b69c-a03dec0d53c1___RS_NLB 3790.JPG",
+    "true": "Corn_(maize)___Northern_Leaf_Blight",
+    "pred": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "confidence": 0.5219
+  },
+  {
+    "path": "data/plantvillage/raw/color/Peach___healthy/edebdf94-67a7-4d5e-8e0d-bc06494ad3d5___Rutg._HL 2464.JPG",
+    "true": "Peach___healthy",
+    "pred": "Peach___Bacterial_spot",
+    "confidence": 0.386
+  },
+  {
+    "path": "data/plantvillage/raw/color/Tomato___Late_blight/a617c469-1174-43ab-910f-0c31a09dd0be___RS_Late.B 6085.JPG",
+    "true": "Tomato___Late_blight",
+    "pred": "Potato___Late_blight",
+    "confidence": 0.381
+  },
+  {
+    "path": "data/plantvillage/raw/color/Apple___healthy/78e648c6-a360-4fa8-b8ab-1225b164b7fd___RS_HL 7243.JPG",
+    "true": "Apple___healthy",
+    "pred": "Pepper,_bell___healthy",
+    "confidence": 0.3762
+  },
+  {
+    "path": "data/plantvillage/raw/color/Raspberry___healthy/b00a6846-c092-4461-8b52-da94e81d960d___Mary_HL 9266.JPG",
+    "true": "Raspberry___healthy",
+    "pred": "Cherry_(including_sour)___healthy",
+    "confidence": 0.371
+  },
+  {
+    "path": "data/plantvillage/raw/color/Pepper,_bell___healthy/42f083e2-272d-4f83-ad9a-573ee90e50ec___Screen Shot 2015-05-06 at 4.01.13 PM.png",
+    "true": "Pepper,_bell___healthy",
+    "pred": "Tomato___Early_blight",
+    "confidence": 0.3407
+  },
+  {
+    "path": "data/plantvillage/raw/color/Soybean___healthy/b32e4516-9cd7-4226-be52-26f413c97834___RS_HL 3512.JPG",
+    "true": "Soybean___healthy",
+    "pred": "Corn_(maize)___healthy",
+    "confidence": 0.1273
+  }
+]
