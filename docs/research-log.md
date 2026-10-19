@@ -5,6 +5,31 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-19 — Plan: does model choice matter on a near-solved dataset?
+
+*Written before the runs finished, so the hypothesis can't be adjusted after the fact.*
+
+**Question.** EfficientNet-B0 already reaches 99.65%. Do bigger or more recent architectures —
+ResNet-50 (CNN, 2016), ConvNeXt-T (modern CNN, 2022, ImageNet-22k pretraining), ViT-S/16
+(Transformer, ImageNet-21k pretraining) — bring anything, and at what cost?
+
+**Setup.** Same data, splits, augmentations, epochs (5), batch size (64), schedule and seed.
+Only the learning rate differs (usual fine-tuning value per architecture). No per-model
+hyperparameter search: this compares architectures under one reasonable recipe, not each
+architecture at its best.
+
+**Hypotheses.**
+1. All four models land within ~0.3 points of each other: the dataset is too easy to separate them.
+2. Models pretrained on ImageNet-21k/22k (ConvNeXt-T, ViT-S) are slightly ahead.
+3. EfficientNet-B0 offers the best accuracy / CPU-latency trade-off, which matters for a demo
+   hosted on a CPU-only server.
+
+**How we'll judge.** Accuracy and macro-F1 on the official test split, number of errors, and
+whether models make *the same* errors (if they all fail on the same images, the problem is the
+data, not the architecture). Cost: params, FLOPs, CPU latency (batch 1), GPU throughput.
+
+---
+
 ## 2026-10-15 — Baseline: EfficientNet-B0 reaches 99.65%, errors are biologically meaningful
 
 **Question.** What does a light CNN (EfficientNet-B0, 5.3M params) reach on the leak-free split,
