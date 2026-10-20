@@ -148,9 +148,10 @@ def _denormalize(x: torch.Tensor) -> np.ndarray:
     return (x * std + mean).clamp(0, 1).permute(1, 2, 0).numpy()
 
 
-def figure(ckpts: list[Path], images: list[Path], out: Path) -> None:
+def figure(ckpts: list[Path], images: list[Path], out: Path,
+           device: torch.device | None = None) -> None:
     """Rows: images. Columns: original + one Grad-CAM overlay per model (predicted class)."""
-    device = get_device()
+    device = device or get_device()
     fig, axes = plt.subplots(len(images), len(ckpts) + 1,
                              figsize=(2.2 * (len(ckpts) + 1), 2.3 * len(images)), squeeze=False)
     for col, ckpt_path in enumerate(ckpts, start=1):
@@ -195,10 +196,12 @@ def main() -> None:
     f.add_argument("checkpoints", type=Path, nargs="+")
     f.add_argument("--images", type=Path, nargs="+", required=True)
     f.add_argument("--out", type=Path, default=Path("reports/gradcam_examples.jpg"))
+    f.add_argument("--device", help="e.g. cpu (default: cuda > mps > cpu)")
     args = p.parse_args()
 
     if args.cmd == "figure":
-        figure(args.checkpoints, args.images, args.out)
+        figure(args.checkpoints, args.images, args.out,
+               device=torch.device(args.device) if args.device else None)
         return
     res = gradcam_metrics(args.checkpoint, read_split(args.data_dir, "test"), args.random_weights,
                           device=torch.device(args.device) if args.device else None)
