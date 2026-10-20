@@ -1,0 +1,470 @@
+{
+  "model": "efficientnet_b0.ra_in1k",
+  "random_weights": false,
+  "excluded_no_mask": 219,
+  "excluded_leaf_area_above_0.9": 394,
+  "all": {
+    "n": 10096,
+    "n_empty_cam": 0,
+    "leaf_focus": 0.7707201787708777,
+    "leaf_area": 0.5649972360722482,
+    "focus_minus_area": 0.2057229426986296,
+    "share_focus_above_area": 0.9690966719492868,
+    "pointing_game": 0.9559231378763867
+  },
+  "correct": {
+    "n": 10062,
+    "n_empty_cam": 0,
+    "leaf_focus": 0.7711124601583247,
+    "leaf_area": 0.5651342260220523,
+    "focus_minus_area": 0.20597823413627236,
+    "share_focus_above_area": 0.9695885509838998,
+    "pointing_game": 0.9563705028821308
+  },
+  "wrong": {
+    "n": 34,
+    "n_empty_cam": 0,
+    "leaf_focus": 0.6546279634622967,
+    "leaf_area": 0.5244562691625427,
+    "focus_minus_area": 0.13017169429975398,
+    "share_focus_above_area": 0.8235294117647058,
+    "pointing_game": 0.8235294117647058
+  },
+  "per_class": {
+    "Apple___Apple_scab": {
+      "n": 127,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7724713190334049,
+      "leaf_area": 0.6284776780548997,
+      "focus_minus_area": 0.14399364097850528,
+      "share_focus_above_area": 0.9763779527559056,
+      "pointing_game": 1.0
+    },
+    "Apple___Black_rot": {
+      "n": 146,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7604316515873556,
+      "leaf_area": 0.582780122348707,
+      "focus_minus_area": 0.1776515292386486,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9315068493150684
+    },
+    "Apple___Cedar_apple_rust": {
+      "n": 52,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8763476667495874,
+      "leaf_area": 0.549287277345474,
+      "focus_minus_area": 0.32706038940411347,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Apple___healthy": {
+      "n": 286,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8088333300360433,
+      "leaf_area": 0.5059345661030783,
+      "focus_minus_area": 0.302898763932965,
+      "share_focus_above_area": 0.9965034965034965,
+      "pointing_game": 0.9965034965034965
+    },
+    "Blueberry___healthy": {
+      "n": 324,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.748907925951996,
+      "leaf_area": 0.4491055675862748,
+      "focus_minus_area": 0.29980235836572117,
+      "share_focus_above_area": 0.9969135802469136,
+      "pointing_game": 0.9969135802469136
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "n": 219,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8679375645776862,
+      "leaf_area": 0.5697089599692113,
+      "focus_minus_area": 0.2982286046084748,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9954337899543378
+    },
+    "Cherry_(including_sour)___healthy": {
+      "n": 123,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8039570353864655,
+      "leaf_area": 0.5545518810186929,
+      "focus_minus_area": 0.24940515436777255,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "n": 80,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8045720357447863,
+      "leaf_area": 0.7506223086267709,
+      "focus_minus_area": 0.05394972711801529,
+      "share_focus_above_area": 0.7375,
+      "pointing_game": 0.7
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "n": 155,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8096642598029106,
+      "leaf_area": 0.6911931942547521,
+      "focus_minus_area": 0.11847106554815846,
+      "share_focus_above_area": 0.9161290322580645,
+      "pointing_game": 0.9741935483870968
+    },
+    "Corn_(maize)___healthy": {
+      "n": 1,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.444698691368103,
+      "leaf_area": 0.531230092048645,
+      "focus_minus_area": -0.08653140068054199,
+      "share_focus_above_area": 0.0,
+      "pointing_game": 0.0
+    },
+    "Grape___Black_rot": {
+      "n": 168,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8158837060133616,
+      "leaf_area": 0.6103381562445845,
+      "focus_minus_area": 0.20554554976877712,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "n": 284,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8510982333354546,
+      "leaf_area": 0.5922318945678187,
+      "focus_minus_area": 0.258866338767636,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9964788732394366
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "n": 203,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8755779550387868,
+      "leaf_area": 0.6957090343968034,
+      "focus_minus_area": 0.17986892064198337,
+      "share_focus_above_area": 0.9950738916256158,
+      "pointing_game": 0.9950738916256158
+    },
+    "Grape___healthy": {
+      "n": 100,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8848785281181335,
+      "leaf_area": 0.6828246560692787,
+      "focus_minus_area": 0.20205387204885483,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.99
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+      "n": 980,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7873171641206255,
+      "leaf_area": 0.6261911957847829,
+      "focus_minus_area": 0.1611259683358426,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Peach___Bacterial_spot": {
+      "n": 537,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7440587015791312,
+      "leaf_area": 0.4277782808690986,
+      "focus_minus_area": 0.31628042071003265,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9888268156424581
+    },
+    "Peach___healthy": {
+      "n": 71,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5843999335463618,
+      "leaf_area": 0.30784259064936303,
+      "focus_minus_area": 0.2765573428969988,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9859154929577465
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "n": 166,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8331371373440846,
+      "leaf_area": 0.6146510072860373,
+      "focus_minus_area": 0.2184861300580473,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9879518072289156
+    },
+    "Pepper,_bell___healthy": {
+      "n": 282,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.816824484457995,
+      "leaf_area": 0.6275927870540966,
+      "focus_minus_area": 0.18923169740389847,
+      "share_focus_above_area": 0.9964539007092199,
+      "pointing_game": 0.9929078014184397
+    },
+    "Potato___Early_blight": {
+      "n": 164,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8631554663908191,
+      "leaf_area": 0.7099098970250386,
+      "focus_minus_area": 0.15324556936578052,
+      "share_focus_above_area": 0.9939024390243902,
+      "pointing_game": 0.9939024390243902
+    },
+    "Potato___Late_blight": {
+      "n": 212,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8083719237233108,
+      "leaf_area": 0.5900184164913196,
+      "focus_minus_area": 0.21835350723199123,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9764150943396226
+    },
+    "Potato___healthy": {
+      "n": 32,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.929251229390502,
+      "leaf_area": 0.654001665301621,
+      "focus_minus_area": 0.275249564088881,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Raspberry___healthy": {
+      "n": 162,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8243171995804633,
+      "leaf_area": 0.629830280755773,
+      "focus_minus_area": 0.19448691882469035,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Soybean___healthy": {
+      "n": 973,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7334018059894213,
+      "leaf_area": 0.6569498802199271,
+      "focus_minus_area": 0.07645192576949422,
+      "share_focus_above_area": 0.9146968139773896,
+      "pointing_game": 0.8602261048304214
+    },
+    "Squash___Powdery_mildew": {
+      "n": 341,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8309016328228533,
+      "leaf_area": 0.7277691037424149,
+      "focus_minus_area": 0.10313252908043848,
+      "share_focus_above_area": 0.9472140762463344,
+      "pointing_game": 0.8797653958944281
+    },
+    "Strawberry___Leaf_scorch": {
+      "n": 191,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7156746136268396,
+      "leaf_area": 0.6415363451105138,
+      "focus_minus_area": 0.07413826851632582,
+      "share_focus_above_area": 0.806282722513089,
+      "pointing_game": 0.7382198952879581
+    },
+    "Strawberry___healthy": {
+      "n": 80,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8579424478113651,
+      "leaf_area": 0.6706194214522838,
+      "focus_minus_area": 0.18732302635908127,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.975
+    },
+    "Tomato___Bacterial_spot": {
+      "n": 436,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7857113338391716,
+      "leaf_area": 0.600016063677335,
+      "focus_minus_area": 0.1856952701618365,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Tomato___Early_blight": {
+      "n": 215,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6931372839351033,
+      "leaf_area": 0.5106036993653276,
+      "focus_minus_area": 0.18253358456977578,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9813953488372092
+    },
+    "Tomato___Late_blight": {
+      "n": 375,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6027191400527954,
+      "leaf_area": 0.40569685463110605,
+      "focus_minus_area": 0.19702228542168934,
+      "share_focus_above_area": 0.968,
+      "pointing_game": 0.8826666666666667
+    },
+    "Tomato___Leaf_Mold": {
+      "n": 172,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7445664669192115,
+      "leaf_area": 0.4200551267280135,
+      "focus_minus_area": 0.32451134019119793,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "n": 337,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7515269135420684,
+      "leaf_area": 0.48668331452244645,
+      "focus_minus_area": 0.2648435990196219,
+      "share_focus_above_area": 0.9940652818991098,
+      "pointing_game": 0.9910979228486647
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "n": 319,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7951662990156573,
+      "leaf_area": 0.43201254492736535,
+      "focus_minus_area": 0.3631537540882919,
+      "share_focus_above_area": 0.9968652037617555,
+      "pointing_game": 0.987460815047022
+    },
+    "Tomato___Target_Spot": {
+      "n": 288,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7463655353834232,
+      "leaf_area": 0.542608767747879,
+      "focus_minus_area": 0.20375676763554415,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "n": 1099,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.796020018446977,
+      "leaf_area": 0.5098293134035904,
+      "focus_minus_area": 0.2861907050433866,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "n": 66,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6811928144007018,
+      "leaf_area": 0.32196033452496386,
+      "focus_minus_area": 0.359232479875738,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Tomato___healthy": {
+      "n": 330,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5489534501776551,
+      "leaf_area": 0.5208981348709627,
+      "focus_minus_area": 0.028055315306692412,
+      "share_focus_above_area": 0.6484848484848484,
+      "pointing_game": 0.7
+    }
+  },
+  "lowest_focus": [
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/483659eb-d6da-4eb6-9106-cfe4240becbe___RS_HL 9895.JPG",
+      "focus": 0.537408173084259,
+      "area": 0.7372249960899353
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/36d4756b-afff-40cb-ac7f-598eda5269b9___RS_HL 9711.JPG",
+      "focus": 0.48978957533836365,
+      "area": 0.6488560438156128
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/2eb4a2fa-d41e-47f1-9e3f-e49035c5b24a___RS_HL 9995.JPG",
+      "focus": 0.5232365131378174,
+      "area": 0.680086076259613
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/65d89a16-45b5-4ce7-9dad-f702c4b14e95___RS_HL 9896.JPG",
+      "focus": 0.5918976664543152,
+      "area": 0.7485252022743225
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/79ceff7d-4092-419c-b7c1-340ae2dc0605___RS_HL 0225.JPG",
+      "focus": 0.47310057282447815,
+      "area": 0.6059669852256775
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/635f7ae3-1561-4006-9c23-f9150ca50b78___RS_HL 9967.JPG",
+      "focus": 0.542342483997345,
+      "area": 0.6687260866165161
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/948816c8-6d72-47ad-bafc-e1448be3459f___RS_HL 9891.JPG",
+      "focus": 0.4838107228279114,
+      "area": 0.6086974143981934
+    },
+    {
+      "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/27fcbe5e-c444-4516-b936-c95871a2e2c4___RS_NLB 3533 copy 2.jpg",
+      "focus": 0.7314366698265076,
+      "area": 0.849031388759613
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/1dfb5aeb-8d00-4672-9755-5da982758453___RS_HL 9987.JPG",
+      "focus": 0.46844592690467834,
+      "area": 0.5843032598495483
+    },
+    {
+      "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/a9e08234-c1be-4519-a3e3-dd8d9456fab0___RS_GLSp 7336.JPG",
+      "focus": 0.7649291157722473,
+      "area": 0.8792849183082581
+    },
+    {
+      "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/0e9f32b5-3423-4412-a9b6-69ba653db207___RS_NLB 3565 copy 2.jpg",
+      "focus": 0.2916741371154785,
+      "area": 0.4049944281578064
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/a29fc501-dbc0-4d7c-b298-1a817192a396___RS_HL 0539.JPG",
+      "focus": 0.46864283084869385,
+      "area": 0.5790019035339355
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/acdbf632-8d26-472d-874f-6d7df5cd0432___RS_HL 9897.JPG",
+      "focus": 0.5797752737998962,
+      "area": 0.6889947652816772
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/00bce074-967b-4d50-967a-31fdaa35e688___RS_HL 0223.JPG",
+      "focus": 0.5428076982498169,
+      "area": 0.6512476205825806
+    },
+    {
+      "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/d07122b2-20b4-4f1b-9071-bd90d77cc478___RS_GLSp 9310.JPG",
+      "focus": 0.7516530156135559,
+      "area": 0.8583386540412903
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/96bf0aea-6bf2-4ad8-8fa9-bbbc30be4967___RS_HL 0200.JPG",
+      "focus": 0.43419399857521057,
+      "area": 0.5386240482330322
+    },
+    {
+      "path": "data/plantvillage/raw/color/Corn_(maize)___Northern_Leaf_Blight/493500a1-d3d1-4cf9-b354-78540b3e3044___RS_NLB 3689.JPG",
+      "focus": 0.777600109577179,
+      "area": 0.8812380433082581
+    },
+    {
+      "path": "data/plantvillage/raw/color/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/617766d7-75ff-4b18-b37d-ce2b5a7255bd___RS_GLSp 7312.JPG",
+      "focus": 0.5907158255577087,
+      "area": 0.6919244527816772
+    },
+    {
+      "path": "data/plantvillage/raw/color/Tomato___healthy/d6e27864-a8c9-426f-9e46-283d0eb3a7d0___RS_HL 0452.JPG",
+      "focus": 0.4168393015861511,
+      "area": 0.5164222121238708
+    },
+    {
+      "path": "data/plantvillage/raw/color/Soybean___healthy/48122b39-1986-4c14-98ff-fe375547a0df___RS_HL 7102.JPG",
+      "focus": 0.6893991827964783,
+      "area": 0.7862324714660645
+    }
+  ]
+}

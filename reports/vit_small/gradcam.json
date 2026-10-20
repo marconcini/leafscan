@@ -1,0 +1,470 @@
+{
+  "model": "vit_small_patch16_224.augreg_in21k_ft_in1k",
+  "random_weights": false,
+  "excluded_no_mask": 219,
+  "excluded_leaf_area_above_0.9": 394,
+  "all": {
+    "n": 10096,
+    "n_empty_cam": 0,
+    "leaf_focus": 0.6880529695163277,
+    "leaf_area": 0.5649972360722482,
+    "focus_minus_area": 0.1230557334440795,
+    "share_focus_above_area": 0.848553882725832,
+    "pointing_game": 0.6789817749603804
+  },
+  "correct": {
+    "n": 10072,
+    "n_empty_cam": 0,
+    "leaf_focus": 0.688142927565693,
+    "leaf_area": 0.5651340345821378,
+    "focus_minus_area": 0.1230088929835551,
+    "share_focus_above_area": 0.8486894360603654,
+    "pointing_game": 0.6788125496425734
+  },
+  "wrong": {
+    "n": 24,
+    "n_empty_cam": 0,
+    "leaf_focus": 0.6503005747993787,
+    "leaf_area": 0.507587461421887,
+    "focus_minus_area": 0.14271311337749162,
+    "share_focus_above_area": 0.7916666666666666,
+    "pointing_game": 0.75
+  },
+  "per_class": {
+    "Apple___Apple_scab": {
+      "n": 127,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6939812264603189,
+      "leaf_area": 0.6284776780548997,
+      "focus_minus_area": 0.06550354840541918,
+      "share_focus_above_area": 0.7007874015748031,
+      "pointing_game": 0.6062992125984252
+    },
+    "Apple___Black_rot": {
+      "n": 146,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7505345422111146,
+      "leaf_area": 0.582780122348707,
+      "focus_minus_area": 0.16775441986240752,
+      "share_focus_above_area": 0.9863013698630136,
+      "pointing_game": 0.8493150684931506
+    },
+    "Apple___Cedar_apple_rust": {
+      "n": 52,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7854282322984475,
+      "leaf_area": 0.549287277345474,
+      "focus_minus_area": 0.23614095495297358,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9038461538461539
+    },
+    "Apple___healthy": {
+      "n": 286,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6254981359974905,
+      "leaf_area": 0.5059345661030783,
+      "focus_minus_area": 0.11956356989441218,
+      "share_focus_above_area": 0.9370629370629371,
+      "pointing_game": 0.6223776223776224
+    },
+    "Blueberry___healthy": {
+      "n": 324,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6231381563400781,
+      "leaf_area": 0.4491055675862748,
+      "focus_minus_area": 0.17403258875380329,
+      "share_focus_above_area": 0.9814814814814815,
+      "pointing_game": 0.3950617283950617
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "n": 219,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7960920856423574,
+      "leaf_area": 0.5697089599692113,
+      "focus_minus_area": 0.226383125673146,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.8447488584474886
+    },
+    "Cherry_(including_sour)___healthy": {
+      "n": 123,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7539530536992763,
+      "leaf_area": 0.5545518810186929,
+      "focus_minus_area": 0.19940117268058344,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.6910569105691057
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "n": 80,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8429348867386579,
+      "leaf_area": 0.7506223086267709,
+      "focus_minus_area": 0.09231257811188698,
+      "share_focus_above_area": 0.85,
+      "pointing_game": 0.925
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "n": 155,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.9097920827327236,
+      "leaf_area": 0.6911931942547521,
+      "focus_minus_area": 0.2185988884779715,
+      "share_focus_above_area": 0.9548387096774194,
+      "pointing_game": 0.9548387096774194
+    },
+    "Corn_(maize)___healthy": {
+      "n": 1,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8336935043334961,
+      "leaf_area": 0.531230092048645,
+      "focus_minus_area": 0.3024634122848511,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 1.0
+    },
+    "Grape___Black_rot": {
+      "n": 168,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7849305658822968,
+      "leaf_area": 0.6103381562445845,
+      "focus_minus_area": 0.1745924096377123,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.6190476190476191
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "n": 284,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6294465632715696,
+      "leaf_area": 0.5922318945678187,
+      "focus_minus_area": 0.03721466870375083,
+      "share_focus_above_area": 0.7816901408450704,
+      "pointing_game": 0.8415492957746479
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "n": 203,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7891590813440936,
+      "leaf_area": 0.6957090343968034,
+      "focus_minus_area": 0.09345004694729016,
+      "share_focus_above_area": 0.9950738916256158,
+      "pointing_game": 0.8916256157635468
+    },
+    "Grape___healthy": {
+      "n": 100,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8672487342357635,
+      "leaf_area": 0.6828246560692787,
+      "focus_minus_area": 0.18442407816648484,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.87
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+      "n": 980,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8552234258578748,
+      "leaf_area": 0.6261911957847829,
+      "focus_minus_area": 0.22903223007309192,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9775510204081632
+    },
+    "Peach___Bacterial_spot": {
+      "n": 537,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.755573934016947,
+      "leaf_area": 0.4277782808690986,
+      "focus_minus_area": 0.3277956531478484,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9292364990689013
+    },
+    "Peach___healthy": {
+      "n": 71,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5569672890951936,
+      "leaf_area": 0.30784259064936303,
+      "focus_minus_area": 0.24912469844583054,
+      "share_focus_above_area": 0.9859154929577465,
+      "pointing_game": 0.49295774647887325
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "n": 166,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7496820117335722,
+      "leaf_area": 0.6146510072860373,
+      "focus_minus_area": 0.13503100444753485,
+      "share_focus_above_area": 0.9518072289156626,
+      "pointing_game": 0.9578313253012049
+    },
+    "Pepper,_bell___healthy": {
+      "n": 282,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7377462891980688,
+      "leaf_area": 0.6275927870540966,
+      "focus_minus_area": 0.1101535021439723,
+      "share_focus_above_area": 0.9078014184397163,
+      "pointing_game": 0.3262411347517731
+    },
+    "Potato___Early_blight": {
+      "n": 164,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8059456791819596,
+      "leaf_area": 0.7099098970250386,
+      "focus_minus_area": 0.09603578215692102,
+      "share_focus_above_area": 0.975609756097561,
+      "pointing_game": 0.8414634146341463
+    },
+    "Potato___Late_blight": {
+      "n": 212,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6447682640743706,
+      "leaf_area": 0.5900184164913196,
+      "focus_minus_area": 0.054749847583051,
+      "share_focus_above_area": 0.6839622641509434,
+      "pointing_game": 0.8349056603773585
+    },
+    "Potato___healthy": {
+      "n": 32,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8609249442815781,
+      "leaf_area": 0.654001665301621,
+      "focus_minus_area": 0.2069232789799571,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.8125
+    },
+    "Raspberry___healthy": {
+      "n": 162,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7032548221357074,
+      "leaf_area": 0.629830280755773,
+      "focus_minus_area": 0.07342454137993448,
+      "share_focus_above_area": 0.7469135802469136,
+      "pointing_game": 0.4074074074074074
+    },
+    "Soybean___healthy": {
+      "n": 973,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8108644242276881,
+      "leaf_area": 0.6569498802199271,
+      "focus_minus_area": 0.15391454400776103,
+      "share_focus_above_area": 0.9979445015416238,
+      "pointing_game": 0.7975334018499486
+    },
+    "Squash___Powdery_mildew": {
+      "n": 341,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.27354974838252294,
+      "leaf_area": 0.7277691037424149,
+      "focus_minus_area": -0.454219355359892,
+      "share_focus_above_area": 0.011730205278592375,
+      "pointing_game": 0.18475073313782991
+    },
+    "Strawberry___Leaf_scorch": {
+      "n": 191,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7387036153783348,
+      "leaf_area": 0.6415363451105138,
+      "focus_minus_area": 0.09716727026782111,
+      "share_focus_above_area": 0.9842931937172775,
+      "pointing_game": 0.8324607329842932
+    },
+    "Strawberry___healthy": {
+      "n": 80,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.8641304045915603,
+      "leaf_area": 0.6706194214522838,
+      "focus_minus_area": 0.1935109831392765,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.85
+    },
+    "Tomato___Bacterial_spot": {
+      "n": 436,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6685956446453929,
+      "leaf_area": 0.600016063677335,
+      "focus_minus_area": 0.06857958096805788,
+      "share_focus_above_area": 0.7247706422018348,
+      "pointing_game": 0.6353211009174312
+    },
+    "Tomato___Early_blight": {
+      "n": 215,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.6106022255278604,
+      "leaf_area": 0.5106036993653276,
+      "focus_minus_area": 0.09999852616253287,
+      "share_focus_above_area": 0.7906976744186046,
+      "pointing_game": 0.7906976744186046
+    },
+    "Tomato___Late_blight": {
+      "n": 375,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5458636855085691,
+      "leaf_area": 0.40569685463110605,
+      "focus_minus_area": 0.140166830877463,
+      "share_focus_above_area": 0.9173333333333333,
+      "pointing_game": 0.76
+    },
+    "Tomato___Leaf_Mold": {
+      "n": 172,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5990231172289959,
+      "leaf_area": 0.4200551267280135,
+      "focus_minus_area": 0.17896799050098242,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9534883720930233
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "n": 337,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.44230104045035973,
+      "leaf_area": 0.48668331452244645,
+      "focus_minus_area": -0.04438227407208669,
+      "share_focus_above_area": 0.2789317507418398,
+      "pointing_game": 0.34718100890207715
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "n": 319,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5260041553678931,
+      "leaf_area": 0.43201254492736535,
+      "focus_minus_area": 0.09399161044052776,
+      "share_focus_above_area": 0.8338557993730408,
+      "pointing_game": 0.7178683385579937
+    },
+    "Tomato___Target_Spot": {
+      "n": 288,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.9048686778793732,
+      "leaf_area": 0.542608767747879,
+      "focus_minus_area": 0.3622599101314942,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.9895833333333334
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "n": 1099,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.5270304341713226,
+      "leaf_area": 0.5098293134035904,
+      "focus_minus_area": 0.017201120767732225,
+      "share_focus_above_area": 0.6469517743403094,
+      "pointing_game": 0.18380345768880801
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "n": 66,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.577740981723323,
+      "leaf_area": 0.32196033452496386,
+      "focus_minus_area": 0.2557806471983592,
+      "share_focus_above_area": 1.0,
+      "pointing_game": 0.8484848484848485
+    },
+    "Tomato___healthy": {
+      "n": 330,
+      "n_empty_cam": 0,
+      "leaf_focus": 0.7554290404373949,
+      "leaf_area": 0.5208981348709627,
+      "focus_minus_area": 0.23453090556643225,
+      "share_focus_above_area": 0.9575757575757575,
+      "pointing_game": 0.593939393939394
+    }
+  },
+  "lowest_focus": [
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/4e7916ff-c231-4ab4-adbd-d8f26790258d___MD_Powd.M 0532.JPG",
+      "focus": 0.1007586345076561,
+      "area": 0.814473032951355
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/291a7085-f983-4a37-bf94-b4c007a8663a___MD_Powd.M 0848.JPG",
+      "focus": 0.09151837974786758,
+      "area": 0.7732979655265808
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/034c9c66-ccad-4607-8bb9-3f32c1777a88___UMD_Powd.M 0324.JPG",
+      "focus": 0.16205833852291107,
+      "area": 0.8397640585899353
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/f91d124d-8ddb-42fc-b0bb-b71ff56fc511___MD_Powd.M 0804.JPG",
+      "focus": 0.11943471431732178,
+      "area": 0.7839604616165161
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/189a6803-d51e-434e-9211-d72224de4c1b___MD_Powd.M 0943.JPG",
+      "focus": 0.050773270428180695,
+      "area": 0.7143056392669678
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/98f61742-d173-42cf-870f-4aa940c38901___MD_Powd.M 0415.JPG",
+      "focus": 0.11136596649885178,
+      "area": 0.7705078125
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/d639bdae-9ea1-42c0-88de-50d4d9a48ae8___MD_Powd.M 0611.JPG",
+      "focus": 0.13488760590553284,
+      "area": 0.7922512888908386
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/d0e6a452-8114-45da-8790-f1f03ebe109d___MD_Powd.M 0354.JPG",
+      "focus": 0.1231255978345871,
+      "area": 0.7767059803009033
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/5639802b-f433-45c9-a42f-d5f47ede3e82___MD_Powd.M 0806.JPG",
+      "focus": 0.20041878521442413,
+      "area": 0.8518813848495483
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/a5a9f947-a307-4a46-a69a-d2eaf8a0c6d9___UMD_Powd.M 9910.JPG",
+      "focus": 0.21794359385967255,
+      "area": 0.8625836968421936
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/1deade37-7aa3-4a56-9472-5aaf2506f598___MD_Powd.M 0542.JPG",
+      "focus": 0.029302816838026047,
+      "area": 0.6721540093421936
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/3f2b3c76-0665-4f41-b6e3-eb882b6709df___MD_Powd.M 0540.JPG",
+      "focus": 0.11158712208271027,
+      "area": 0.7528898119926453
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/4857ccc3-c269-42d3-b40f-92d69ecea289___MD_Powd.M 0851.JPG",
+      "focus": 0.11859680712223053,
+      "area": 0.7572146058082581
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/b7ab058a-cdae-4f7f-97b7-b77489ba0a54___MD_Powd.M 0517.JPG",
+      "focus": 0.0960133746266365,
+      "area": 0.7339963316917419
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/c5f20d53-8053-4d24-99c4-5005135b2c0e___MD_Powd.M 0581.JPG",
+      "focus": 0.1360577940940857,
+      "area": 0.7687340378761292
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/99a92f27-57c3-4cfc-a708-81da92f9eee9___MD_Powd.M 0453.JPG",
+      "focus": 0.11886511743068695,
+      "area": 0.7502591013908386
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/d9e98756-64fe-4de4-862e-3293eb8a73d5___MD_Powd.M 0552.JPG",
+      "focus": 0.1850408911705017,
+      "area": 0.8161870241165161
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/1553bca1-0f4f-4cd6-ba9f-fa91fc218e87___UMD_Powd.M 9675.JPG",
+      "focus": 0.10839170217514038,
+      "area": 0.7390385866165161
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/dbf30123-aa67-4bb5-aa3c-ae1560ecb95f___MD_Powd.M 0480.JPG",
+      "focus": 0.16563820838928223,
+      "area": 0.7937260866165161
+    },
+    {
+      "path": "data/plantvillage/raw/color/Squash___Powdery_mildew/1038a604-7f52-4686-95e1-5b95f2a780d8___UMD_Powd.M 9663.JPG",
+      "focus": 0.1343243271112442,
+      "area": 0.756437361240387
+    }
+  ]
+}
