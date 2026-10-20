@@ -66,3 +66,25 @@ def test_dataset_returns_normalized_tensor(fake_data_dir):
 def test_pretty_label():
     assert pretty_label("Tomato___Early_blight") == "Tomato — Early blight"
     assert pretty_label("Corn_(maize)___healthy") == "Corn (maize) — healthy"
+
+
+def test_segmented_path_and_leaf_mask(tmp_path):
+    import numpy as np
+    from PIL import Image
+
+    from leafscan.data import leaf_mask, segmented_path
+
+    color = tmp_path / "raw" / "color" / "Tomato___healthy" / "abc___RS_HL 1.JPG"
+    seg = segmented_path(color)
+    expected = "raw/segmented/Tomato___healthy/abc___RS_HL 1_final_masked.jpg"
+    assert seg == tmp_path / expected
+    assert leaf_mask(color) is None  # no segmented twin
+
+    img = np.zeros((40, 40, 3), np.uint8)
+    img[10:30, 10:30] = (40, 160, 40)  # green leaf on black background
+    img[18:22, 18:22] = 0  # dark lesion inside the leaf
+    seg.parent.mkdir(parents=True)
+    Image.fromarray(img).save(seg, format="PNG")  # lossless, to test exact geometry
+    mask = leaf_mask(color)
+    assert mask.sum() == 20 * 20  # lesion hole is filled
+    assert not mask[:10].any()
