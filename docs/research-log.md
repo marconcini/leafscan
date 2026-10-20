@@ -5,6 +5,55 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-20 — Grad-CAM: models mostly look at the leaf, but not only — and accuracy doesn't tell which
+
+**Setup.** Whole test split; 10,096 images analysed (219 without a segmented twin, 394 where
+the leaf covers >90% of the frame — mostly corn close-ups — excluded). Mean leaf area: 56.5%.
+CAM of the predicted class.
+
+| Model | Leaf focus | Pointing game | Random weights: focus / pointing | Accuracy |
+|---|---:|---:|---:|---:|
+| ResNet-50 | **88.2%** | **98.8%** | 58.5% / 44.8% | 99.44% |
+| EfficientNet-B0 | 77.1% | 95.6% | 63.7% / 80.4% | 99.65% |
+| ConvNeXt-T | 73.9% | 88.7% | 54.9% / 46.7% | 99.71% |
+| ViT-S/16 | 68.8% | 67.9% | 35.3% / 32.2% | 99.73% |
+
+**Hypotheses vs. results.**
+1. *Most CAM mass on the leaf, well above the area baseline* → **confirmed** for all four
+   (+12 to +32 points over leaf area), and above the random-weights baseline.
+2. *>10% on the background* → **confirmed**: 12% (ResNet-50) to 31% (ViT-S).
+3. *Errors have lower leaf focus* → **not supported.** Raw focus is lower for errors, but so is
+   the leaf area of those images; focus minus area is similar for errors and correct
+   predictions (e.g. ResNet-50 +0.320 vs +0.317). With 24–54 errors per model, no conclusion.
+4. *ViT maps are noisier* → **confirmed** (pointing game 68% vs 89–99% for CNNs): its maps are
+   patchy, made of many small 16×16-patch blobs (`reports/gradcam_examples.jpg`).
+
+**The sanity check mattered.** A *randomly initialised* EfficientNet-B0 already puts its CAM
+maximum on the leaf 80% of the time: part of what its map shows comes from the architecture and
+the image (textured leaf on a flat background), not from training. Training adds only +13
+points of leaf focus for EfficientNet-B0, vs +30 for ResNet-50. Without the random baseline we
+would have over-credited EfficientNet's maps.
+
+**The interesting dissociation.** The two most accurate models (ViT-S, ConvNeXt-T) are the
+ones that look *least* at the leaf. On tomato *bacterial spot* (436 test images), ConvNeXt-T
+focus is below the leaf area and its CAM maximum lands on the background half the time —
+while classifying **all 436** correctly (recall 100%). Grad-CAM is correlational,
+but this is exactly what a background shortcut [Noyan 2022] would look like.
+
+**Pitfalls caught along the way.**
+- Corn / healthy first came out with a pointing game of 0%: it had **1** analysable image
+  (all others are full-frame close-ups). Per-class figures are only read for classes with ≥30 images.
+- The ViT-S run hung on MPS (main thread blocked forever in Metal `waitUntilCompleted`);
+  run on CPU instead with `--device cpu`.
+
+**Takeaways.**
+- High accuracy says nothing about *what* the model uses; the best models here are the most
+  suspicious ones.
+- Next step is causal, not visual: **replace the background** (masks make it easy) and measure
+  how much accuracy drops per model and per class. That is the planned background-bias step.
+
+---
+
 ## 2026-10-20 — Plan: does the model look at the leaf?
 
 *Written before running the analysis.*
@@ -80,6 +129,9 @@ ONNX Runtime (the demo will probably run on such a server).
 Mac was idle; in isolation ViT-S trains as fast as EfficientNet-B0. Rerun under `caffeinate`
 at normal speed. ConvNeXt-T epochs (~10 min) may have been affected too, so training times are
 not compared.
+*Correction (2026-10-20):* the idle-sleep explanation is not established. The next day, ViT-S
+Grad-CAM hung on MPS *under* `caffeinate`, blocked in Metal `waitUntilCompleted`. The first
+slowdown may have been the same intermittent MPS stall rather than the Mac sleeping.
 
 ---
 

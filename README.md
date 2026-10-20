@@ -74,6 +74,28 @@ Images misclassified by all four models (label / most frequent prediction):
 
 <img src="reports/wrong_for_all_models.jpg" width="700" alt="Images all models get wrong">
 
+### Where do the models look?
+
+Grad-CAM on the whole test set, compared with leaf masks taken from PlantVillage's
+background-removed images. *Leaf focus* = share of the Grad-CAM mass on the leaf
+(leaf area = 56.5% on average); *pointing game* = the map's maximum is on the leaf.
+
+| Model | Leaf focus | Pointing game | Random weights (focus / pointing) |
+|---|---:|---:|---:|
+| ResNet-50 | 88.2% | 98.8% | 58.5% / 44.8% |
+| EfficientNet-B0 | 77.1% | 95.6% | 63.7% / 80.4% |
+| ConvNeXt-T | 73.9% | 88.7% | 54.9% / 46.7% |
+| ViT-S/16 | 68.8% | 67.9% | 35.3% / 32.2% |
+
+- All models mostly look at the leaf, but 12–31% of the attention lands on the background.
+- **The most accurate models look the least at the leaf.** On tomato bacterial spot, ConvNeXt-T
+  often focuses on the background, yet gets all 436 test images right — a possible shortcut, to be
+  tested causally by swapping backgrounds (next step).
+- The random-weights baseline [Adebayo et al. 2018] matters: an *untrained* EfficientNet-B0
+  already points at the leaf 80% of the time.
+
+<img src="reports/gradcam_examples.jpg" width="700" alt="Grad-CAM examples for the four models">
+
 Details per model in [`reports/`](reports) · full analysis in the [research log](docs/research-log.md).
 
 > These scores are on lab images with uniform backgrounds. How they hold up on real field photos
@@ -90,6 +112,10 @@ python -m leafscan.train --config configs/efficientnet_b0.yaml
 python -m leafscan.evaluate models/efficientnet_b0/best.pt
 python -m leafscan.benchmark models/*/best.pt         # run on an idle machine
 python -m leafscan.compare                             # -> reports/comparison.md / .png
+
+python scripts/download_data.py --segmented           # leaf masks for Grad-CAM
+python -m leafscan.explain metrics models/resnet50/best.pt [--random-weights]
+python -m leafscan.explain figure models/*/best.pt --images <img> ... --device cpu
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -105,7 +131,9 @@ src/leafscan/
 ├── train.py      # fine-tuning loop (AdamW, warmup + cosine, label smoothing)
 ├── evaluate.py   # accuracy, macro-F1, top-5, per-class report, confusion matrix, errors
 ├── benchmark.py  # params, FLOPs, size, CPU latency, GPU throughput
-└── compare.py    # comparison table & plot, error overlap, McNemar tests
+├── compare.py    # comparison table & plot, error overlap, McNemar tests
+├── gradcam.py    # Grad-CAM for CNNs and ViT, leaf-focus & pointing-game metrics
+└── explain.py    # Grad-CAM analysis against leaf masks, example figures
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -119,7 +147,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Training & evaluation pipeline, tests, CI
 - [x] Baseline: EfficientNet-B0 (99.65% test accuracy)
 - [x] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
-- [ ] Error analysis + Grad-CAM explanations
+- [x] Error analysis + Grad-CAM explanations
 - [ ] Robustness to real field photos (lab → field domain shift)
 - [ ] Gradio demo on Hugging Face Spaces
 

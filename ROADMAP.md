@@ -10,10 +10,12 @@ Each step is small, testable and pushed on its own. Research questions are track
 - [x] **Baseline** — EfficientNet-B0 on the full dataset (99.65% test accuracy)
 - [x] **Model comparison** — ResNet-50 · ConvNeXt-T · ViT-S: accuracy, macro-F1, latency, size
   - *Q: does a Vision Transformer bring anything on such a "clean" lab dataset?*
-- [ ] **Error analysis & Grad-CAM**
+- [x] **Error analysis & Grad-CAM** — leaf focus vs leaf masks, random-weights sanity check
   - *Q: does the model actually look at the lesions?*
 - [ ] **Background bias** — reproduce the finding that PlantVillage classes can be partly predicted
   from background pixels alone [Noyan 2022]; compare with the `segmented` variant
+  - *Grad-CAM suggests ConvNeXt-T and ViT-S look at the background more than CNNs. Causal test:
+    replace the background using the leaf masks and measure the accuracy drop per model/class.*
 - [ ] **Lab → field domain shift** — evaluate on real field photos (PlantDoc [Singh et al. 2020])
   - *Q: how much do 99%-accuracy models drop, and what closes the gap?*
 - [ ] **Ensembling** — models make different errors (Jaccard 0.17–0.41): does averaging them help?
