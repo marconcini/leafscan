@@ -65,7 +65,7 @@ class MaskedDataset(Dataset):
         if m is None:
             mask, has_mask = torch.zeros(self.img_size, self.img_size), False
         else:
-            mask = torch.from_numpy(np.asarray(self.mask_tf(Image.fromarray(m)))).float()
+            mask = torch.from_numpy(np.array(self.mask_tf(Image.fromarray(m)))).float()
             has_mask = True
         return x, self.class_to_idx[s.label], mask, has_mask, idx
 
@@ -91,8 +91,9 @@ def _summary(rows: list[dict]) -> dict:
 
 
 def gradcam_metrics(ckpt_path: Path, samples: list[Sample], random_weights: bool = False,
-                    batch_size: int = 32, num_workers: int = 4) -> dict:
-    device = get_device()
+                    batch_size: int = 32, num_workers: int = 4,
+                    device: torch.device | None = None) -> dict:
+    device = device or get_device()
     model, ckpt = load_checkpoint(ckpt_path, device)
     if random_weights:
         model = create_model(ckpt["model_name"], len(ckpt["classes"]), pretrained=False)
@@ -189,6 +190,7 @@ def main() -> None:
     m.add_argument("--data-dir", type=Path, default=DEFAULT_DATA_DIR)
     m.add_argument("--reports-dir", type=Path, default=Path("reports"))
     m.add_argument("--random-weights", action="store_true")
+    m.add_argument("--device", help="e.g. cpu (default: cuda > mps > cpu)")
     f = sub.add_parser("figure")
     f.add_argument("checkpoints", type=Path, nargs="+")
     f.add_argument("--images", type=Path, nargs="+", required=True)
@@ -198,7 +200,8 @@ def main() -> None:
     if args.cmd == "figure":
         figure(args.checkpoints, args.images, args.out)
         return
-    res = gradcam_metrics(args.checkpoint, read_split(args.data_dir, "test"), args.random_weights)
+    res = gradcam_metrics(args.checkpoint, read_split(args.data_dir, "test"), args.random_weights,
+                          device=torch.device(args.device) if args.device else None)
     run = args.checkpoint.parent.name
     name = "gradcam_random.json" if args.random_weights else "gradcam.json"
     out = args.reports_dir / run / name
