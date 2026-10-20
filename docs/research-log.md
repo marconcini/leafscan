@@ -5,6 +5,34 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-20 — Plan: does the model look at the leaf?
+
+*Written before running the analysis.*
+
+**Question.** A 99.7% accuracy does not tell us *why* the model is right. Does it look at the
+leaf and its lesions, or partly at the background? [Noyan 2022] showed that PlantVillage
+backgrounds carry class information, so a shortcut is plausible.
+
+**Method.**
+- Grad-CAM [Selvaraju et al. 2017] on the last feature map of each model (for ViT-S, the patch
+  tokens of the last block, reshaped to the 14×14 grid).
+- **Leaf mask for free**: PlantVillage ships a `segmented` version of each photo with the
+  background blacked out. Mask = non-black pixels of the segmented twin (holes filled).
+- Metrics on the test split, per image:
+  - *leaf focus*: share of the Grad-CAM mass that falls on the leaf. Uniform map → leaf area
+    fraction, so we compare against that baseline;
+  - *pointing game* [Zhang et al. 2016]: is the CAM maximum on the leaf?
+- **Sanity check** [Adebayo et al. 2018]: same metrics with randomly re-initialised weights.
+  If a random model scores the same, the metric says nothing about what was learned.
+
+**Hypotheses.**
+1. All trained models put most of the CAM mass on the leaf, well above the area baseline.
+2. A non-negligible part (>10%) still falls on the background, e.g. on shadows and leaf edges.
+3. Misclassified images have lower leaf focus than correct ones.
+4. ViT Grad-CAM maps are noisier (lower pointing-game score) than CNN maps.
+
+---
+
 ## 2026-10-19 — Model comparison: architecture barely matters, FLOPs lie, the data has errors
 
 **Results** (test split, 10,709 images):
