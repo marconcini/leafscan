@@ -5,6 +5,34 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-21 — Plan: do the models *use* the background? (causal test)
+
+*Written before running the experiment.*
+
+**Question.** Grad-CAM showed ConvNeXt-T and ViT-S spend 26–31% of their attention on the
+background. Attention is not use. Does changing the background change the prediction?
+
+**Method.** Test images with a leaf mask and leaf area ≤ 90% (same subset as Grad-CAM).
+Pixels are replaced with the ImageNet mean colour (a neutral grey, i.e. zero after
+normalisation). Four conditions, same trained models, no retraining:
+- **A. original**;
+- **B. leaf only** — background replaced by grey;
+- **C. background only** — leaf replaced by grey. The mask is dilated by 8 px so the leaf
+  outline is not left visible; shadows remain (a known leak of leaf shape);
+- **D. background swap** — the leaf is pasted on the background of a random test image of
+  *another* class (whose own leaf is greyed out). Measured: share of predictions that follow
+  the leaf's class vs. the background's class.
+
+**Hypotheses.**
+1. Background-only accuracy (C) is well above chance (1/38 = 2.6%) for every model. [Noyan
+   2022] reached ~49% with a model *trained* on backgrounds; ours never were, so expect 10–30%.
+2. ConvNeXt-T and ViT-S, which look least at the leaf, are the most background-dependent: larger
+   drop in B, higher accuracy in C, more predictions following the background in D.
+3. ResNet-50 (88% leaf focus) keeps > 95% accuracy on leaf-only images (B).
+4. Tomato bacterial spot is among the most background-dependent classes for ConvNeXt-T.
+
+---
+
 ## 2026-10-20 — Grad-CAM: models mostly look at the leaf, but not only — and accuracy doesn't tell which
 
 **Setup.** Whole test split; 10,096 images analysed (219 without a segmented twin, 394 where
