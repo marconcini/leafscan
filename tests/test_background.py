@@ -68,6 +68,9 @@ def test_evaluate_end_to_end(fake_data_dir, tmp_path):
                     classes, img_size=32)
     res = evaluate(ckpt, test, num_workers=0)
     for cond in ("original", "leaf_only", "background_only", "background_only_box"):
-        assert res[cond]["n"] == len(test) and 0 <= res[cond]["accuracy"] <= 1
+        r = res[cond]
+        assert r["n"] == len(test) and 0 <= r["accuracy"] <= 1 and 0 <= r["balanced_accuracy"] <= 1
+        assert sum(r["per_class_n"].values()) == len(test)
+        assert 1 / len(classes) <= r["most_predicted_share"] <= 1
     sw = res["swap"]
     assert abs(sw["follows_leaf"] + sw["follows_background"] + sw["neither"] - 1) < 1e-9

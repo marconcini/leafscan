@@ -17,7 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import random
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -140,9 +140,21 @@ def run_condition(model, items, classes, img_size, condition, device, donors=Non
     per_class = defaultdict(list)
     for t, p in zip(y, pred, strict=True):
         per_class[classes[t]].append(p == t)
-    res = {"n": len(y), "accuracy": float((pred == y).mean()),
-           "per_class_accuracy": {c: float(np.mean(v)) for c, v in sorted(per_class.items())}}
+    per_class_acc = {c: float(np.mean(v)) for c, v in sorted(per_class.items())}
+    top_class, top_count = Counter(pred.tolist()).most_common(1)[0]
+    res = {
+        "n": len(y),
+        "accuracy": float((pred == y).mean()),
+        # mean of per-class accuracies: not inflated by always predicting a large class
+        "balanced_accuracy": float(np.mean(list(per_class_acc.values()))),
+        # a model answering one "default" class on uninformative images shows up here
+        "most_predicted_class": classes[top_class],
+        "most_predicted_share": top_count / len(pred),
+        "per_class_n": {c: len(v) for c, v in sorted(per_class.items())},
+        "per_class_accuracy": per_class_acc,
+    }
     if condition == "swap":
+        res.pop("balanced_accuracy")
         res["follows_leaf"] = res.pop("accuracy")
         res["follows_background"] = float((pred == donor).mean())
         res["neither"] = 1 - res["follows_leaf"] - res["follows_background"]
@@ -215,10 +227,10 @@ def main() -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(res, indent=2))
     sw = res["swap"]
-    print(f"{args.checkpoint.parent.name}: original {res['original']['accuracy']:.4f} | "
-          f"leaf only {res['leaf_only']['accuracy']:.4f} | "
-          f"background only {res['background_only']['accuracy']:.4f} "
-          f"(box {res['background_only_box']['accuracy']:.4f}) | "
+    bal = {c: res[c]["balanced_accuracy"] for c in CONDITIONS if c != "swap"}
+    print(f"{args.checkpoint.parent.name}: balanced acc original {bal['original']:.4f} | "
+          f"leaf only {bal['leaf_only']:.4f} | background only {bal['background_only']:.4f} "
+          f"(box {bal['background_only_box']:.4f}) | "
           f"swap: leaf {sw['follows_leaf']:.4f} background {sw['follows_background']:.4f} "
           f"(n={res['original']['n']})")
 
