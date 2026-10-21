@@ -5,6 +5,56 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-21 — Background intervention: models don't use the background; Grad-CAM pointed at the wrong suspects
+
+**Setup.** 10,157 test images (leaf mask available, leaf ≤ 90% of the frame). Accuracy /
+**balanced accuracy** (mean of per-class accuracies, see pitfalls below). Chance = 2.6%.
+
+| Model | Original | B. Leaf only | C. Background only (silhouette visible) | C′. Background only (box) | D. Swap: follows leaf / background / neither |
+|---|---:|---:|---:|---:|---:|
+| ViT-S/16 | 99.7 / 99.6 | 97.5 / **97.7** | 20.3 / 15.9 | 0.7 / 3.3 | 96.6 / 0.27 / 3.1 |
+| ResNet-50 | 99.4 / 99.1 | 97.0 / 95.8 | 9.0 / 6.3 | 10.8 / 3.0 | 97.6 / 0.15 / 2.2 |
+| ConvNeXt-T | 99.7 / 99.5 | 98.0 / 94.6 | 14.3 / 13.9 | 5.7 / 4.8 | 97.1 / 0.39 / 2.5 |
+| EfficientNet-B0 | 99.6 / 99.4 | 89.6 / **84.5** | 15.5 / 12.6 | 2.3 / 1.4 | 91.6 / 1.25 / 7.2 |
+
+**Hypotheses vs. results.**
+1. *Background-only accuracy well above chance* → **refuted** once two artefacts are removed
+   (C′, balanced): 1.4–4.8%, i.e. around chance. Background information exists in PlantVillage
+   [Noyan 2022], but models trained on full images barely exploit it.
+2. *ConvNeXt-T and ViT-S are the most background-dependent* → **refuted.** ViT-S is the *most*
+   robust to background removal; EfficientNet-B0, the least (−15 points balanced). When the
+   background is swapped, every model follows the leaf (≥ 91.6%) and almost never the
+   background (≤ 1.25%).
+3. *ResNet-50 keeps > 95% on leaf-only images* → **confirmed** (97.0%, 95.8% balanced).
+4. *Tomato bacterial spot is among ConvNeXt-T's most background-dependent classes* →
+   **refuted**: 100% → 97.2% with the leaf alone.
+
+**Two artefacts that nearly produced the opposite conclusion.**
+- **Leaf silhouette.** In C, the grey hole has the shape of the leaf. Hiding the whole bounding
+  box instead (C′) makes ViT-S drop from 20.3% to 0.7%: what looked like "using the
+  background" was recognising the *leaf shape*. This variant was added after looking at the
+  first figure (`reports/background_conditions.jpg`), before running any model.
+- **Default class.** On mostly-grey images, each model answers one class 86–96% of the time
+  (ResNet-50: TYLCV). TYLCV is 10.9% of the images, so ResNet-50 scored 10.8% "accuracy" with
+  no information at all. Balanced accuracy is immune to this: 3.0%.
+
+**What the leaf-only drop means.** EfficientNet-B0 loses 10 points with the leaf alone, but
+in the swap test it follows the new background only 1.25% of the time; its errors are mostly
+"neither" (7.2%). So it is not *using* the original background: it is *disturbed* by an
+unnatural grey one. That is a robustness issue (distribution shift), not a shortcut.
+
+**Takeaways.**
+- Grad-CAM attention on the background did **not** mean the background was used. The
+  2026-10-20 suspicion about ConvNeXt-T and ViT-S does not survive a causal test: correlation
+  (where the map is hot) ≠ causation (what changes the prediction).
+- Interventions need their own sanity checks: look at the edited images, and use a metric that
+  a constant answer cannot game.
+- New lead for the lab → field step: sensitivity to background *changes* differs a lot between
+  models (ViT-S most robust, EfficientNet-B0 least). Field photos have cluttered backgrounds,
+  so this ranking is a prediction to test there.
+
+---
+
 ## 2026-10-21 — Plan: do the models *use* the background? (causal test)
 
 *Written before running the experiment.*

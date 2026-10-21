@@ -89,12 +89,35 @@ background-removed images. *Leaf focus* = share of the Grad-CAM mass on the leaf
 
 - All models mostly look at the leaf, but 12–31% of the attention lands on the background.
 - **The most accurate models look the least at the leaf.** On tomato bacterial spot, ConvNeXt-T
-  often focuses on the background, yet gets all 436 test images right — a possible shortcut, to be
-  tested causally by swapping backgrounds (next step).
+  often focuses on the background, yet gets all 436 test images right — a possible shortcut —
+  which the causal test below rules out.
 - The random-weights baseline [Adebayo et al. 2018] matters: an *untrained* EfficientNet-B0
   already points at the leaf 80% of the time.
 
 <img src="reports/gradcam_examples.jpg" width="700" alt="Grad-CAM examples for the four models">
+
+### Do they *use* the background? A causal test
+
+Grad-CAM only shows where the map is hot. To test whether the background changes the
+prediction, test images are edited with the leaf masks (balanced accuracy, chance = 2.6%):
+
+<img src="reports/background_conditions.jpg" width="700" alt="Background intervention conditions">
+
+| Model | Original | Leaf only | Background only (box) | Swapped background: follows leaf / background |
+|---|---:|---:|---:|---:|
+| ViT-S/16 | 99.6% | **97.7%** | 3.3% | 96.6% / 0.3% |
+| ResNet-50 | 99.1% | 95.8% | 3.0% | 97.6% / 0.2% |
+| ConvNeXt-T | 99.5% | 94.6% | 4.8% | 97.1% / 0.4% |
+| EfficientNet-B0 | 99.4% | 84.5% | 1.4% | 91.6% / 1.3% |
+
+- **No model really uses the background**: background-only images are at chance level, and with
+  a swapped background, predictions follow the leaf. The Grad-CAM suspicion about ConvNeXt-T and
+  ViT-S was a false alarm.
+- **Two artefacts almost said the opposite**: the grey hole revealed the leaf *silhouette* (ViT-S
+  20% → 0.7% once hidden), and on blank images models answer one default class (ResNet-50 looked
+  like 10.8% "accurate" this way).
+- EfficientNet-B0 is the most **disturbed** by a changed background (−15 points), without
+  following it: a robustness issue to keep in mind for real field photos.
 
 Details per model in [`reports/`](reports) · full analysis in the [research log](docs/research-log.md).
 
@@ -116,6 +139,7 @@ python -m leafscan.compare                             # -> reports/comparison.m
 python scripts/download_data.py --segmented           # leaf masks for Grad-CAM
 python -m leafscan.explain metrics models/resnet50/best.pt [--random-weights]
 python -m leafscan.explain figure models/*/best.pt --images <img> ... --device cpu
+python -m leafscan.background models/convnext_tiny/best.pt
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -133,7 +157,8 @@ src/leafscan/
 ├── benchmark.py  # params, FLOPs, size, CPU latency, GPU throughput
 ├── compare.py    # comparison table & plot, error overlap, McNemar tests
 ├── gradcam.py    # Grad-CAM for CNNs and ViT, leaf-focus & pointing-game metrics
-└── explain.py    # Grad-CAM analysis against leaf masks, example figures
+├── explain.py    # Grad-CAM analysis against leaf masks, example figures
+└── background.py # causal test: leaf only, background only, swapped background
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -148,6 +173,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Baseline: EfficientNet-B0 (99.65% test accuracy)
 - [x] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
 - [x] Error analysis + Grad-CAM explanations
+- [x] Background bias: causal test with edited backgrounds
 - [ ] Robustness to real field photos (lab → field domain shift)
 - [ ] Gradio demo on Hugging Face Spaces
 

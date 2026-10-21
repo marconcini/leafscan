@@ -12,12 +12,13 @@ Each step is small, testable and pushed on its own. Research questions are track
   - *Q: does a Vision Transformer bring anything on such a "clean" lab dataset?*
 - [x] **Error analysis & Grad-CAM** — leaf focus vs leaf masks, random-weights sanity check
   - *Q: does the model actually look at the lesions?*
-- [ ] **Background bias** — reproduce the finding that PlantVillage classes can be partly predicted
-  from background pixels alone [Noyan 2022]; compare with the `segmented` variant
-  - *Grad-CAM suggests ConvNeXt-T and ViT-S look at the background more than CNNs. Causal test:
-    replace the background using the leaf masks and measure the accuracy drop per model/class.*
+- [x] **Background bias** — causal test by editing backgrounds with the leaf masks: models do not
+  use the background (background-only ≈ chance once silhouette and default-class artefacts are
+  removed); EfficientNet-B0 is the most disturbed by background changes, ViT-S the least
+- [ ] **Training on the `segmented` variant** — does it make models more robust to background changes?
 - [ ] **Lab → field domain shift** — evaluate on real field photos (PlantDoc [Singh et al. 2020])
   - *Q: how much do 99%-accuracy models drop, and what closes the gap?*
+  - *Prediction from the background test: ViT-S should hold up best, EfficientNet-B0 worst.*
 - [ ] **Ensembling** — models make different errors (Jaccard 0.17–0.41): does averaging them help?
 - [ ] **Data cleaning** — find mislabelled / empty images (2 found by hand among errors shared by all models)
 - [ ] **Calibration & out-of-distribution rejection** — temperature scaling [Guo et al. 2017]
