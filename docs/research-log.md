@@ -5,6 +5,29 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-26 — Plan: closing the lab → field gap with a little field data
+
+*Written before running the experiment.*
+
+**Question.** Zero-shot, ConvNeXt-T gets 38.6% on PlantDoc's test split. How much does
+fine-tuning on PlantDoc's own training images help, how many are needed, and does our
+PlantVillage training still help compared with starting from ImageNet?
+
+**Setup.** ConvNeXt-T, two initialisations: **PlantVillage** (our checkpoint, 99.7% lab) and
+**ImageNet** (the same ImageNet-22k weights PlantVillage training started from). Fine-tuned on
+10 / 25 / 50 / 100% of PlantDoc train (2,323 images after cleaning, stratified subsets), same
+budget of 400 optimiser steps for every fraction, 3 seeds each. Evaluated on PlantDoc's test
+split (228 images), last checkpoint (no model selection on test). 95% bootstrap confidence
+intervals: with 228 images, ±6 points is expected.
+
+**Hypotheses.**
+1. Full fine-tuning lifts test accuracy far above zero-shot: to 55–70%.
+2. PlantVillage initialisation beats ImageNet initialisation, mostly with little data
+   (10–25%); the gap shrinks at 100%.
+3. Accuracy is still rising at 100%: the field dataset is too small to saturate.
+
+---
+
 ## 2026-10-25 — Lab → field: from 99.7% to 31%
 
 **Data actually used.** 2,551 PlantDoc images after cleaning. PlantDoc contained byte-identical
