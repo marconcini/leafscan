@@ -1,0 +1,82 @@
+[
+  {
+    "init": "imagenet",
+    "fraction": 0.1,
+    "n_train": 233,
+    "seeds": 3,
+    "accuracy_mean": 0.5190058479532164,
+    "accuracy_std": 0.019777411196591644,
+    "balanced_mean": 0.5148731583916769,
+    "crop_mean": 0.7090643274853802
+  },
+  {
+    "init": "imagenet",
+    "fraction": 0.25,
+    "n_train": 581,
+    "seeds": 3,
+    "accuracy_mean": 0.6388888888888888,
+    "accuracy_std": 0.00669967206864891,
+    "balanced_mean": 0.6392612188908485,
+    "crop_mean": 0.8128654970760234
+  },
+  {
+    "init": "imagenet",
+    "fraction": 0.5,
+    "n_train": 1161,
+    "seeds": 3,
+    "accuracy_mean": 0.7017543859649122,
+    "accuracy_std": 0.004385964912280715,
+    "balanced_mean": 0.6967412217412217,
+    "crop_mean": 0.8771929824561404
+  },
+  {
+    "init": "imagenet",
+    "fraction": 1.0,
+    "n_train": 2323,
+    "seeds": 3,
+    "accuracy_mean": 0.7573099415204679,
+    "accuracy_std": 0.029203193502102563,
+    "balanced_mean": 0.7572751322751322,
+    "crop_mean": 0.8947368421052632
+  },
+  {
+    "init": "plantvillage",
+    "fraction": 0.1,
+    "n_train": 233,
+    "seeds": 3,
+    "accuracy_mean": 0.5994152046783626,
+    "accuracy_std": 0.01772566615933062,
+    "balanced_mean": 0.593830723460353,
+    "crop_mean": 0.7602339181286549
+  },
+  {
+    "init": "plantvillage",
+    "fraction": 0.25,
+    "n_train": 581,
+    "seeds": 3,
+    "accuracy_mean": 0.6388888888888888,
+    "accuracy_std": 0.011037769642208732,
+    "balanced_mean": 0.637568809791032,
+    "crop_mean": 0.7953216374269005
+  },
+  {
+    "init": "plantvillage",
+    "fraction": 0.5,
+    "n_train": 1161,
+    "seeds": 3,
+    "accuracy_mean": 0.6973684210526315,
+    "accuracy_std": 0.01160417241694993,
+    "balanced_mean": 0.691740152851264,
+    "crop_mean": 0.8464912280701755
+  },
+  {
+    "init": "plantvillage",
+    "fraction": 1.0,
+    "n_train": 2323,
+    "seeds": 3,
+    "accuracy_mean": 0.7441520467836259,
+    "accuracy_std": 0.015403002562650193,
+    "balanced_mean": 0.7337310494717902,
+    "crop_mean": 0.8698830409356725
+  }
+]
