@@ -5,7 +5,7 @@ Negative or surprising results are kept on purpose.
 
 ---
 
-## 2026-10-26 — Plan: closing the lab → field gap with a little field data
+## 2026-10-25 — Plan: closing the lab → field gap with a little field data
 
 *Written before running the experiment.*
 
@@ -14,7 +14,7 @@ fine-tuning on PlantDoc's own training images help, how many are needed, and doe
 PlantVillage training still help compared with starting from ImageNet?
 
 **Setup.** ConvNeXt-T, two initialisations: **PlantVillage** (our checkpoint, 99.7% lab) and
-**ImageNet** (the same ImageNet-22k weights PlantVillage training started from). Fine-tuned on
+**ImageNet** (`convnext_tiny.fb_in22k_ft_in1k`, the weights PlantVillage training started from). Fine-tuned on
 10 / 25 / 50 / 100% of PlantDoc train (2,323 images after cleaning, stratified subsets), same
 budget of 400 optimiser steps for every fraction, 3 seeds each. Evaluated on PlantDoc's test
 split (228 images), last checkpoint (no model selection on test). 95% bootstrap confidence
