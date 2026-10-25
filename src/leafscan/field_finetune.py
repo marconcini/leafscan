@@ -165,11 +165,16 @@ def plot_summary(rows: list[dict], zero_shot: float | None, path: Path) -> None:
         ax.fill_between(x, m - sd, m + sd, color=colors[init], alpha=0.15, linewidth=0)
         ax.annotate(labels[init], (x[-1], m[-1]), xytext=(6, 0), textcoords="offset points",
                     va="center", fontsize=9, color=ink)
+    ax.set_xscale("log")
+    ns = sorted({r["n_train"] for r in rows})
+    ax.set_xticks(ns, [str(n) for n in ns])
+    ax.minorticks_off()
+    ax.set_xlim(ns[0] / 1.3, ns[-1] * 2.6)  # room for the direct labels
     if zero_shot is not None:
         ax.axhline(100 * zero_shot, color=muted, linewidth=1, linestyle="--")
-        ax.annotate("zero-shot (no PlantDoc image)", (ax.get_xlim()[0], 100 * zero_shot),
-                    xytext=(4, 4), textcoords="offset points", fontsize=8, color=muted)
-    ax.set_xscale("log")
+        ax.text(ns[0], 100 * zero_shot + 1, f"zero-shot, no PlantDoc image: {100 * zero_shot:.1f}%",
+                fontsize=8, color=muted, va="bottom")
+        ax.set_ylim(bottom=100 * zero_shot - 4)
     ax.set_xlabel("PlantDoc training images (log scale)", color=muted)
     ax.set_ylabel("PlantDoc test accuracy (%)", color=muted)
     ax.set_title("ConvNeXt-T fine-tuned on field photos (mean ± std, 3 seeds)", color=ink,
@@ -181,8 +186,7 @@ def plot_summary(rows: list[dict], zero_shot: float | None, path: Path) -> None:
     for side in ("left", "bottom"):
         ax.spines[side].set_color(grid)
     ax.tick_params(colors=muted)
-    ax.legend(frameon=False, fontsize=9, loc="lower right")
-    ax.set_xlim(right=ax.get_xlim()[1] * 2.2)
+    ax.legend(frameon=False, fontsize=9, loc="upper left")
     fig.tight_layout()
     fig.savefig(path, dpi=150)
     plt.close(fig)
