@@ -5,6 +5,33 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-25 — Plan: lab → field, how much do the models drop?
+
+*Written before running the evaluation.*
+
+**Question.** Our models reach 99.4–99.7% on PlantVillage lab photos. What happens on real
+photos taken in the field (cluttered backgrounds, several leaves, varied light)?
+
+**Data.** PlantDoc [Singh et al. 2020], CC BY 4.0: ~2,500 web/field images, 28 classes, all of
+which map to a PlantVillage class (e.g. *Tomato leaf yellow virus* → *Tomato Yellow Leaf Curl
+Virus*, *Corn leaf blight* → *Northern Leaf Blight*). Our models never saw any PlantDoc image,
+so **all** of them (train + test folders) are used for this zero-shot evaluation; the official
+PlantDoc test split is kept for a later fine-tuning experiment.
+
+**Metrics.** Prediction over all 38 PlantVillage classes (a prediction of an unmapped class,
+e.g. *Orange / citrus greening*, is an error). Accuracy, balanced accuracy, and two coarser
+levels: **crop** (right plant species?) and **health** (healthy vs. diseased right?). Mean
+confidence on correct vs. wrong predictions.
+
+**Hypotheses.**
+1. **Large drop**: accuracy falls to 20–45%. [Mohanty et al. 2016] reported 31% when testing
+   on images from other sources.
+2. Ranking follows the background-robustness test: **ViT-S best, EfficientNet-B0 worst**.
+3. Crop accuracy is much higher than disease accuracy (species is easier than disease).
+4. Models stay **overconfident**: mean confidence on wrong field predictions > 0.5.
+
+---
+
 ## 2026-10-21 — Background intervention: models don't use the background; Grad-CAM pointed at the wrong suspects
 
 **Setup.** 10,157 test images (leaf mask available, leaf ≤ 90% of the frame). Accuracy /
