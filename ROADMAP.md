@@ -18,8 +18,9 @@ Each step is small, testable and pushed on its own. Research questions are track
 - [ ] **Training on the `segmented` variant** — does it make models more robust to background changes?
 - [x] **Lab → field domain shift** — zero-shot on PlantDoc [Singh et al. 2020]: 99.7% → 23–31%;
   ConvNeXt-T ≈ ViT-S > ResNet-50 > EfficientNet-B0 (as the background test predicted for the last)
-- [ ] **Closing the gap** — fine-tune on PlantDoc's train split, evaluate on its test split
-  - *Q: how many in-domain images are needed? Does lab pre-training still help?*
+- [x] **Closing the gap** — fine-tuning on PlantDoc: 38.6% → 74–76% on its test split; PlantVillage
+  pre-training helps only with very little field data (233 images: +8 points)
+- [ ] **More field data** — accuracy still rises ~5 points per doubling: other field datasets?
 - [ ] **Ensembling** — models make different errors (Jaccard 0.17–0.41): does averaging them help?
 - [ ] **Data cleaning** — find mislabelled / empty images (2 found by hand among errors shared by all models)
 - [ ] **Calibration & out-of-distribution rejection** — temperature scaling [Guo et al. 2017]

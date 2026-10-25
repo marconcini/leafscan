@@ -140,6 +140,16 @@ Zero-shot evaluation on [PlantDoc](https://github.com/pratikkayal/PlantDoc-Datas
 - Field errors come with low confidence (only 2–4% above 0.9) — a signal to abstain on.
 - What predicted the ranking was the background-*change* test, not lab accuracy.
 
+**Closing the gap with a little field data.** ConvNeXt-T fine-tuned on PlantDoc's training
+images, evaluated on its test split (228 images, 3 seeds):
+
+<img src="reports/field_finetune/summary.png" width="600" alt="Accuracy vs number of field training images">
+
+- **233 field images: 38.6% → 59.9%**, more than all 39,251 lab images could give.
+- All 2,323: **74–76%**, and still rising (~5 points per doubling).
+- Starting from the PlantVillage model only helps with very little field data (+8 points at
+  233 images, consistent over seeds); from 581 images on, ImageNet weights do as well.
+
 Details per model in [`reports/`](reports) · full analysis in the [research log](docs/research-log.md).
 
 > Lab scores above are on PlantVillage images with uniform backgrounds; see
@@ -164,6 +174,8 @@ python -m leafscan.background models/convnext_tiny/best.pt
 
 git clone --depth 1 https://github.com/pratikkayal/PlantDoc-Dataset.git data/plantdoc
 python -m leafscan.field models/convnext_tiny/best.pt
+python -m leafscan.field_finetune --init plantvillage --fraction 0.25 --seed 0
+python -m leafscan.field_finetune --summary
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -183,7 +195,8 @@ src/leafscan/
 ├── gradcam.py    # Grad-CAM for CNNs and ViT, leaf-focus & pointing-game metrics
 ├── explain.py    # Grad-CAM analysis against leaf masks, example figures
 ├── background.py # causal test: leaf only, background only, swapped background
-└── field.py      # zero-shot evaluation on PlantDoc field photos
+├── field.py      # zero-shot evaluation on PlantDoc field photos
+└── field_finetune.py # fine-tuning on PlantDoc fractions, two initialisations
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -200,7 +213,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Error analysis + Grad-CAM explanations
 - [x] Background bias: causal test with edited backgrounds
 - [x] Robustness to real field photos: 99.7% → ~30% on PlantDoc
-- [ ] Closing the lab → field gap (fine-tuning on PlantDoc)
+- [x] Closing the lab → field gap: fine-tuning on PlantDoc, 38.6% → 74–76%
 - [ ] Gradio demo on Hugging Face Spaces
 
 **Phase 2 — RAG assistant**

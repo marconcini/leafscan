@@ -5,6 +5,42 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-25 — Closing the gap: 233 field images are worth more than 39,000 lab images
+
+**Results** (ConvNeXt-T, PlantDoc test split of 228 images, mean ± std over 3 seeds; 95%
+bootstrap CI of a single run ≈ ±6 points):
+
+| PlantDoc training images | From PlantVillage model | From ImageNet | PV − ImageNet, per seed |
+|---:|---:|---:|---|
+| 0 (zero-shot) | 38.6% | – | |
+| 233 (10%) | **59.9 ± 1.8%** | 51.9 ± 2.0% | +7.9, +4.4, +11.8 |
+| 581 (25%) | 63.9 ± 1.1% | 63.9 ± 0.7% | +0.9, +0.9, −1.8 |
+| 1,161 (50%) | 69.7 ± 1.2% | 70.2 ± 0.4% | −2.2, +0.4, +0.4 |
+| 2,323 (100%) | 74.4 ± 1.5% | **75.7 ± 2.9%** | −1.3, −3.1, +0.4 |
+
+`reports/field_finetune/summary.png`. Same subset of images for both initialisations at a given
+seed, so differences are paired.
+
+**Hypotheses vs. results.**
+1. *Full fine-tuning lifts accuracy to 55–70%* → **confirmed, and exceeded**: 74–76%. Health
+   (healthy vs diseased) goes from ~80% zero-shot to 95%; the "default classes" disappear
+   (most predicted class: 13 of 228 images).
+2. *PlantVillage init beats ImageNet, mostly with little data* → **confirmed, but only with very
+   little data.** With 233 images it is ahead on all 3 seeds (+8 points on average). From 581
+   images on, the sign of the difference changes from seed to seed: no measurable benefit.
+3. *Still rising at 100%* → **confirmed**: +5 points from 1,161 to 2,323 images, roughly
+   linear in log(n). More field data would still help.
+
+**Takeaways.**
+- **Data that looks like the deployment beats a lot of data that doesn't.** 233 PlantDoc images
+  (+21 points over zero-shot) do more than 39,251 PlantVillage images, which give 38.6%.
+- Lab training is a useful head start only when field data is very scarce (a few hundred images).
+- Each doubling of field data still adds ~5 points: the bottleneck is now the size of the field
+  dataset, not the model.
+- Caveat: one architecture, 228 test images, 3 seeds. Differences under ~3 points are noise.
+
+---
+
 ## 2026-10-25 — Plan: closing the lab → field gap with a little field data
 
 *Written before running the experiment.*
