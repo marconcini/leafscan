@@ -119,10 +119,31 @@ prediction, test images are edited with the leaf masks (balanced accuracy, chanc
 - EfficientNet-B0 is the most **disturbed** by a changed background (−15 points), without
   following it: a robustness issue to keep in mind for real field photos.
 
+### Lab → field: the number that matters
+
+Zero-shot evaluation on [PlantDoc](https://github.com/pratikkayal/PlantDoc-Dataset)
+(Singh et al., 2020, CC BY 4.0): 2,551 web and field photos after removing duplicates
+(including 9 groups of identical images filed under *different* classes).
+
+| Model | PlantVillage (lab) | PlantDoc (field) | Right crop | Healthy vs diseased |
+|---|---:|---:|---:|---:|
+| ConvNeXt-T | 99.7% | **31.2%** | **58.8%** | 79.7% |
+| ViT-S/16 | 99.7% | 29.7% | 51.4% | **80.0%** |
+| ResNet-50 | 99.4% | 27.0% | 47.6% | 78.4% |
+| EfficientNet-B0 | 99.6% | 23.4% | 44.9% | 75.7% |
+
+- **99.7% in the lab becomes ~30% on real photos.** Even the plant species is wrong about half
+  the time; healthy vs diseased (76–80%) barely beats always answering "diseased" (66.8%).
+- Tomato bacterial spot: 100% in the lab, **1%** in the field (ConvNeXt-T).
+- On unfamiliar images, models fall back on a few default classes (ConvNeXt-T answers "tomato
+  late blight" for 25% of PlantDoc images).
+- Field errors come with low confidence (only 2–4% above 0.9) — a signal to abstain on.
+- What predicted the ranking was the background-*change* test, not lab accuracy.
+
 Details per model in [`reports/`](reports) · full analysis in the [research log](docs/research-log.md).
 
-> These scores are on lab images with uniform backgrounds. How they hold up on real field photos
-> is one of the next questions on the [roadmap](ROADMAP.md).
+> Lab scores above are on PlantVillage images with uniform backgrounds; see
+> [Lab → field](#lab--field-the-number-that-matters) for real photos.
 
 ## Quickstart
 
@@ -140,6 +161,9 @@ python scripts/download_data.py --segmented           # leaf masks for Grad-CAM
 python -m leafscan.explain metrics models/resnet50/best.pt [--random-weights]
 python -m leafscan.explain figure models/*/best.pt --images <img> ... --device cpu
 python -m leafscan.background models/convnext_tiny/best.pt
+
+git clone --depth 1 https://github.com/pratikkayal/PlantDoc-Dataset.git data/plantdoc
+python -m leafscan.field models/convnext_tiny/best.pt
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -158,7 +182,8 @@ src/leafscan/
 ├── compare.py    # comparison table & plot, error overlap, McNemar tests
 ├── gradcam.py    # Grad-CAM for CNNs and ViT, leaf-focus & pointing-game metrics
 ├── explain.py    # Grad-CAM analysis against leaf masks, example figures
-└── background.py # causal test: leaf only, background only, swapped background
+├── background.py # causal test: leaf only, background only, swapped background
+└── field.py      # zero-shot evaluation on PlantDoc field photos
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -174,7 +199,8 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Model comparison: ResNet-50 · ConvNeXt-T · ViT-S (accuracy, F1, latency, size)
 - [x] Error analysis + Grad-CAM explanations
 - [x] Background bias: causal test with edited backgrounds
-- [ ] Robustness to real field photos (lab → field domain shift)
+- [x] Robustness to real field photos: 99.7% → ~30% on PlantDoc
+- [ ] Closing the lab → field gap (fine-tuning on PlantDoc)
 - [ ] Gradio demo on Hugging Face Spaces
 
 **Phase 2 — RAG assistant**
@@ -185,4 +211,4 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 
 ## License
 
-Code: MIT. Dataset: PlantVillage, CC BY-SA 3.0.
+Code: MIT. Datasets: PlantVillage (CC BY-SA 3.0); PlantDoc (CC BY 4.0, images not redistributed here).

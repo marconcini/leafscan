@@ -5,6 +5,63 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-25 — Lab → field: from 99.7% to 31%
+
+**Data actually used.** 2,551 PlantDoc images after cleaning. PlantDoc contained byte-identical
+duplicates: 3 with the same label (kept once) and **9 groups (18 files) filed under conflicting
+classes** — e.g. the same photo as both *potato early blight* and *potato late blight* (5 groups),
+or under two corn diseases (3) — all dropped. 11 duplicates straddled PlantDoc's own
+train/test split. Also: on a case-insensitive file system (macOS), `git clone` silently keeps one
+of each pair of names differing only by case (`CAR1.jpg` / `car1.jpg`), 6 files.
+PlantDoc images are **web-scraped**: real field photos, but also stock photos on white
+backgrounds with watermarks. "Field" here means "not PlantVillage", not only "taken outdoors".
+
+| Model | Lab (PlantVillage) | PlantDoc acc. | Balanced | Crop right | Healthy/diseased right | Conf. correct / wrong |
+|---|---:|---:|---:|---:|---:|---:|
+| ConvNeXt-T | 99.71% | **31.2%** | 29.7% | **58.8%** | 79.7% | 0.67 / 0.50 |
+| ViT-S/16 | 99.73% | 29.7% | 28.3% | 51.4% | **80.0%** | 0.67 / 0.49 |
+| ResNet-50 | 99.44% | 27.0% | 24.9% | 47.6% | 78.4% | 0.62 / 0.45 |
+| EfficientNet-B0 | 99.65% | 23.4% | 22.5% | 44.9% | 75.7% | 0.57 / 0.43 |
+
+Chance: 2.6% (38 classes). Healthy/diseased majority baseline: 66.8% (33.2% of images are healthy).
+On PlantDoc's official test split only (228 images): 33–42%.
+
+**Hypotheses vs. results.**
+1. *Accuracy falls to 20–45%* → **confirmed**: 23–31%, in line with the 31% of
+   [Mohanty et al. 2016] on images from other sources. The 99.7% was a lab number.
+2. *ViT-S best, EfficientNet-B0 worst* → **partly confirmed.** EfficientNet-B0 is worst (as the
+   background test predicted). ConvNeXt-T and ViT-S are tied (McNemar p = 0.08) and both
+   significantly better than ResNet-50 and EfficientNet-B0 (p ≤ 0.003).
+3. *Crop accuracy much higher than disease accuracy* → **confirmed**, but crop accuracy itself
+   is only 45–59%: half the time the model does not even get the plant species right.
+   Healthy/diseased is 76–80%, only 9–13 points above always answering "diseased".
+4. *Overconfident on wrong field predictions (> 0.5)* → **refuted.** Mean confidence on errors
+   is 0.43–0.50, and only 2–4% of errors have confidence > 0.9. Confidence on correct field
+   predictions also drops (0.57–0.67, vs ~0.9 in the lab). Confidence carries signal on
+   field photos → worth exploiting for abstention (calibration step).
+
+**Where it breaks (ConvNeXt-T, classes with ≥ 30 images).**
+- Collapsed classes: tomato mosaic virus 0%, **tomato bacterial spot 1% (100% in the lab)**,
+  cherry healthy 2%, peach healthy 3%.
+- Best: tomato late blight 79%, corn gray leaf spot 75%, squash powdery mildew 72%.
+- **Default classes again**: ConvNeXt-T answers *tomato late blight* for 25% of PlantDoc images —
+  the same class it answered for blank grey images in the background test. *Strawberry leaf
+  scorch* plays the same role for all models. Unfamiliar input → a few "sink" classes.
+- Top confusions are between diseases of the same crop (corn northern leaf blight / common rust →
+  gray leaf spot; tomato septoria → early blight; leaf mold → late blight) and potato late blight
+  → tomato late blight, as in the lab.
+
+**Takeaways.**
+- A PlantVillage model should not be presented as a plant-disease detector for real photos.
+  This is the single most important number of the project so far.
+- What predicted field robustness: the background-*change* sensitivity test (EfficientNet-B0
+  worst in both), not lab accuracy (all four within 0.3 points) nor Grad-CAM leaf focus
+  (ResNet-50 highest, yet third here).
+- Next: (a) fine-tune on PlantDoc's train split and evaluate on its test split — how much does a
+  little in-domain data help?; (b) use confidence to abstain; (c) data quality of PlantDoc itself.
+
+---
+
 ## 2026-10-25 — Plan: lab → field, how much do the models drop?
 
 *Written before running the evaluation.*

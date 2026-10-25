@@ -16,13 +16,15 @@ Each step is small, testable and pushed on its own. Research questions are track
   use the background (background-only ≈ chance once silhouette and default-class artefacts are
   removed); EfficientNet-B0 is the most disturbed by background changes, ViT-S the least
 - [ ] **Training on the `segmented` variant** — does it make models more robust to background changes?
-- [ ] **Lab → field domain shift** — evaluate on real field photos (PlantDoc [Singh et al. 2020])
-  - *Q: how much do 99%-accuracy models drop, and what closes the gap?*
-  - *Prediction from the background test: ViT-S should hold up best, EfficientNet-B0 worst.*
+- [x] **Lab → field domain shift** — zero-shot on PlantDoc [Singh et al. 2020]: 99.7% → 23–31%;
+  ConvNeXt-T ≈ ViT-S > ResNet-50 > EfficientNet-B0 (as the background test predicted for the last)
+- [ ] **Closing the gap** — fine-tune on PlantDoc's train split, evaluate on its test split
+  - *Q: how many in-domain images are needed? Does lab pre-training still help?*
 - [ ] **Ensembling** — models make different errors (Jaccard 0.17–0.41): does averaging them help?
 - [ ] **Data cleaning** — find mislabelled / empty images (2 found by hand among errors shared by all models)
 - [ ] **Calibration & out-of-distribution rejection** — temperature scaling [Guo et al. 2017]
   - *Q: what does the model say about a photo that is not a leaf?*
+  - *Field confidence is low on errors (2–4% of errors > 0.9): can abstention recover precision?*
 - [ ] **Demo** — Gradio app, weights on the Hugging Face Hub, Space
   - *Q: does CPU latency of depthwise models change with ONNX Runtime or on x86 (oneDNN)?*
 
