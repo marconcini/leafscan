@@ -51,6 +51,7 @@ def test_field_metrics_levels():
     assert m["crop_accuracy"] == 0.75  # only the tomato -> apple error changes crop
     assert m["health_accuracy"] == 0.5  # scab->healthy and blight->healthy are health errors
     assert m["balanced_accuracy"] == pytest.approx((0.5 + 1 + 0) / 3)
+    assert m["share_healthy_images"] == 0.25 and m["health_majority_baseline"] == 0.75
 
 
 def test_load_and_evaluate(tmp_path):
@@ -79,6 +80,8 @@ def test_load_and_evaluate(tmp_path):
                     classes, img_size=32)
     res = evaluate(ckpt, items, num_workers=0)
     assert res["all"]["n"] == 3 and res["plantdoc_test_split_only"]["n"] == 2
+    assert len(res["predictions"]) == 3
+    assert res["all"]["share_healthy_images"] == 1 / 3
 
 
 def test_unmapped_folder_is_an_error(tmp_path):

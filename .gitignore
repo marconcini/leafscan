@@ -9,3 +9,6 @@ __pycache__/
 data/
 models/*
 !models/.gitkeep
+
+# contains web-scraped third-party images (PlantDoc), not redistributed
+reports/field_examples.jpg

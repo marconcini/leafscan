@@ -128,9 +128,13 @@ def field_metrics(y: np.ndarray, probs: np.ndarray, classes: list[str]) -> dict:
     for t, ok in zip(true_l, correct, strict=True):
         per_class[t].append(bool(ok))
     confusions = Counter((t, p) for t, p, ok in zip(true_l, pred_l, correct, strict=True) if not ok)
+    healthy_share = float(np.mean([is_healthy(t) for t in true_l]))
     return {
         "n": len(y),
         "accuracy": float(correct.mean()),
+        "share_healthy_images": healthy_share,
+        # health accuracy of always answering the majority (healthy or diseased)
+        "health_majority_baseline": max(healthy_share, 1 - healthy_share),
         "balanced_accuracy": float(np.mean([np.mean(v) for v in per_class.values()])),
         "crop_accuracy": float(np.mean([crop_of(t) == crop_of(p)
                                         for t, p in zip(true_l, pred_l, strict=True)])),
@@ -163,24 +167,67 @@ def evaluate(ckpt_path: Path, items: list[dict], device: torch.device | None = N
         ys.append(y)
     y, p = torch.cat(ys).numpy(), torch.cat(probs).numpy()
     res = {"model": ckpt["model_name"], "all": field_metrics(y, p, classes)}
+    res["predictions"] = [
+        {"path": str(it["path"]), "true": classes[t], "pred": classes[int(q.argmax())],
+         "confidence": round(float(q.max()), 4)}
+        for it, t, q in zip(items, y, p, strict=True)
+    ]
     test_idx = np.array([it["split"] == "test" for it in items])
     res["plantdoc_test_split_only"] = field_metrics(y[test_idx], p[test_idx], classes)
     return res
+
+
+def figure(report: dict, out: Path, n: int = 8, seed: int = 0) -> None:
+    """Grid of field photos with the model's prediction (half right, half wrong)."""
+    import random
+
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    from leafscan.data import pretty_label
+
+    rng = random.Random(seed)
+    preds = report["predictions"]
+    right = [q for q in preds if q["true"] == q["pred"]]
+    wrong = [q for q in preds if q["true"] != q["pred"]]
+    picks = rng.sample(right, n // 2) + rng.sample(wrong, n - n // 2)
+    cols = 4
+    rows = (n + cols - 1) // cols
+    fig, axes = plt.subplots(rows, cols, figsize=(10, 2.9 * rows))
+    for ax, q in zip(axes.flat, picks, strict=False):
+        ax.imshow(Image.open(q["path"]).convert("RGB").resize((224, 224)))
+        ok = q["true"] == q["pred"]
+        ax.set_title(f"label: {pretty_label(q['true'])[:30]}\n"
+                     f"{'✓' if ok else '✗'} {pretty_label(q['pred'])[:28]} ({q['confidence']:.2f})",
+                     fontsize=7.5, color="black" if ok else "firebrick")
+        ax.axis("off")
+    fig.tight_layout()
+    fig.savefig(out, dpi=110)
+    plt.close(fig)
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("checkpoint", type=Path)
+    ap.add_argument("--figure", action="store_true",
+                    help="only draw reports/field_examples.jpg from an existing report "
+                         "(for local inspection: PlantDoc images are web-scraped, some are "
+                         "watermarked stock photos, so the figure is not committed)")
     ap.add_argument("--plantdoc-dir", type=Path, default=DEFAULT_PLANTDOC_DIR)
     ap.add_argument("--reports-dir", type=Path, default=Path("reports"))
     ap.add_argument("--device", help="e.g. cpu (default: cuda > mps > cpu)")
     args = ap.parse_args()
 
+    out = args.reports_dir / args.checkpoint.parent.name / "field_plantdoc.json"
+    if args.figure:
+        figure(json.loads(out.read_text()), args.reports_dir / "field_examples.jpg")
+        return
     items, skipped = load_plantdoc(args.plantdoc_dir)
     res = evaluate(args.checkpoint, items, torch.device(args.device) if args.device else None)
-    res["skipped_unreadable"] = skipped
-    out = args.reports_dir / args.checkpoint.parent.name / "field_plantdoc.json"
+    res["skipped"] = skipped
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(res, indent=2))
     a = res["all"]
