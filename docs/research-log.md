@@ -5,6 +5,30 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-27 — Plan: the model behind the demo
+
+*Written before training it.*
+
+**Goal.** One model for the demo, chosen and calibrated with what the previous steps taught:
+field data matters most, and calibration must be fitted on field data.
+
+**Setup.** ConvNeXt-T, started from the PlantVillage checkpoint, fine-tuned (400 steps, same
+recipe as the field fine-tuning study) on 85% of PlantDoc train; the other 15% (stratified) is a
+**field calibration set** used only to fit the temperature and choose the abstention threshold
+(lowest confidence whose answers are >= 90% right on the calibration set). Reported on PlantDoc
+test (never used before for any choice) and on PlantVillage test.
+
+**Hypotheses.**
+1. PlantDoc test accuracy about 73-75% (slightly below the 74.4% of the full-train runs: 15% less data).
+2. Field-fitted temperature brings PlantDoc test ECE below 0.05 (vs 0.24 zero-shot, 0.49 with the
+   lab temperature).
+3. The field threshold keeps >= 85% accuracy on the PlantDoc photos it answers, while answering
+   at least half of them.
+4. **Forgetting**: PlantVillage test accuracy drops from 99.7% but stays above 90%: lab images
+   are easy and the field fine-tuning is short.
+
+---
+
 ## 2026-10-27 — "I don't know" works in the lab and breaks in the field
 
 | Model | Lab ECE (→ after T) | Field ECE (→ after lab T) | Field acc. at 100 / 50 / 10% coverage | Lab threshold on field: answered / accuracy | AUROC lab leaves vs flowers / textures | AUROC field leaves vs flowers / textures |
