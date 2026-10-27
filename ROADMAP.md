@@ -26,8 +26,10 @@ Each step is small, testable and pushed on its own. Research questions are track
 - [x] **Calibration, abstention & OOD rejection** — all work in the lab (ECE 0.001 after temperature
   scaling, OOD AUROC ≥ 0.98) and break on field photos (lab temperature doubles field ECE; lab
   threshold: 99.9% → ~53%; flowers vs field leaves AUROC 0.62–0.83)
-- [ ] **Field calibration** — fit temperature / thresholds on PlantDoc (fine-tuned model) for the demo
-- [ ] **Demo** — Gradio app, weights on the Hugging Face Hub, Space
+- [x] **Demo model** — PlantVillage → PlantDoc fine-tuning with a field calibration split:
+  72.4% on PlantDoc test; with the field threshold, 65% answered at 87% accuracy
+- [x] **Demo app** — Gradio: calibrated top-3, "Not sure" below the field threshold, Grad-CAM
+- [ ] **Publish** — weights on the Hugging Face Hub, public Space
   - *Q: does CPU latency of depthwise models change with ONNX Runtime or on x86 (oneDNN)?*
 
 ## Phase 2 — RAG assistant (research-oriented)

@@ -171,6 +171,22 @@ Details per model in [`reports/`](reports) · full analysis in the [research log
 > Lab scores above are on PlantVillage images with uniform backgrounds; see
 > [Lab → field](#lab--field-the-number-that-matters) for real photos.
 
+## Demo
+
+A Gradio app runs the final model: ConvNeXt-T trained on PlantVillage, fine-tuned on PlantDoc
+field photos, with a confidence threshold fitted on held-out field photos.
+
+```bash
+pip install -e ".[app]"
+python -m leafscan.deploy      # builds models/leafscan_field/best.pt (needs both datasets)
+python -m leafscan.app         # http://127.0.0.1:7860
+```
+
+- Upload a leaf photo → top-3 diagnoses with calibrated probabilities and a Grad-CAM map.
+- Below the field-fitted threshold it answers **"Not sure"** instead of guessing.
+- On PlantDoc test photos: **72.4%** right overall; it answers 65% of them, and **87%** of those
+  answers are right. Lab photos: 96.6% (99.7% before field fine-tuning).
+
 ## Quickstart
 
 ```bash
@@ -214,7 +230,10 @@ src/leafscan/
 ├── background.py # causal test: leaf only, background only, swapped background
 ├── field.py      # zero-shot evaluation on PlantDoc field photos
 ├── field_finetune.py # fine-tuning on PlantDoc fractions, two initialisations
-└── reliability.py   # calibration (ECE, temperature), abstention, OOD detection
+├── reliability.py   # calibration (ECE, temperature), abstention, OOD detection
+├── deploy.py        # demo model: field fine-tuning + field calibration
+├── predictor.py     # inference: calibrated top-k, abstention, Grad-CAM overlay
+└── app.py           # Gradio demo
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -233,7 +252,8 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Robustness to real field photos: 99.7% → ~30% on PlantDoc
 - [x] Closing the lab → field gap: fine-tuning on PlantDoc, 38.6% → 74–76%
 - [x] Calibration, abstention and OOD detection: reliable in the lab, not in the field
-- [ ] Gradio demo on Hugging Face Spaces
+- [x] Demo app: field-calibrated model, "Not sure" answers, Grad-CAM
+- [ ] Public demo on Hugging Face Spaces
 
 **Phase 2 — RAG assistant**
 - [ ] Corpus of agronomic fact sheets per disease

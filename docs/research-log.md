@@ -5,6 +5,40 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-27 — The demo model: honest at 87% on two thirds of field photos
+
+**Data.** PlantDoc train split into 1,975 training and 348 calibration images; 228 test images.
+
+| | PlantDoc test | PlantVillage test |
+|---|---:|---:|
+| Accuracy | 72.4% (95% CI 66.2–78.1) | 96.6% (was 99.7%) |
+| ECE before / after field temperature (T = 0.83) | 0.087 / 0.090 | – / 0.051 |
+| With the field threshold (0.75): answered / right | **65% / 87%** | 94% / 98.7% |
+
+Crop right: 86%; healthy vs diseased right: 95%. On the calibration set the threshold gives
+64% coverage at 90.1% accuracy (the target); on test, 65% at 87.2%.
+
+**Hypotheses vs. results.**
+1. *Accuracy ≈ 73–75%* → **consistent**: 72.4%, just below the range, well within the ±6-point CI.
+2. *Field temperature brings ECE below 0.05* → **refuted, for an interesting reason**: the
+   field-fine-tuned model is already fairly calibrated on field photos (ECE 0.087 vs 0.24
+   zero-shot), and a temperature fitted on 348 images does not improve it (0.090). Most of the
+   miscalibration came from the domain gap, not from the confidence scale.
+3. *The field threshold keeps ≥ 85% accuracy on ≥ 50% of photos* → **confirmed**: 87% on 65%.
+   The 90% target set on calibration data lands at 87% on test, a small and honest shift.
+4. *Forgetting stays above 90% on lab images* → **confirmed**: 96.6% (−3.1 points).
+
+**Practical checks.** Predictor tried on real PlantDoc test photos: 2 of the 4 errors in a random
+sample of 8 were flagged "Not sure". CPU latency with Grad-CAM: ~1.6 s per photo on the Mac CPU
+(ConvNeXt's depthwise convolutions are slow there; see 2026-10-19). End-to-end call of the
+running Gradio app through `gradio_client` returns the expected diagnosis and heatmap.
+
+**Takeaway.** The final system is modest but honest: about 3 out of 4 field photos right; when it
+answers, about 9 out of 10; when it doesn't know, it says so. That is a more useful claim than
+"99.7%".
+
+---
+
 ## 2026-10-27 — Plan: the model behind the demo
 
 *Written before training it.*
