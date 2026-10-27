@@ -120,7 +120,7 @@ def fit_temperature(logits: np.ndarray, labels: np.ndarray) -> float:
         return loss
 
     opt.step(closure)
-    return float(log_t.exp())
+    return float(log_t.detach().exp())
 
 
 def risk_coverage(conf: np.ndarray, correct: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
