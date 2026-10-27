@@ -76,25 +76,16 @@ def init_model(init: str, pv_checkpoint: Path, device: torch.device):
     return model.to(device), classes, img_size, name
 
 
-def run(init: str, fraction: float, seed: int, pv_checkpoint: Path,
-        plantdoc_dir: Path = DEFAULT_PLANTDOC_DIR, steps: int = 400, batch_size: int = 32,
-        lr: float = 1e-4, device: torch.device | None = None, num_workers: int = 4) -> dict:
-    device = device or get_device()
-    torch.manual_seed(seed)
-    items, _ = load_plantdoc(plantdoc_dir)
-    train_items = stratified_fraction([i for i in items if i["split"] == "train"], fraction, seed)
-    test_items = [i for i in items if i["split"] == "test"]
-
-    model, classes, img_size, name = init_model(init, pv_checkpoint, device)
-    c2i = {c: i for i, c in enumerate(classes)}
-    loader = DataLoader(ItemsDataset(train_items, c2i, build_transforms(img_size, train=True)),
-                        batch_size=min(batch_size, len(train_items)), shuffle=True,
+def train_steps(model, items, c2i, img_size, steps, batch_size, lr, device,
+                num_workers=4) -> list[float]:
+    """Fine-tune for a fixed number of optimiser steps; returns the training losses."""
+    loader = DataLoader(ItemsDataset(items, c2i, build_transforms(img_size, train=True)),
+                        batch_size=min(batch_size, len(items)), shuffle=True,
                         num_workers=num_workers, drop_last=True,
                         persistent_workers=num_workers > 0)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.05)
     sched = torch.optim.lr_scheduler.LambdaLR(opt, warmup_cosine(steps, steps // 10))
-
     model.train()
     step, losses = 0, []
     while step < steps:
@@ -108,16 +99,41 @@ def run(init: str, fraction: float, seed: int, pv_checkpoint: Path,
             step += 1
             if step >= steps:
                 break
-
     model.eval()
-    test_loader = DataLoader(ItemsDataset(test_items, c2i, build_transforms(img_size, False)),
-                             batch_size=64, num_workers=num_workers)
-    ys, probs = [], []
-    with torch.no_grad():
-        for x, y in test_loader:
-            probs.append(torch.softmax(model(x.to(device)), 1).cpu())
-            ys.append(y)
-    y, p = torch.cat(ys).numpy(), torch.cat(probs).numpy()
+    return losses
+
+
+@torch.no_grad()
+def predict_logits(model, items, c2i, img_size, device, num_workers=4
+                   ) -> tuple[np.ndarray, np.ndarray]:
+    loader = DataLoader(ItemsDataset(items, c2i, build_transforms(img_size, False)),
+                        batch_size=64, num_workers=num_workers)
+    ys, logits = [], []
+    for x, y in loader:
+        logits.append(model(x.to(device)).float().cpu())
+        ys.append(y)
+    return torch.cat(ys).numpy(), torch.cat(logits).numpy()
+
+
+def predict_probs(model, items, c2i, img_size, device, num_workers=4):
+    y, logits = predict_logits(model, items, c2i, img_size, device, num_workers)
+    return y, torch.softmax(torch.from_numpy(logits), 1).numpy()
+
+
+def run(init: str, fraction: float, seed: int, pv_checkpoint: Path,
+        plantdoc_dir: Path = DEFAULT_PLANTDOC_DIR, steps: int = 400, batch_size: int = 32,
+        lr: float = 1e-4, device: torch.device | None = None, num_workers: int = 4) -> dict:
+    device = device or get_device()
+    torch.manual_seed(seed)
+    items, _ = load_plantdoc(plantdoc_dir)
+    train_items = stratified_fraction([i for i in items if i["split"] == "train"], fraction, seed)
+    test_items = [i for i in items if i["split"] == "test"]
+
+    model, classes, img_size, name = init_model(init, pv_checkpoint, device)
+    c2i = {c: i for i, c in enumerate(classes)}
+    losses = train_steps(model, train_items, c2i, img_size, steps, batch_size, lr, device,
+                         num_workers)
+    y, p = predict_probs(model, test_items, c2i, img_size, device, num_workers)
     metrics = field_metrics(y, p, classes)
     lo, hi = bootstrap_ci(p.argmax(1) == y, seed=seed)
     return {"model": name, "init": init, "fraction": fraction, "seed": seed,
