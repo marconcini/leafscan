@@ -1,0 +1,59 @@
+{
+  "temperature_fitted_on_pv_val": 0.5635369420051575,
+  "pv_test": {
+    "n": 10709,
+    "accuracy": 0.994397235969745,
+    "mean_confidence": 0.9000983834266663,
+    "ece": 0.09438742204244113,
+    "ece_after_temperature": 0.0020189495722957,
+    "accuracy_at_coverage": {
+      "1.0": 0.994397235969745,
+      "0.75": 0.9997509960159362,
+      "0.5": 0.9996264475158759,
+      "0.25": 0.9996264475158759,
+      "0.1": 0.9990662931839402
+    }
+  },
+  "plantdoc": {
+    "n": 2551,
+    "accuracy": 0.2700901607212858,
+    "mean_confidence": 0.4967886209487915,
+    "ece": 0.22669842899990567,
+    "ece_after_temperature": 0.47056187161834784,
+    "accuracy_at_coverage": {
+      "1.0": 0.2700901607212858,
+      "0.75": 0.32096184004181916,
+      "0.5": 0.36912225705329155,
+      "0.25": 0.45297805642633227,
+      "0.1": 0.5294117647058824
+    }
+  },
+  "lab_threshold": {
+    "target_lab_accuracy": 0.999,
+    "threshold": 0.7840340733528137,
+    "pv_test": {
+      "coverage": 0.98197777570268,
+      "accuracy_when_answering": 0.9983834157474325
+    },
+    "plantdoc": {
+      "coverage": 0.20384163073304587,
+      "accuracy_when_answering": 0.48653846153846153
+    }
+  },
+  "ood_auroc": {
+    "pv_test vs flowers (msp)": 0.9830090578018489,
+    "pv_test vs flowers (energy)": 0.9933652535250723,
+    "pv_test vs dtd (msp)": 0.9812557492902173,
+    "pv_test vs dtd (energy)": 0.9873526790947365,
+    "pv_test vs plantdoc (msp)": 0.9382433815656911,
+    "pv_test vs plantdoc (energy)": 0.9556147686458548,
+    "plantdoc vs flowers (msp)": 0.6691956095648766,
+    "plantdoc vs flowers (energy)": 0.6373216385731086,
+    "plantdoc vs dtd (msp)": 0.6793927287588514,
+    "plantdoc vs dtd (energy)": 0.5414233675571533
+  },
+  "mean_confidence_ood": {
+    "flowers": 0.34935319423675537,
+    "dtd": 0.34589505195617676
+  }
+}
