@@ -229,13 +229,15 @@ def figure(ckpt_path: Path, out: Path) -> None:
         a1.plot(xs, ys, marker="o", color=colors[src], linewidth=2, markersize=7,
                 markeredgecolor="white", markeredgewidth=2, label=names[src])
         cov, acc = risk_coverage(conf, correct)
-        a2.plot(100 * cov, 100 * acc, color=colors[src], linewidth=2, label=names[src])
+        keep = np.arange(1, len(cov) + 1) >= 50  # tiny subsets give meaningless 0% / 100%
+        a2.plot(100 * cov[keep], 100 * acc[keep], color=colors[src], linewidth=2,
+                label=names[src])
     a1.plot([0, 1], [0, 1], color=muted, linestyle="--", linewidth=1)
     a1.text(0.62, 0.55, "perfect calibration", color=muted, fontsize=8, rotation=38)
     a1.set_xlabel("confidence", color=muted)
     a1.set_ylabel("accuracy", color=muted)
     a1.set_title("Reliability: does confidence mean accuracy?", color=ink, loc="left", fontsize=10)
-    a2.set_xlabel("photos answered (%), most confident first", color=muted)
+    a2.set_xlabel("photos answered (%), most confident first (≥ 50 photos)", color=muted)
     a2.set_ylabel("accuracy on answered photos (%)", color=muted)
     a2.set_title("Abstention: answer only when confident", color=ink, loc="left", fontsize=10)
     a2.invert_xaxis()
@@ -247,7 +249,7 @@ def figure(ckpt_path: Path, out: Path) -> None:
         for side in ("left", "bottom"):
             ax.spines[side].set_color(grid)
         ax.tick_params(colors=muted)
-        ax.legend(frameon=False, fontsize=8.5, loc="lower right" if ax is a1 else "lower left")
+        ax.legend(frameon=False, fontsize=8.5, loc="lower right" if ax is a1 else "center left")
     fig.tight_layout()
     fig.savefig(out, dpi=140)
     plt.close(fig)
