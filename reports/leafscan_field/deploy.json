@@ -1,0 +1,47 @@
+{
+  "model": "convnext_tiny.fb_in22k_ft_in1k",
+  "steps": 400,
+  "seed": 0,
+  "n_train": 1975,
+  "n_calibration": 348,
+  "n_test": 228,
+  "final_train_loss": 0.9261097997426987,
+  "temperature": 0.8288379907608032,
+  "threshold": 0.7529807090759277,
+  "plantdoc_test": {
+    "n": 228,
+    "accuracy": 0.7236842105263158,
+    "share_healthy_images": 0.39473684210526316,
+    "health_majority_baseline": 0.6052631578947368,
+    "balanced_accuracy": 0.7142923948479505,
+    "crop_accuracy": 0.8640350877192983,
+    "health_accuracy": 0.9473684210526315,
+    "mean_confidence_correct": 0.8562392592430115,
+    "mean_confidence_wrong": 0.6165077090263367,
+    "share_wrong_with_confidence_above_0.9": 0.06349206349206349,
+    "accuracy_ci95": [
+      0.6622807017543859,
+      0.7807017543859649
+    ],
+    "ece_uncalibrated": 0.08719301854439995,
+    "ece_calibrated": 0.09000095885181632,
+    "with_threshold": {
+      "coverage": 0.6535087719298246,
+      "accuracy_when_answering": 0.87248322147651
+    }
+  },
+  "plantdoc_calibration_set": {
+    "with_threshold": {
+      "coverage": 0.6379310344827587,
+      "accuracy_when_answering": 0.9009009009009009
+    }
+  },
+  "plantvillage_test": {
+    "accuracy": 0.9662900364179662,
+    "ece_calibrated": 0.051160602847482764,
+    "with_threshold": {
+      "coverage": 0.9405173218787936,
+      "accuracy_when_answering": 0.9870929308975377
+    }
+  }
+}

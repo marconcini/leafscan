@@ -12,3 +12,6 @@ models/*
 
 # contains web-scraped third-party images (PlantDoc), not redistributed
 reports/field_examples.jpg
+
+# local editor / agent config
+.claude/
