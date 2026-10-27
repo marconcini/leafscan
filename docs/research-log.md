@@ -5,6 +5,47 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-27 — "I don't know" works in the lab and breaks in the field
+
+| Model | Lab ECE (→ after T) | Field ECE (→ after lab T) | Field acc. at 100 / 50 / 10% coverage | Lab threshold on field: answered / accuracy | AUROC lab leaves vs flowers / textures | AUROC field leaves vs flowers / textures |
+|---|---:|---:|---:|---:|---:|---:|
+| ConvNeXt-T | 0.098 → 0.001 | 0.240 → **0.487** | 31.2 / 43.6 / 61.2% | 19.7% / 56.1% | 0.999 / 0.999 | 0.83 / 0.90 |
+| ViT-S/16 | 0.099 → 0.001 | 0.246 → 0.488 | 29.7 / 42.6 / 54.9% | 15.8% / 53.7% | 0.997 / 0.997 | 0.80 / 0.80 |
+| ResNet-50 | 0.094 → 0.002 | 0.227 → 0.471 | 27.0 / 36.9 / 52.9% | 20.4% / 48.7% | 0.983 / 0.981 | 0.67 / 0.68 |
+| EfficientNet-B0 | 0.104 → 0.002 | 0.229 → 0.515 | 23.4 / 31.2 / 52.2% | 13.9% / 50.4% | 0.992 / 0.986 | 0.62 / 0.71 |
+
+ECE: 15 bins. AUROC with maximum softmax probability (energy in `reliability.json`).
+Temperature fitted on PlantVillage validation: T = 0.53–0.56. Figure: `reports/reliability.png`.
+
+**Hypotheses vs. results.**
+1. *Underconfident in the lab, fixed by temperature scaling* → **confirmed**: mean confidence
+   0.89–0.90 at 99.4–99.7% accuracy (ECE ≈ 0.10); after T ≈ 0.55, ECE 0.001–0.002.
+2. *Overconfident in the field, and the lab temperature makes it worse* → **confirmed**:
+   confidence 0.46–0.55 at 23–31% accuracy (ECE 0.23–0.25). The lab temperature *sharpens*
+   predictions, which **doubles** field ECE (0.47–0.52). Calibration fitted in one domain is
+   harmful in another.
+3. *Answering on the 50% most confident field photos gives ≥ 45%* → **refuted**: 31–44%
+   (+8 to +12 points). Abstention helps, but slowly: even the 10% most confident field
+   answers are only 52–61% right.
+4. *Lab thresholds don't transfer* → **confirmed**: the threshold that gives 99.9% accuracy on
+   lab validation answers 98% of lab test photos at 99.8–99.96%, but only 14–20% of field photos,
+   and those answers are right **49–56%** of the time.
+5. *Textures easy (> 0.9), flowers hard (< 0.8)* → **half refuted.** Against *lab* leaves, both
+   are trivially rejected (AUROC 0.98–0.999), flowers included. Against *field* leaves, which is
+   what a real app sees, rejection collapses: 0.62–0.83 for flowers, 0.68–0.90 for textures.
+   And field leaves themselves look out-of-distribution: lab vs PlantDoc AUROC is 0.94–0.96.
+   The energy score is not consistently better than softmax confidence here.
+
+**Takeaways.**
+- Every safety mechanism measured in the lab (calibration, confidence threshold, OOD rejection)
+  looked excellent and **did not survive the move to field photos**. Lab validation cannot
+  certify field reliability; only field data can.
+- For the demo: no lab-tuned threshold. Either fine-tune and calibrate on field data, or display
+  confidence honestly ("low confidence — consult an expert") with a threshold chosen on PlantDoc.
+- ConvNeXt-T is again the best compromise (best field accuracy, best field OOD rejection).
+
+---
+
 ## 2026-10-27 — Plan: can the models say "I don't know"?
 
 *Written before running the analysis.*

@@ -23,9 +23,10 @@ Each step is small, testable and pushed on its own. Research questions are track
 - [ ] **More field data** — accuracy still rises ~5 points per doubling: other field datasets?
 - [ ] **Ensembling** — models make different errors (Jaccard 0.17–0.41): does averaging them help?
 - [ ] **Data cleaning** — find mislabelled / empty images (2 found by hand among errors shared by all models)
-- [ ] **Calibration & out-of-distribution rejection** — temperature scaling [Guo et al. 2017]
-  - *Q: what does the model say about a photo that is not a leaf?*
-  - *Field confidence is low on errors (2–4% of errors > 0.9): can abstention recover precision?*
+- [x] **Calibration, abstention & OOD rejection** — all work in the lab (ECE 0.001 after temperature
+  scaling, OOD AUROC ≥ 0.98) and break on field photos (lab temperature doubles field ECE; lab
+  threshold: 99.9% → ~53%; flowers vs field leaves AUROC 0.62–0.83)
+- [ ] **Field calibration** — fit temperature / thresholds on PlantDoc (fine-tuned model) for the demo
 - [ ] **Demo** — Gradio app, weights on the Hugging Face Hub, Space
   - *Q: does CPU latency of depthwise models change with ONNX Runtime or on x86 (oneDNN)?*
 

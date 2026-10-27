@@ -150,6 +150,22 @@ images, evaluated on its test split (228 images, 3 seeds):
 - Starting from the PlantVillage model only helps with very little field data (+8 points at
   233 images, consistent over seeds); from 581 images on, ImageNet weights do as well.
 
+### Can it say "I don't know"? In the lab, yes. In the field, no.
+
+<img src="reports/reliability.png" width="750" alt="Reliability diagram and risk-coverage curve, lab vs field">
+
+| | Lab (PlantVillage) | Field (PlantDoc) |
+|---|---|---|
+| Calibration error (ECE), ConvNeXt-T | 0.098 → **0.001** after temperature scaling | 0.240 → **0.487** with the same temperature |
+| Answer only if confidence ≥ lab threshold | 98% answered, 99.96% right | 20% answered, **56%** right |
+| Reject flowers / textures (AUROC) | 0.999 / 0.999 | 0.83 / 0.90 |
+
+- Models are *under*confident in the lab (label smoothing) and *over*confident in the field; a
+  temperature fitted in the lab doubles the field calibration error.
+- A confidence threshold that guarantees 99.9% in the lab gives ~50% in the field.
+- Rejecting non-leaf photos is trivial next to lab leaves, unreliable next to field leaves.
+- **Lesson: reliability measured in the lab says nothing about the field.**
+
 Details per model in [`reports/`](reports) · full analysis in the [research log](docs/research-log.md).
 
 > Lab scores above are on PlantVillage images with uniform backgrounds; see
@@ -176,6 +192,7 @@ git clone --depth 1 https://github.com/pratikkayal/PlantDoc-Dataset.git data/pla
 python -m leafscan.field models/convnext_tiny/best.pt
 python -m leafscan.field_finetune --init plantvillage --fraction 0.25 --seed 0
 python -m leafscan.field_finetune --summary
+python -m leafscan.reliability models/convnext_tiny/best.pt   # needs Flowers-102 & DTD in data/ood
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -196,7 +213,8 @@ src/leafscan/
 ├── explain.py    # Grad-CAM analysis against leaf masks, example figures
 ├── background.py # causal test: leaf only, background only, swapped background
 ├── field.py      # zero-shot evaluation on PlantDoc field photos
-└── field_finetune.py # fine-tuning on PlantDoc fractions, two initialisations
+├── field_finetune.py # fine-tuning on PlantDoc fractions, two initialisations
+└── reliability.py   # calibration (ECE, temperature), abstention, OOD detection
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -214,6 +232,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Background bias: causal test with edited backgrounds
 - [x] Robustness to real field photos: 99.7% → ~30% on PlantDoc
 - [x] Closing the lab → field gap: fine-tuning on PlantDoc, 38.6% → 74–76%
+- [x] Calibration, abstention and OOD detection: reliable in the lab, not in the field
 - [ ] Gradio demo on Hugging Face Spaces
 
 **Phase 2 — RAG assistant**
