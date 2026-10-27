@@ -28,7 +28,7 @@ Temperature fitted on PlantVillage validation: T = 0.53–0.56. Figure: `reports
    (+8 to +12 points). Abstention helps, but slowly: even the 10% most confident field
    answers are only 52–61% right.
 4. *Lab thresholds don't transfer* → **confirmed**: the threshold that gives 99.9% accuracy on
-   lab validation answers 98% of lab test photos at 99.8–99.96%, but only 14–20% of field photos,
+   lab validation answers 98–99% of lab test photos at 99.8–99.96%, but only 14–20% of field photos,
    and those answers are right **49–56%** of the time.
 5. *Textures easy (> 0.9), flowers hard (< 0.8)* → **half refuted.** Against *lab* leaves, both
    are trivially rejected (AUROC 0.98–0.999), flowers included. Against *field* leaves, which is

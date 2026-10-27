@@ -157,7 +157,7 @@ images, evaluated on its test split (228 images, 3 seeds):
 | | Lab (PlantVillage) | Field (PlantDoc) |
 |---|---|---|
 | Calibration error (ECE), ConvNeXt-T | 0.098 → **0.001** after temperature scaling | 0.240 → **0.487** with the same temperature |
-| Answer only if confidence ≥ lab threshold | 98% answered, 99.96% right | 20% answered, **56%** right |
+| Answer only if confidence ≥ lab threshold | 98.8% answered, 99.96% right | 19.7% answered, **56%** right |
 | Reject flowers / textures (AUROC) | 0.999 / 0.999 | 0.83 / 0.90 |
 
 - Models are *under*confident in the lab (label smoothing) and *over*confident in the field; a
