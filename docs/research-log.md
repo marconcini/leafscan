@@ -5,6 +5,37 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-27 — Plan: can the models say "I don't know"?
+
+*Written before running the analysis.*
+
+**Questions.** (1) Is confidence calibrated, in the lab and in the field? (2) If the model abstains
+on uncertain photos, how much does field accuracy improve, and does a threshold chosen in the
+lab still work in the field? (3) Can it tell that a photo is not a leaf at all?
+
+**Setup.** The four PlantVillage models, no retraining.
+- Calibration: expected calibration error (ECE, 15 bins) [Guo et al. 2017] on PlantVillage test
+  and PlantDoc; temperature scaling fitted on the PlantVillage *validation* split.
+- Selective prediction [Geifman & El-Yaniv 2017]: risk–coverage curves (answer only when
+  confidence ≥ threshold). Lab threshold = lowest confidence keeping ≥ 99.9% accuracy on
+  PlantVillage validation; applied unchanged to PlantDoc.
+- Out-of-distribution: maximum softmax probability [Hendrycks & Gimpel 2017] and energy score
+  [Liu et al. 2020]; AUROC for telling leaves from **flowers** (Oxford Flowers-102, near-OOD:
+  plants but not leaves) and **textures** (DTD, far-OOD). Neither dataset is redistributed.
+
+**Hypotheses.**
+1. In the lab, models are **under**confident because of label smoothing (mean confidence ≈ 0.89
+   vs. 99.6% accuracy); temperature scaling fixes it (ECE < 1%).
+2. On PlantDoc they are **over**confident (mean confidence ≈ 0.5 vs. ~30% accuracy), and the
+   lab-fitted temperature, which *sharpens* predictions, makes field calibration **worse**.
+3. Abstention helps in the field: answering only on the 50% most confident PlantDoc photos
+   raises accuracy from ~30% to ≥ 45%.
+4. Lab thresholds do not transfer: the 99.9%-in-the-lab threshold answers few field photos, and
+   far less than 99.9% of those answers are right.
+5. Textures are easy to reject (AUROC > 0.9 against lab leaves), flowers harder (< 0.8).
+
+---
+
 ## 2026-10-25 — Closing the gap: 233 field images are worth more than 39,000 lab images
 
 **Results** (ConvNeXt-T, PlantDoc test split of 228 images, mean ± std over 3 seeds; 95%

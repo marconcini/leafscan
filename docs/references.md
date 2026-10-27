@@ -19,6 +19,11 @@ What each paper brings to this project. Grouped by phase; extended as the projec
 | Adebayo et al. (2018). *Sanity Checks for Saliency Maps.* NeurIPS | Saliency maps can look plausible even for random weights → always compare to a randomised model. |
 | Dietterich (1998). *Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms.* Neural Computation | McNemar's test to compare two classifiers on one test set. |
 | Guo et al. (2017). *On Calibration of Modern Neural Networks.* ICML | Temperature scaling; are confidence scores trustworthy? |
+| Geifman & El-Yaniv (2017). *Selective Classification for Deep Neural Networks.* NeurIPS | Abstaining on uncertain inputs; risk–coverage curves. |
+| Hendrycks & Gimpel (2017). *A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks.* ICLR | Maximum softmax probability as an OOD score. |
+| Liu et al. (2020). *Energy-based Out-of-distribution Detection.* NeurIPS | Energy score, usually better than softmax confidence for OOD. |
+| Nilsback & Zisserman (2008). *Automated Flower Classification over a Large Number of Classes.* ICVGIP | Oxford Flowers-102, near-OOD images. |
+| Cimpoi et al. (2014). *Describing Textures in the Wild.* CVPR | DTD, far-OOD images. |
 
 ## Phase 2 — RAG
 
