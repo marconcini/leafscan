@@ -15,3 +15,6 @@ reports/field_examples.jpg
 
 # local editor / agent config
 .claude/
+
+# staging folder for Hugging Face Hub uploads (weights are not versioned in git)
+hub/

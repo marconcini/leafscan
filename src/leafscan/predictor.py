@@ -10,6 +10,7 @@ import torch
 from PIL import Image
 
 from leafscan.data import IMAGENET_MEAN, IMAGENET_STD, build_transforms, pretty_label
+from leafscan.export import load_exported
 from leafscan.gradcam import for_model
 from leafscan.model import load_checkpoint
 
@@ -36,9 +37,13 @@ class Prediction:
 
 
 class Predictor:
-    def __init__(self, checkpoint: Path | str, device: str = "cpu"):
+    def __init__(self, source: Path | str, device: str = "cpu"):
+        """`source`: a .pt checkpoint, an exported folder, or a Hugging Face Hub repo id."""
         self.device = torch.device(device)
-        self.model, ckpt = load_checkpoint(checkpoint, self.device)
+        if str(source).endswith(".pt"):
+            self.model, ckpt = load_checkpoint(source, self.device)
+        else:
+            self.model, ckpt = load_exported(source, device)
         self.classes = ckpt["classes"]
         self.img_size = ckpt["img_size"]
         self.temperature = float(ckpt.get("temperature", 1.0))

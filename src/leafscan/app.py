@@ -2,7 +2,7 @@
 
     pip install -e ".[app]"
     python -m leafscan.app                         # http://127.0.0.1:7860
-    LEAFSCAN_CHECKPOINT=path/to/best.pt python -m leafscan.app
+    LEAFSCAN_MODEL=Marconcini/leafscan-convnext-tiny python -m leafscan.app   # from the Hub
 """
 
 from __future__ import annotations
@@ -14,15 +14,17 @@ import gradio as gr
 from leafscan.data import pretty_label
 from leafscan.predictor import Predictor
 
-CHECKPOINT = os.environ.get("LEAFSCAN_CHECKPOINT", "models/leafscan_field/best.pt")
+# a .pt checkpoint, an exported folder, or a Hugging Face Hub repo id
+MODEL = os.environ.get("LEAFSCAN_MODEL", "models/leafscan_field/best.pt")
 
 ABOUT = """
 **What this is.** A research demo: a ConvNeXt-T trained on lab photos (PlantVillage), then
 fine-tuned on web and field photos (PlantDoc), for **38 crop / disease classes** of 14 crops.
 
-**How much to trust it.** About **75%** of field photos are classified correctly. When the
-model is not confident enough to be right at least ~90% of the time (threshold fitted on field
-photos), it says so instead of answering. It only knows the 38 classes it was trained on, and
+**How much to trust it.** On held-out field photos it is right **72%** of the time. When it is
+not confident enough (threshold fitted on field photos) it says "Not sure" instead of answering:
+it answers about two thirds of field photos, and **~87%** of those answers are right.
+It only knows the 38 classes it was trained on, and
 it is **not** a substitute for an agronomist.
 
 Details, experiments and limitations: [github.com/marconcini/leafscan](https://github.com/marconcini/leafscan)
@@ -54,7 +56,7 @@ def build_app(predictor: Predictor) -> gr.Blocks:
 
 
 def main() -> None:
-    build_app(Predictor(CHECKPOINT)).launch()
+    build_app(Predictor(MODEL)).launch()
 
 
 if __name__ == "__main__":

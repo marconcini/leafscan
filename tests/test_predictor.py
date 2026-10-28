@@ -46,3 +46,14 @@ def test_app_builds(ckpt):
     from leafscan.app import build_app
 
     assert isinstance(build_app(Predictor(ckpt)), gr.Blocks)
+
+
+def test_export_roundtrip_gives_same_predictions(ckpt, tmp_path):
+    from leafscan.export import export
+
+    img = Image.new("RGB", (50, 40), (60, 150, 60))
+    config = export(ckpt, tmp_path / "export")
+    assert config["temperature"] == 2.0 and config["classes"] == CLASSES
+    a, b = Predictor(ckpt)(img, explain=False), Predictor(tmp_path / "export")(img, explain=False)
+    assert [c for c, _ in a.top] == [c for c, _ in b.top]
+    assert np.allclose([p for _, p in a.top], [p for _, p in b.top], atol=1e-6)
