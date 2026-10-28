@@ -38,7 +38,8 @@ Each step is small, testable and pushed on its own. Research questions are track
 Principle: **build the evaluation before the system**, then improve it through experiments,
 each with a hypothesis, a metric and a conclusion.
 
-- [ ] **Literature review** and research log setup [Lewis et al. 2020; Karpukhin et al. 2020]
+- [x] **Literature review** — recent agriculture RAG systems rarely evaluate retrieval on its own
+  or check synthetic questions against real ones; four hypotheses written before experiments
 - [ ] **Corpus** — agronomic fact sheets per disease: sources, licenses, cleaning, chunking
   - *Q: French or English sources? Which ones may we legally reuse?*
 - [ ] **Evaluation set** — questions with gold passages, partly LLM-generated then human-checked

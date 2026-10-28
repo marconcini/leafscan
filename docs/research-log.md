@@ -5,6 +5,51 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Phase 2 kickoff: what the literature leaves open
+
+**Goal of Phase 2.** After a diagnosis, answer the user's follow-up questions ("how does it
+spread?", "what can I do?") from agronomic fact sheets, citing them, and say "I don't know" when
+the sheets do not cover the question.
+
+**What recent agriculture RAG papers do** (references in `docs/references.md`):
+- Systems that couple a vision model with RAG exist (coffee leaves with YOLOv8, Mondal et al.
+  2025; AgriDoctor, Zhang et al. 2025), but their abstracts report **no evaluation of the
+  retrieval step**: only end-to-end answers, or nothing.
+- Evaluation sets are either **synthetic** (Q&A generated from PDFs and judged by GPT-4,
+  Balaguer et al. 2024) or **expert-written but judged end-to-end** (Crop GraphRAG, Wu et al.
+  2026). Nobody measures how far the synthetic questions are from real ones.
+- In Crop GraphRAG, naive vector RAG beats BM25 + LLM, but on one corpus and with an LLM judge.
+  BEIR (Thakur et al. 2021) found BM25 hard to beat out of domain: the question is open for a
+  small, technical, vocabulary-heavy corpus like disease fact sheets.
+- General RAG work points to three failure points we can measure separately: the chunk lost its
+  context (contextual retrieval, late chunking), retrieval missed the passage, or the model had
+  the passage and ignored it / answered without it (sufficient context, Joren et al. 2025).
+
+**What LeafScan can add.** The classifier gives something most RAG systems lack: a **prior on
+the topic** (the predicted disease) and a **measure of its uncertainty** (calibrated on field
+photos in Phase 1). How to use that in retrieval is untested in the papers above.
+
+**Design principles.**
+1. Build the evaluation set before the system; keep a human-checked subset to audit any
+   synthetic questions and any LLM judge (as ARES does with prediction-powered inference).
+2. Evaluate retrieval on its own (recall@k against gold passages) before generation.
+3. Report uncertainty: the evaluation set will be small, so bootstrap CIs, as in Phase 1.
+
+**Hypotheses, written before any experiment.**
+1. *BM25 is within 5 points of recall@5 of a general dense embedding model* on this corpus:
+   disease and pathogen names are rare, exact terms that lexical matching handles well.
+2. *Hybrid search (RRF) beats both* by a few points, because questions mix exact names
+   ("early blight") with paraphrases ("brown rings on the leaves").
+3. *Synthetic questions are easier than human-written ones*: they reuse the passage's words,
+   so BM25 recall will be inflated on them more than dense recall.
+4. *Filtering retrieval by the predicted disease helps when the classifier is confident and
+   hurts when it is wrong*; retrieving for the top-2 classes when it hesitates recovers most of
+   the loss.
+
+**Next.** The corpus: which fact sheets, in which language, under which license.
+
+---
+
 ## 2026-10-28 — Shipping it: quantisation and the browser change predictions a little
 
 Hugging Face now requires a paid plan for Gradio Spaces, so the public demo runs the model in
