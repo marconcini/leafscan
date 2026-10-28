@@ -1,0 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1
+torchvision
+timm==1.0.30
+safetensors
+huggingface_hub
+leafscan @ git+https://github.com/marconcini/leafscan.git@eaa03f53ab25aab1ddc8cc602a1ea2422bb767f4
