@@ -42,4 +42,18 @@ What each paper brings to this project. Grouped by phase; extended as the projec
 | Asai et al. (2023). *Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection.* ICLR 2024 | Deciding when to retrieve / abstain. |
 | Yan et al. (2024). *Corrective Retrieval Augmented Generation.* arXiv:2401.15884 | Detecting and handling poor retrieval. |
 
-> Recent work (2025–2026) will be added during the Phase 2 literature review.
+| Gao et al. (2023). *Retrieval-Augmented Generation for Large Language Models: A Survey.* arXiv:2312.10997 | Map of the field: naive / advanced / modular RAG, evaluation. |
+| Saad-Falcon et al. (2024). *ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems.* NAACL. arXiv:2311.09476 | LLM judges corrected by a small human-labelled set: how to trust automatic RAG metrics. |
+| Chen et al. (2024). *BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation.* arXiv:2402.03216 | Multilingual dense + sparse embeddings in one model: candidate if the corpus mixes French and English. |
+| Günther et al. (2024). *Late Chunking: Contextual Chunk Embeddings Using Long-Context Embedding Models.* arXiv:2409.04701 | Chunks lose their document's context; embed the document first, split afterwards. |
+| Anthropic (2024). *Introducing Contextual Retrieval.* anthropic.com/news/contextual-retrieval | Same problem, solved by prepending an LLM-written context to each chunk; claims −49% failed retrievals (−67% with reranking), on the authors' own benchmarks. |
+| Joren et al. (2025). *Sufficient Context: A New Lens on Retrieval Augmented Generation Systems.* ICLR. arXiv:2411.06037 | Separates "retrieval missed it" from "the model ignored it"; models hallucinate rather than abstain when context is insufficient. |
+
+### Agriculture
+
+| Reference | Why it matters here |
+|---|---|
+| Balaguer et al. (2024). *RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture.* arXiv:2401.08406 | Q&A pairs generated from agronomic PDFs and judged by GPT-4; RAG and fine-tuning gains add up. Their synthetic evaluation set is what we want to check against human labels. |
+| Mondal et al. (2025). *Vision Meets Language: A RAG-Augmented YOLOv8 Framework for Coffee Disease Diagnosis and Farmer Assistance.* arXiv:2505.21544 | Closest to LeafScan: detector output feeds a RAG pipeline. The abstract reports no evaluation of the RAG part. |
+| Zhang et al. (2025). *AgriDoctor: A Multimodal Intelligent Assistant for Agriculture.* arXiv:2509.17044 | Router + classifier + knowledge retriever over 831 expert-written entries; retrieval itself not described in the abstract. |
+| Wu et al. (2026). *Crop GraphRAG: pest and disease knowledge base Q&A system for sustainable crop protection.* Frontiers in Plant Science | 200+ expert-written questions; naive vector RAG vs BM25 vs knowledge-graph RAG. A human-built evaluation set, but answers are judged end-to-end only. |
