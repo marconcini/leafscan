@@ -5,6 +5,44 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Evaluation set protocol (written before the questions)
+
+**Why first.** Every retrieval choice (chunk size, BM25 vs dense, reranking) will be compared
+on this set; writing it after seeing a retriever's output would bias it towards that retriever.
+
+**Gold labels independent of chunking.** A question's gold evidence is one or more *quotes*:
+exact sentences or clauses of an article. A retrieved chunk is relevant if it contains a quote.
+Chunk size is an experimental variable, so gold labels must not be chunk ids.
+
+**Question types.**
+1. **`extractive`** (synthetic, the usual shortcut): written while reading one passage, as an
+   LLM question generator does; reusing the passage's words is allowed.
+2. **`grower`**: what a grower would type after the diagnosis: symptom words, plain language,
+   crop named, disease named only by its common name. Written from a passage too, but the
+   wording must not copy it. Overlap is *measured*, not trusted: share of the question's
+   content words found in its evidence, and longest common word n-gram.
+3. **`unanswerable`**: plausible questions about the 26 diseases that the corpus does not
+   answer (stub articles, missing management sections, doses and products), plus a few
+   off-topic ones. The right behaviour is to abstain.
+4. **`human`**: written by the project author without looking at the corpus, then labelled.
+   This is the only type not written by an LLM, and the reference for the others.
+
+Types 1–3 are written by an LLM (Claude, in the development session) under the rules above;
+they are labelled as such in the file. This is exactly the practice the literature uses and
+rarely audits (Balaguer et al. 2024), so the `human` subset is there to measure the gap.
+
+**Passages** are sampled with a fixed seed, two per disease and type when the corpus has
+enough text, so that well-documented diseases (late blight: 34 chunks) do not dominate.
+
+**Split.** 40% dev (to make choices), 60% test (to report), stratified by type, fixed by a
+hash of the question id. Choices are made on dev only.
+
+**Hypothesis (H3 of the kickoff, made measurable).** BM25 recall@5 drops more than dense
+recall@5 from `extractive` to `grower` questions, because the lexical overlap with the
+evidence is what BM25 relies on.
+
+---
+
 ## 2026-10-28 — The corpus: what we may reuse decides what we can answer
 
 **Question.** Which fact sheets, in which language, under which license?
