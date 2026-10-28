@@ -53,8 +53,18 @@ print(pred.verdict)   # diagnosis, or "Not sure" below the field-calibrated thre
 print(pred.top)       # top-3 (class, calibrated probability)
 ```
 
-Files: `model.safetensors` (weights) and `config.json` (class names, input size, temperature,
-threshold).
+Files:
+- `model.safetensors` — PyTorch weights; `config.json` — class names, input size, temperature,
+  threshold (and those of the int8 model under `onnx_int8`).
+- `model.onnx` — fp32 ONNX export, identical top-1 to PyTorch on PlantDoc test.
+- `model_int8.onnx` — 32 MB, linear layers quantised to int8 (convolutions kept fp32, as ONNX
+  Runtime Web has no int8 convolution). Used by the in-browser demo. Same predictions as fp32
+  on 96.5% of PlantDoc test photos; 71.9% accuracy. Because quantisation changes some
+  predictions, it has **its own temperature and threshold**, refitted on the same field
+  calibration set: on PlantDoc test it answers 66% of photos, 84.7% of them right.
+
+In the browser (ONNX Runtime Web, image resizing done by the canvas instead of PIL), the demo
+agrees with the Python int8 predictions on 96.1% of PlantDoc test photos.
 
 ## Intended use and limitations
 

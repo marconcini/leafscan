@@ -1,0 +1,35 @@
+{
+  "pytorch": {
+    "accuracy": 0.7236842105263158,
+    "answered": 0.6535087719298246,
+    "accuracy_when_answering": 0.87248322147651
+  },
+  "model.onnx": {
+    "accuracy": 0.7236842105263158,
+    "answered": 0.6535087719298246,
+    "accuracy_when_answering": 0.87248322147651,
+    "size_mb": 106.31105136871338,
+    "top1_agreement_with_pytorch": 1.0,
+    "max_abs_logit_diff": 1.0371208190917969e-05
+  },
+  "model_int8.onnx": {
+    "accuracy": 0.7192982456140351,
+    "answered": 0.6535087719298246,
+    "accuracy_when_answering": 0.8523489932885906,
+    "size_mb": 32.26535415649414,
+    "top1_agreement_with_pytorch": 0.9649122807017544,
+    "max_abs_logit_diff": 0.8219658136367798
+  },
+  "model_int8.onnx (recalibrated)": {
+    "temperature": 0.8375558853149414,
+    "threshold": 0.747735857963562,
+    "calibration_set": {
+      "coverage": 0.646551724137931,
+      "accuracy_when_answering": 0.9022222222222223
+    },
+    "plantdoc_test": {
+      "coverage": 0.6578947368421053,
+      "accuracy_when_answering": 0.8466666666666667
+    }
+  }
+}
