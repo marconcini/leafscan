@@ -47,7 +47,9 @@ each with a hypothesis, a metric and a conclusion.
   gold labels that hold for any chunking; grower questions copy 3x less wording from the evidence
   - [ ] `human` subset written by the author without reading the corpus
   - *Q: can we trust synthetic questions?*
-- [ ] **Retrieval baselines** — BM25 vs dense embeddings [Robertson & Zaragoza 2009; Thakur et al. 2021]
+- [x] **Retrieval baselines** — BM25 vs dense embeddings [Robertson & Zaragoza 2009; Thakur et al. 2021]:
+  BM25 is best on extractive questions (0.96 recall@5) and drops to 0.58 on grower questions;
+  bge-small-en-v1.5 holds 0.81. Synthetic-only evaluation would have picked the wrong retriever
 - [ ] **Retrieval experiments** — chunk size, hybrid search with RRF [Cormack et al. 2009],
   cross-encoder reranking [Nogueira & Cho 2019], HyDE [Gao et al. 2022], contextual retrieval
 - [ ] **Grounded generation with citations** and hallucination measurement [Es et al. 2023]

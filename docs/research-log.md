@@ -5,6 +5,46 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Retrieval baselines: BM25 breaks on growers' words, dense models do not
+
+Test split, recall@5 with 95% bootstrap intervals (`reports/rag/retrieval_baselines.json`):
+
+| Retriever | All (n = 52) | Extractive (26) | Grower (26) | MRR@10 (all) |
+|---|---:|---:|---:|---:|
+| BM25 | 0.77 (0.65–0.88) | **0.96** | 0.58 (0.38–0.77) | 0.64 |
+| all-MiniLM-L6-v2 | 0.71 | 0.81 | 0.62 | 0.52 |
+| **bge-small-en-v1.5** | **0.85** (0.75–0.94) | 0.88 | **0.81** (0.65–0.96) | 0.69 |
+| bge-m3 (dense) | 0.85 | 0.92 | 0.77 | 0.73 |
+
+Dev split (17–18 questions per type): extractive recall@5 is 1.00 for every retriever (a
+ceiling); grower 0.59–0.71, same ranking with smaller gaps.
+
+**Hypotheses vs. results.**
+1. *H1: BM25 within 5 points of bge-small overall* → **not supported, but not refuted
+   either**: 8 points behind on test (3 on dev); the paired McNemar test finds no significant
+   difference (4 vs 8 discordant questions, p = 0.39).
+2. *H3: BM25 loses more than bge-small from extractive to grower questions* → **confirmed**.
+   BM25: 0.96 → 0.58 (−38 points); bge-small: 0.88 → 0.81 (−7). The extra drop of BM25 is
+   31 points (bootstrap 95% CI 8–54) on test, 21 (2–40) on dev + test pooled.
+
+**What this means.** On questions that reuse the article's words (how synthetic evaluation sets
+are usually built), BM25 is the best retriever here. On questions phrased like a grower's, it
+is the worst but one. An evaluation set made only of synthetic questions would have picked
+the wrong retriever, which is the risk the protocol was designed to expose.
+
+**Other observations.**
+- **Bigger is not better:** bge-m3 (568M parameters) does no better than bge-small (33M), and
+  takes ~10x longer to index; all-MiniLM-L6-v2, the tutorial default, is the weakest model.
+- **BM25 failures look fixable:** reading the 17 grower questions BM25 misses, many hinge on
+  word forms (antibiotics / antibiotic, leaves / leaf, spraying / spray) that a stemmer would
+  match, and a few on synonyms (bumps / pustules) that it would not. Next experiment, on dev.
+- **The top-1 score separates answerable from unanswerable questions with AUROC ≈ 0.80** for
+  all four retrievers: a usable but weak signal for abstention, to revisit in that step.
+- Two grower questions are missed by every retriever (early blight overwintering, spore
+  spread on tomato): candidates for checking whether the gold quote is the only answer.
+
+---
+
 ## 2026-10-28 — Retrieval baselines: setup (written before running them)
 
 **Retrievers**, all indexing the same text (section path + chunk, 200-word chunks):
