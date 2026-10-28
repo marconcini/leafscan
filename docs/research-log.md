@@ -13,7 +13,7 @@ between the evaluated model and what users get; both were measured on PlantDoc t
 
 | Model | Size | Same top-1 as PyTorch | Accuracy | Answered / right (own threshold) |
 |---|---:|---:|---:|---:|
-| PyTorch | 111 MB | – | 72.4% | 65% / 87.2% |
+| PyTorch (safetensors) | 106 MB | – | 72.4% | 65% / 87.2% |
 | ONNX fp32 | 106 MB | 100% | 72.4% | 65% / 87.2% |
 | ONNX int8 (Python) | 32 MB | 96.5% | 71.9% | 66% / 84.7% |
 | ONNX int8 (browser) | 32 MB | 96.1% vs Python int8 | 71.1% | 66% / 86.8% |
