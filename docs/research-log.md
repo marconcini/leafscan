@@ -5,6 +5,30 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Retrieval baselines: setup (written before running them)
+
+**Retrievers**, all indexing the same text (section path + chunk, 200-word chunks):
+- **BM25** (own implementation, k1 = 1.5, b = 0.75, English stopwords, no stemming).
+- **all-MiniLM-L6-v2** (22M parameters, 2021): the default embedding model of many tutorials.
+- **bge-small-en-v1.5** (33M): a small recent general-purpose model. **This is the "general
+  dense model" of H1.**
+- **bge-m3** (568M, dense mode only; Chen et al. 2024): the large multilingual option.
+
+No model is tuned on this corpus; these are baselines.
+
+**Metrics.** Recall@k: share of answerable questions with a relevant chunk (one containing a
+gold quote) in the top k, for k = 1, 5, 10; MRR@10. Reported per question type on the **test**
+split (dev numbers are kept for later choices), with 95% bootstrap intervals, and paired
+McNemar tests on recall@5 hits between retrievers. Side measurement for the abstention step:
+how well the top-1 score separates answerable from unanswerable questions (AUROC).
+
+**Hypotheses** (from the kickoff, unchanged): H1 BM25 within 5 points of bge-small at
+recall@5 overall; H3 BM25 loses more than bge-small from `extractive` to `grower` questions.
+With 26 test questions per type, differences under ~15 points are unlikely to be significant:
+the per-type results are indications, not proofs.
+
+---
+
 ## 2026-10-28 — Evaluation set v1: 111 questions, the wording gap is real
 
 Built following the protocol below, before any retriever exists
