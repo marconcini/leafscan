@@ -43,7 +43,9 @@ each with a hypothesis, a metric and a conclusion.
 - [x] **Corpus** — 28 English Wikipedia articles (CC BY-SA), 240 section-aware chunks; the only
   clearly reusable source. Coverage is very uneven: 4 diseases have no management section
   - *Q: French or English sources? Which ones may we legally reuse?* → English; see research log
-- [ ] **Evaluation set** — questions with gold passages, partly LLM-generated then human-checked
+- [x] **Evaluation set v1** — 111 questions (extractive, grower-style, unanswerable) with quote-based
+  gold labels that hold for any chunking; grower questions copy 3x less wording from the evidence
+  - [ ] `human` subset written by the author without reading the corpus
   - *Q: can we trust synthetic questions?*
 - [ ] **Retrieval baselines** — BM25 vs dense embeddings [Robertson & Zaragoza 2009; Thakur et al. 2021]
 - [ ] **Retrieval experiments** — chunk size, hybrid search with RRF [Cormack et al. 2009],

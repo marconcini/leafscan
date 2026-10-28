@@ -5,6 +5,38 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Evaluation set v1: 111 questions, the wording gap is real
+
+Built following the protocol below, before any retriever exists
+(`evaluation/questions.jsonl`, `reports/rag/evalset.json`).
+
+| Type | Questions | Dev / test | Diseases | Question words found in evidence | Longest copied run |
+|---|---:|---:|---:|---:|---:|
+| `extractive` | 44 | 18 / 26 | 24 | 46% | 2.8 words |
+| `grower` | 43 | 17 / 26 | 24 | **15%** | **1.2 words** |
+| `unanswerable` | 24 | 10 / 14 | 18 | – | – |
+| `human` | 0 | – | – | – | – |
+
+- Every quote was found in the corpus and falls inside one chunk at 200 words (1.0 relevant
+  chunk per question on average): labels are usable.
+- The two answerable types differ as intended: grower questions share three times fewer
+  content words with their evidence. H3 can now be tested.
+- 24 of 26 diseases are covered by answerable questions; the 2 missing ones (esca, Isariopsis
+  leaf spot) are the stubs, which appear only in unanswerable questions.
+- 3 of the 46 passages sampled for grower questions were skipped (rust spore types, late blight
+  mating types, spider mite inbreeding): nothing a grower would ask. A first, small measure of
+  how much of an encyclopaedia is off-topic for this use.
+- The unanswerable questions were checked by keyword search (doses, prices, pre-harvest
+  intervals, approvals: zero hits), not proven unanswerable; a retriever may surface a
+  passage that partly answers one, which will be inspected case by case.
+
+**Limitation.** All 111 questions were written by an LLM in the development session. The
+`human` subset, written by the author without looking at the corpus, is the check that the
+grower questions are realistic and not just an LLM's idea of a grower; until it exists,
+results on `grower` questions should be read with that caveat.
+
+---
+
 ## 2026-10-28 — Evaluation set protocol (written before the questions)
 
 **Why first.** Every retrieval choice (chunk size, BM25 vs dense, reranking) will be compared

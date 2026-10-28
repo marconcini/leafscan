@@ -1,0 +1,27 @@
+{
+  "questions": 111,
+  "max_words": 200,
+  "per_type": {
+    "extractive": {
+      "n": 44,
+      "dev": 18,
+      "classes": 24,
+      "content_word_overlap_mean": 0.4632936507936508,
+      "longest_common_ngram_mean": 2.7954545454545454,
+      "relevant_chunks_mean": 1.0
+    },
+    "grower": {
+      "n": 43,
+      "dev": 17,
+      "classes": 24,
+      "content_word_overlap_mean": 0.14819315051873191,
+      "longest_common_ngram_mean": 1.186046511627907,
+      "relevant_chunks_mean": 1.0232558139534884
+    },
+    "unanswerable": {
+      "n": 24,
+      "dev": 10,
+      "classes": 18
+    }
+  }
+}
