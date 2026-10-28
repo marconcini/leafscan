@@ -24,6 +24,7 @@ dependencies = [
 
 [project.optional-dependencies]
 app = ["gradio>=5"]
+rag = ["sentence-transformers>=3"]
 export = ["onnx", "onnxruntime", "onnxscript"]
 dev = ["pytest", "ruff"]
 
