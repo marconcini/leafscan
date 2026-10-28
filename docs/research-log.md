@@ -5,6 +5,27 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Retrieval experiments: plan (before running them)
+
+All choices are made on **dev** (35 answerable questions); only the final pipeline and the
+baseline (bge-small) are then run once on **test**. With so few dev questions, a difference of
+one or two questions is noise: a change is kept only if it helps grower questions by at least
+two questions and hurts nothing.
+
+| # | Change | Hypothesis |
+|---|---|---|
+| E1 | BM25 + Snowball stemming | H5: +≥5 points recall@5 on grower questions, no loss on extractive |
+| E2 | Hybrid: reciprocal rank fusion of BM25 and bge-small (k = 60) [Cormack et al. 2009] | H2: beats both on grower questions |
+| E3 | Chunk size 100 / 200 / 400 words | H6: at an **equal budget of retrieved words**, size matters little (< 5 points) |
+| E4 | Cross-encoder reranking of the top 20 (ms-marco MiniLM; bge-reranker-base) [Nogueira & Cho 2019] | H7: +≥5 points recall@5 on grower questions |
+
+**Why an equal word budget for E3.** Recall@5 with 400-word chunks reads 2,000 words; with
+100-word chunks, 500. Bigger chunks win at fixed k just by showing more text, which costs
+prompt length later. E3 therefore compares recall at ~1,000 retrieved words
+(k = 1000 / chunk size), as well as at fixed k.
+
+---
+
 ## 2026-10-28 — Retrieval baselines: BM25 breaks on growers' words, dense models do not
 
 Test split, recall@5 with 95% bootstrap intervals (`reports/rag/retrieval_baselines.json`):
