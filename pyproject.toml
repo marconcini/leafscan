@@ -24,6 +24,7 @@ dependencies = [
 
 [project.optional-dependencies]
 app = ["gradio>=5"]
+export = ["onnx", "onnxruntime", "onnxscript"]
 dev = ["pytest", "ruff"]
 
 [tool.setuptools.packages.find]
