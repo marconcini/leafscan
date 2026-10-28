@@ -44,16 +44,29 @@ def content_words(text: str) -> set[str]:
     return {w for w in words(text) if w not in STOPWORDS}
 
 
-def split_of(qid: str) -> str:
-    """Deterministic dev/test assignment from the question id."""
-    h = int(hashlib.sha256(qid.encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
-    return "dev" if h < DEV_FRACTION else "test"
+def _hash(qid: str) -> str:
+    return hashlib.sha256(qid.encode()).hexdigest()
+
+
+def assign_splits(questions: list[dict]) -> dict[str, str]:
+    """Dev/test per question id: within each type, the 40% with the smallest id hash are dev.
+
+    Deterministic, stratified by type, and adding questions of one type leaves the other
+    types' splits unchanged.
+    """
+    splits = {}
+    for t in {q["type"] for q in questions}:
+        ids = sorted((q["id"] for q in questions if q["type"] == t), key=_hash)
+        n_dev = round(DEV_FRACTION * len(ids))
+        splits.update({i: "dev" if k < n_dev else "test" for k, i in enumerate(ids)})
+    return splits
 
 
 def load_questions(path: Path = QUESTIONS_PATH) -> list[dict]:
     qs = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    splits = assign_splits(qs)
     for q in qs:
-        q.setdefault("split", split_of(q["id"]))
+        q["split"] = splits[q["id"]]
     return qs
 
 
@@ -132,9 +145,9 @@ def check(questions: list[dict], pages: list[dict], max_words: int = 200) -> dic
     if problems:
         raise ValueError("\n".join(problems))
 
-    summary = {}
+    summary, splits = {}, assign_splits(questions)
     for t, qs in per_type.items():
-        row = {"n": len(qs), "dev": sum(split_of(q["id"]) == "dev" for q in qs),
+        row = {"n": len(qs), "dev": sum(splits[q["id"]] == "dev" for q in qs),
                "classes": len({c for q in qs for c in q.get("classes", [])})}
         if t != "unanswerable":
             ov = [overlap(q["question"], q["evidence"]) for q in qs]

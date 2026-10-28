@@ -2,12 +2,12 @@ import pytest
 
 from leafscan.rag.corpus import chunk_pages
 from leafscan.rag.evalset import (
+    assign_splits,
     check,
     longest_common_ngram,
     overlap,
     relevant_chunks,
     sample_passages,
-    split_of,
 )
 
 PAGES = [{"title": "Leaf rot", "url": "u", "classes": ["Tomato___Leaf_Mold"], "text": (
@@ -54,10 +54,15 @@ def test_check_accepts_a_valid_set_and_reports_broken_labels():
         check(good + good[:1], PAGES)
 
 
-def test_split_is_deterministic_and_roughly_forty_sixty():
-    splits = [split_of(f"q{i}") for i in range(1000)]
-    assert splits == [split_of(f"q{i}") for i in range(1000)]
-    assert 0.35 < splits.count("dev") / 1000 < 0.45
+def test_splits_are_deterministic_stratified_and_stable():
+    qs = [{"id": f"e{i}", "type": "extractive"} for i in range(50)] + \
+         [{"id": f"u{i}", "type": "unanswerable"} for i in range(10)]
+    splits = assign_splits(qs)
+    assert splits == assign_splits(list(reversed(qs)))
+    assert sum(splits[f"e{i}"] == "dev" for i in range(50)) == 20
+    assert sum(splits[f"u{i}"] == "dev" for i in range(10)) == 4
+    more = assign_splits(qs + [{"id": "u10", "type": "unanswerable"}])
+    assert all(more[f"e{i}"] == splits[f"e{i}"] for i in range(50))
 
 
 def test_sampled_passages_are_unique_and_grower_ones_come_from_relevant_sections():
