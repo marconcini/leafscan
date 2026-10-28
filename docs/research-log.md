@@ -5,6 +5,32 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Shipping it: quantisation and the browser change predictions a little
+
+Hugging Face now requires a paid plan for Gradio Spaces, so the public demo runs the model in
+the visitor's browser (ONNX Runtime Web) as a free static Space. Two transformations stand
+between the evaluated model and what users get; both were measured on PlantDoc test (228 photos):
+
+| Model | Size | Same top-1 as PyTorch | Accuracy | Answered / right (own threshold) |
+|---|---:|---:|---:|---:|
+| PyTorch | 111 MB | – | 72.4% | 65% / 87.2% |
+| ONNX fp32 | 106 MB | 100% | 72.4% | 65% / 87.2% |
+| ONNX int8 (Python) | 32 MB | 96.5% | 71.9% | 66% / 84.7% |
+| ONNX int8 (browser) | 32 MB | 96.1% vs Python int8 | 71.1% | 66% / 86.8% |
+
+- **Quantisation shifts predictions**, so the int8 model got its own temperature and threshold,
+  refitted on the same field calibration split (the lesson of 2026-10-27: calibrate what you
+  ship).
+- Only linear layers are quantised: ONNX Runtime Web has no int8 convolution kernel (found when
+  the first export failed to load in the browser).
+- The exporter stored weights as Constant nodes, which the quantiser silently skipped: the first
+  "int8" file was as large as fp32. Converting them to initializers fixed it.
+- Browser vs Python differences come from image resizing (canvas vs PIL): 4% of top-1 change.
+- Live check: the deployed page loads the model from the Hub and classifies PlantDoc test photos
+  in 0.6–0.8 s on a laptop, correctly in the two cases tried.
+
+---
+
 ## 2026-10-27 — The demo model: honest at 87% on two thirds of field photos
 
 **Data.** PlantDoc train split into 1,975 training and 348 calibration images; 228 test images.

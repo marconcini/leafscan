@@ -29,7 +29,8 @@ Each step is small, testable and pushed on its own. Research questions are track
 - [x] **Demo model** — PlantVillage → PlantDoc fine-tuning with a field calibration split:
   72.4% on PlantDoc test; with the field threshold, 65% answered at 87% accuracy
 - [x] **Demo app** — Gradio: calibrated top-3, "Not sure" below the field threshold, Grad-CAM
-- [ ] **Publish** — weights on the Hugging Face Hub, public Space
+- [x] **Publish** — weights (safetensors + ONNX) on the Hugging Face Hub; in-browser demo as a
+  free static Space (Gradio Spaces now need a paid plan)
   - *Q: does CPU latency of depthwise models change with ONNX Runtime or on x86 (oneDNN)?*
 
 ## Phase 2 — RAG assistant (research-oriented)

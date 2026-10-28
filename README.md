@@ -5,6 +5,8 @@
 [![CI](https://github.com/marconcini/leafscan/actions/workflows/ci.yml/badge.svg)](https://github.com/marconcini/leafscan/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-timm-ee4c2c)
+[![Demo](https://img.shields.io/badge/demo-in%20your%20browser-2f7d4f)](https://huggingface.co/spaces/Marconcini/leafscan)
+[![Model](https://img.shields.io/badge/%F0%9F%A4%97%20model-leafscan--convnext--tiny-yellow)](https://huggingface.co/Marconcini/leafscan-convnext-tiny)
 
 > 🚧 Work in progress — built step by step, see the [roadmap](#roadmap).
 
@@ -173,8 +175,13 @@ Details per model in [`reports/`](reports) · full analysis in the [research log
 
 ## Demo
 
-A Gradio app runs the final model: ConvNeXt-T trained on PlantVillage, fine-tuned on PlantDoc
-field photos, with a confidence threshold fitted on held-out field photos.
+👉 **[Try it in your browser](https://huggingface.co/spaces/Marconcini/leafscan)** — the model
+runs locally in the page (ONNX Runtime Web, int8, 32 MB): no server, nothing is uploaded.
+Weights and model card: [Marconcini/leafscan-convnext-tiny](https://huggingface.co/Marconcini/leafscan-convnext-tiny).
+
+The final model: ConvNeXt-T trained on PlantVillage, fine-tuned on PlantDoc field photos, with a
+confidence threshold fitted on held-out field photos. A Gradio version (with Grad-CAM) runs
+locally:
 
 ```bash
 pip install -e ".[app]"
@@ -233,7 +240,10 @@ src/leafscan/
 ├── reliability.py   # calibration (ECE, temperature), abstention, OOD detection
 ├── deploy.py        # demo model: field fine-tuning + field calibration
 ├── predictor.py     # inference: calibrated top-k, abstention, Grad-CAM overlay
-└── app.py           # Gradio demo
+├── app.py           # Gradio demo
+├── export.py        # safetensors export / loading from the Hugging Face Hub
+└── onnx_export.py   # ONNX export, int8 quantisation, recalibration
+web/index.html       # in-browser demo (ONNX Runtime Web), deployed as a static Space
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
 ```
@@ -253,7 +263,7 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Closing the lab → field gap: fine-tuning on PlantDoc, 38.6% → 74–76%
 - [x] Calibration, abstention and OOD detection: reliable in the lab, not in the field
 - [x] Demo app: field-calibrated model, "Not sure" answers, Grad-CAM
-- [ ] Public demo on Hugging Face Spaces
+- [x] Public demo: in-browser (ONNX Runtime Web) on Hugging Face Spaces, weights on the Hub
 
 **Phase 2 — RAG assistant**
 - [ ] Corpus of agronomic fact sheets per disease
