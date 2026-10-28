@@ -18,3 +18,46 @@ DISEASES = {
 def test_every_disease_has_a_page_and_only_real_classes_are_used():
     covered = {c for classes in PAGES.values() for c in classes}
     assert covered == DISEASES
+
+
+PAGE = {"title": "Leaf rot", "url": "u", "classes": ["Tomato___Leaf_Mold"], "text": (
+    "Leaf rot is a disease.\n\n\n"
+    "== Symptoms ==\nBrown spots.\n\nYellow leaves.\n\n\n"
+    "=== On fruit ===\nSoft fruit.\n\n\n"
+    "== Management ==\nRotate crops. Remove debris.\n\n\n"
+    "== References ==\nSmith 2001.\n\n\n"
+    "=== Sources ===\nA book.\n\n\n"
+    "== External links ==\nhttp://example.org\n")}
+
+
+def test_sections_keep_headings_and_drop_references_with_their_subsections():
+    from leafscan.rag.corpus import sections
+
+    secs = sections(PAGE)
+    assert [s["path"] for s in secs] == [["Leaf rot"], ["Leaf rot", "Symptoms"],
+                                         ["Leaf rot", "Symptoms", "On fruit"],
+                                         ["Leaf rot", "Management"]]
+    assert "Smith" not in " ".join(s["text"] for s in secs)
+    assert "A book" not in " ".join(s["text"] for s in secs)
+
+
+def test_chunks_respect_the_word_limit_and_lose_no_text():
+    from leafscan.rag.corpus import chunk_text
+
+    paragraphs = [" ".join(f"w{p}_{i}" for i in range(7)) + "." for p in range(10)]
+    long_paragraph = " ".join(f"Sentence {i} has five words." for i in range(10))
+    text = "\n\n".join(paragraphs + [long_paragraph])
+    chunks = chunk_text(text, max_words=20)
+    assert all(len(c.split()) <= 20 for c in chunks)
+    assert " ".join(chunks).split() == text.split()
+
+
+def test_chunk_pages_never_cross_sections():
+    from leafscan.rag.corpus import chunk_pages, stats
+
+    chunks = chunk_pages([PAGE], max_words=200)
+    assert [c["text"] for c in chunks] == ["Leaf rot is a disease.", "Brown spots. Yellow leaves.",
+                                           "Soft fruit.", "Rotate crops. Remove debris."]
+    assert chunks[3]["section"] == "Leaf rot > Management"
+    assert len({c["id"] for c in chunks}) == 4
+    assert stats([PAGE])["per_class"]["Tomato___Leaf_Mold"]["has_management_section"]
