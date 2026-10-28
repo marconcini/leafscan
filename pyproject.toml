@@ -20,6 +20,7 @@ dependencies = [
     "scipy",
     "matplotlib",
     "pyyaml",
+    "snowballstemmer",
 ]
 
 [project.optional-dependencies]

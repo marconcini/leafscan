@@ -51,3 +51,50 @@ def test_mcnemar_counts_discordant_questions():
     b = [{"id": "q1", "rank": None}, {"id": "q2", "rank": 3}, {"id": "q3", "rank": 1}]
     res = mcnemar_hits(a, b)
     assert (res["only_first"], res["only_second"]) == (1, 1) and res["p"] == 1.0
+
+
+def test_stemming_matches_word_forms():
+    from leafscan.rag.retrieval import BM25
+
+    chunks = [{"id": "x", "section": "S", "text": "Antibiotic sprays failed."},
+              {"id": "y", "section": "S", "text": "Water early."}]
+    assert BM25(chunks).scores("antibiotics spraying").sum() == 0
+    assert BM25(chunks, stem=True).search("antibiotics spraying", k=1)[0][0] == "x"
+
+
+class Fixed:
+    def __init__(self, name, ranking):
+        self.name, self.ranking = name, ranking
+
+    def search(self, query, k=10):
+        return [(c, 1.0) for c in self.ranking[:k]]
+
+
+def test_rrf_rewards_agreement_between_retrievers():
+    from leafscan.rag.retrieval import RRF
+
+    fused = RRF([Fixed("a", ["x", "y", "z"]), Fixed("b", ["y", "z", "x"])]).search("q", k=3)
+    assert [c for c, _ in fused] == ["y", "x", "z"]
+
+
+def test_rerank_reorders_the_first_stage():
+    from leafscan.rag.retrieval import Rerank
+
+    def score(pairs):   # prefers passages mentioning humidity
+        return np.array([p.count("humidity") for _, p in pairs], dtype=float)
+
+    reranked = Rerank(Fixed("f", ["a#0", "b#0", "c#0"]), CHUNKS, "toy", depth=3,
+                      score_pairs=score)
+    assert reranked.search("q", k=1)[0][0] == "c#0"
+
+
+def test_word_budget_recall():
+    from leafscan.rag.retrieval_experiments import WORD_BUDGET, summary
+
+    rows = [{"id": "1", "type": "grower", "rank": 1, "words_read": 5000},   # first is free
+            {"id": "2", "type": "grower", "rank": 3, "words_read": 900},
+            {"id": "3", "type": "grower", "rank": 2, "words_read": 1200},
+            {"id": "4", "type": "extractive", "rank": None, "words_read": None}]
+    s = summary(rows)
+    assert s["grower"][f"recall@{WORD_BUDGET}w"] == 2 / 3
+    assert s["all"]["recall@5"] == 3 / 4
