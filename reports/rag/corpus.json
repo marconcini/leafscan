@@ -1,0 +1,165 @@
+{
+  "pages": 28,
+  "chunks": 240,
+  "max_words": 200,
+  "words": 28206,
+  "chunk_words_median": 120,
+  "per_class": {
+    "Apple___Apple_scab": {
+      "pages": 2,
+      "words": 2608,
+      "chunks": 21,
+      "has_management_section": true
+    },
+    "Apple___Black_rot": {
+      "pages": 1,
+      "words": 420,
+      "chunks": 4,
+      "has_management_section": true
+    },
+    "Apple___Cedar_apple_rust": {
+      "pages": 1,
+      "words": 1221,
+      "chunks": 8,
+      "has_management_section": true
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "pages": 2,
+      "words": 2300,
+      "chunks": 18,
+      "has_management_section": true
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "pages": 1,
+      "words": 2080,
+      "chunks": 18,
+      "has_management_section": true
+    },
+    "Corn_(maize)___Common_rust_": {
+      "pages": 1,
+      "words": 562,
+      "chunks": 4,
+      "has_management_section": true
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "pages": 2,
+      "words": 1913,
+      "chunks": 14,
+      "has_management_section": true
+    },
+    "Grape___Black_rot": {
+      "pages": 1,
+      "words": 2149,
+      "chunks": 15,
+      "has_management_section": true
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "pages": 2,
+      "words": 193,
+      "chunks": 2,
+      "has_management_section": false
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "pages": 1,
+      "words": 24,
+      "chunks": 1,
+      "has_management_section": false
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+      "pages": 1,
+      "words": 1456,
+      "chunks": 11,
+      "has_management_section": true
+    },
+    "Peach___Bacterial_spot": {
+      "pages": 1,
+      "words": 171,
+      "chunks": 6,
+      "has_management_section": true
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "pages": 1,
+      "words": 1279,
+      "chunks": 12,
+      "has_management_section": true
+    },
+    "Potato___Early_blight": {
+      "pages": 1,
+      "words": 1422,
+      "chunks": 12,
+      "has_management_section": true
+    },
+    "Potato___Late_blight": {
+      "pages": 1,
+      "words": 4452,
+      "chunks": 34,
+      "has_management_section": true
+    },
+    "Squash___Powdery_mildew": {
+      "pages": 2,
+      "words": 2284,
+      "chunks": 18,
+      "has_management_section": true
+    },
+    "Strawberry___Leaf_scorch": {
+      "pages": 1,
+      "words": 1338,
+      "chunks": 10,
+      "has_management_section": true
+    },
+    "Tomato___Bacterial_spot": {
+      "pages": 1,
+      "words": 1279,
+      "chunks": 12,
+      "has_management_section": true
+    },
+    "Tomato___Early_blight": {
+      "pages": 1,
+      "words": 1422,
+      "chunks": 12,
+      "has_management_section": true
+    },
+    "Tomato___Late_blight": {
+      "pages": 1,
+      "words": 4452,
+      "chunks": 34,
+      "has_management_section": true
+    },
+    "Tomato___Leaf_Mold": {
+      "pages": 2,
+      "words": 1070,
+      "chunks": 13,
+      "has_management_section": true
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "pages": 1,
+      "words": 394,
+      "chunks": 4,
+      "has_management_section": true
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "pages": 1,
+      "words": 478,
+      "chunks": 8,
+      "has_management_section": false
+    },
+    "Tomato___Target_Spot": {
+      "pages": 1,
+      "words": 1179,
+      "chunks": 9,
+      "has_management_section": true
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "pages": 1,
+      "words": 1055,
+      "chunks": 9,
+      "has_management_section": true
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "pages": 1,
+      "words": 272,
+      "chunks": 4,
+      "has_management_section": false
+    }
+  }
+}

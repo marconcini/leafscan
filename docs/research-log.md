@@ -5,6 +5,48 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — The corpus: what we may reuse decides what we can answer
+
+**Question.** Which fact sheets, in which language, under which license?
+
+**Sources considered** (licenses checked on 2026-10-28):
+
+| Source | License / terms | Decision |
+|---|---|---|
+| PlantVillage website (disease pages) | CC BY-SA 3.0, but `robots.txt` blocks AI crawlers (GPTBot, ClaudeBot, …) | **Not used**: the license allows it, the site owner's stated wish does not |
+| Ephytia (INRAE, French) | "tous droits réservés": INRAE's terms forbid reuse of such content | Not used |
+| US university extension fact sheets | Copyright of each university, case-by-case permission | Not used |
+| PlantwisePlus factsheets (CABI) | No license on the pages; related CABI material is CC BY-NC | Not used (unclear) |
+| **English Wikipedia** | **CC BY-SA 4.0**, open API | **Used** |
+
+Wikipedia is not the best agronomic source, but it is the only one that is clearly reusable,
+redistributable with the repository and compatible with the CC BY-SA weights.
+
+**Language.** English. French Wikipedia has an article for only 15 of the 28 English pages
+and 43% of their text; Ephytia, the best French source, is not reusable.
+
+**What we built.** 28 articles (one or two per disease, pathogen pages included), pinned to
+their revision ids in `corpus/`, split into sections (references and links dropped), then into
+chunks of at most 200 words that never cross a section boundary: **240 chunks, 28k words**.
+
+**What the numbers show** (`reports/rag/corpus.json`):
+- **Very uneven coverage.** Late blight: 4,452 words (most of it about the Irish famine);
+  grape leaf blight (Isariopsis): **24 words**, a stub with no symptoms and no management;
+  esca: 193 words.
+- **4 of the 26 diseases have no management section** (esca, Isariopsis leaf spot, spider
+  mites, tomato mosaic virus): for these the assistant cannot honestly answer "what can I do?".
+- Pages are about the pathogen's biology more than about what a grower should do.
+
+**Takeaways for the next steps.**
+1. Unanswerable questions are not an edge case: the evaluation set must include questions the
+   corpus cannot answer, and results must be reported per disease.
+2. The assistant explains diseases from an encyclopaedia; it does not give treatment
+   prescriptions (no product or dose advice), which is also the safer scope.
+3. A new question for the vision ↔ RAG step: the classifier is equally confident on
+   well-documented and barely documented diseases. The answer's reliability depends on both.
+
+---
+
 ## 2026-10-28 — Phase 2 kickoff: what the literature leaves open
 
 **Goal of Phase 2.** After a diagnosis, answer the user's follow-up questions ("how does it

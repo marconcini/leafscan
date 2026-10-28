@@ -40,8 +40,9 @@ each with a hypothesis, a metric and a conclusion.
 
 - [x] **Literature review** — recent agriculture RAG systems rarely evaluate retrieval on its own
   or check synthetic questions against real ones; four hypotheses written before experiments
-- [ ] **Corpus** — agronomic fact sheets per disease: sources, licenses, cleaning, chunking
-  - *Q: French or English sources? Which ones may we legally reuse?*
+- [x] **Corpus** — 28 English Wikipedia articles (CC BY-SA), 240 section-aware chunks; the only
+  clearly reusable source. Coverage is very uneven: 4 diseases have no management section
+  - *Q: French or English sources? Which ones may we legally reuse?* → English; see research log
 - [ ] **Evaluation set** — questions with gold passages, partly LLM-generated then human-checked
   - *Q: can we trust synthetic questions?*
 - [ ] **Retrieval baselines** — BM25 vs dense embeddings [Robertson & Zaragoza 2009; Thakur et al. 2021]
