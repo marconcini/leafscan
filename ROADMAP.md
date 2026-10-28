@@ -50,8 +50,10 @@ each with a hypothesis, a metric and a conclusion.
 - [x] **Retrieval baselines** — BM25 vs dense embeddings [Robertson & Zaragoza 2009; Thakur et al. 2021]:
   BM25 is best on extractive questions (0.96 recall@5) and drops to 0.58 on grower questions;
   bge-small-en-v1.5 holds 0.81. Synthetic-only evaluation would have picked the wrong retriever
-- [ ] **Retrieval experiments** — chunk size, hybrid search with RRF [Cormack et al. 2009],
-  cross-encoder reranking [Nogueira & Cho 2019], HyDE [Gao et al. 2022], contextual retrieval
+- [x] **Retrieval experiments** — chunk size, hybrid search with RRF [Cormack et al. 2009],
+  cross-encoder reranking [Nogueira & Cho 2019]: +4 grower questions on dev, −1 on test
+  (winner's curse on 17 questions); bge-small kept. Next: a bigger dev set before more tuning
+- [ ] HyDE [Gao et al. 2022], contextual retrieval — after the evaluation set grows
 - [ ] **Grounded generation with citations** and hallucination measurement [Es et al. 2023]
   - *Q: does an LLM judge agree with human judgement? [Zheng et al. 2023]*
 - [ ] **Knowing when to say "I don't know"** [Asai et al. 2023; Yan et al. 2024]

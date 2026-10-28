@@ -5,6 +5,55 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-28 — Retrieval experiments: big gains on dev, none on test for grower questions
+
+**Dev** (17 grower + 18 extractive answerable questions; one grower question = 6 points),
+recall@5 (`reports/rag/retrieval_experiments_dev.json`):
+
+| Configuration (200-word chunks unless stated) | Extractive | Grower | All | All, 1,000-word budget |
+|---|---:|---:|---:|---:|
+| bge-small (baseline) | 1.00 | 0.71 | 0.86 | 0.91 |
+| BM25 / BM25 + stemming | 1.00 | 0.65 / 0.59 | 0.83 / 0.80 | 0.86 / 0.80 |
+| RRF(BM25, bge-small) | 1.00 | 0.76 | 0.89 | 0.94 |
+| RRF(BM25 + stemming, bge-small) | 1.00 | 0.82 | 0.91 | 0.94 |
+| bge-small → ms-marco-MiniLM reranker | 1.00 | 0.82 | 0.91 | 0.91 |
+| bge-small → bge-reranker-base | 1.00 | 0.88 | 0.94 | 0.94 |
+| **RRF(BM25 + stemming, bge-small) → bge-reranker-base** | 1.00 | **0.94** | **0.97** | 0.97 |
+| bge-small, 100 / 400-word chunks | 0.94 / 1.00 | 0.47 / 0.71 | 0.71 / 0.86 | 0.89 / 0.89 |
+
+**Hypotheses on dev.**
+- *H5 (stemming helps BM25 on grower questions)* → **refuted**: +1 question at 100 words,
+  −1 at 200 and 400. Snowball does not even merge *leaf* and *leaves*.
+- *H2 (RRF beats both)* → **supported on dev**: +1 to +2 grower questions over bge-small.
+- *H6 (chunk size matters little at an equal word budget)* → **supported**: 0.89–0.91 for
+  bge-small at 1,000 words. At fixed k, 100-word chunks lose badly (0.71), which is only
+  the budget effect. 200 words kept.
+- *H7 (reranking +≥5 points on grower questions)* → **supported on dev**: +2 to +3 questions.
+
+**Test**, run once, for the chosen pipeline and the baseline only
+(`reports/rag/retrieval_experiments_test.json`):
+
+| | Extractive | Grower | All (95% CI) | Recall@1 | MRR@20 |
+|---|---:|---:|---:|---:|---:|
+| bge-small | 0.88 | **0.81** | 0.85 (0.75–0.94) | 0.58 | 0.69 |
+| RRF(BM25 + stemming, bge-small) → bge-reranker-base | **1.00** | 0.77 | 0.88 (0.79–0.96) | **0.67** | **0.76** |
+
+**The +4 grower questions found on dev turned into −1 on test.** The pipeline helps
+extractive questions (all 26 found, 92% at rank 1) and the top of the ranking overall, but not
+the grower questions it was chosen for. Overall: 1 vs 3 discordant questions, p = 0.63.
+
+**Why.** Nineteen configurations were compared on 17 grower questions and the best one was
+kept: its dev score was partly luck (the winner's curse). The decision rule asked for a gain of
+two questions; the gain was four, and it still did not transfer. With sets this small,
+**dev can rank big effects (BM25 vs dense on grower questions) but not 5–10 point ones.**
+
+**Decision.** The retriever stays **bge-small alone** for now: simplest, no worse on grower
+questions, and the reranker adds a second model to run per query. The hybrid + reranker
+pipeline is kept in the code and will be re-evaluated when the evaluation set is larger: the
+`human` questions, and more grower questions written for the dev split.
+
+---
+
 ## 2026-10-28 — Retrieval experiments: plan (before running them)
 
 All choices are made on **dev** (35 answerable questions); only the final pipeline and the

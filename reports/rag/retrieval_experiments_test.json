@@ -1,0 +1,882 @@
+{
+  "split": "test",
+  "depth": 20,
+  "word_budget": 1000,
+  "results": {
+    "bge-small @ 200w": {
+      "all": {
+        "n": 52,
+        "recall@1": 0.5769230769230769,
+        "recall@5": 0.8461538461538461,
+        "recall@5_ci": [
+          0.75,
+          0.9423076923076923
+        ],
+        "recall@1000w": 0.8846153846153846,
+        "mrr@20": 0.6937869822485208
+      },
+      "extractive": {
+        "n": 26,
+        "recall@1": 0.7307692307692307,
+        "recall@5": 0.8846153846153846,
+        "recall@5_ci": [
+          0.7307692307692307,
+          1.0
+        ],
+        "recall@1000w": 0.9615384615384616,
+        "mrr@20": 0.8234714003944773
+      },
+      "grower": {
+        "n": 26,
+        "recall@1": 0.4230769230769231,
+        "recall@5": 0.8076923076923077,
+        "recall@5_ci": [
+          0.6538461538461539,
+          0.9615384615384616
+        ],
+        "recall@1000w": 0.8076923076923077,
+        "mrr@20": 0.5641025641025641
+      }
+    },
+    "rrf(bm25+stem, bge-small) > bge-reranker-base @ 200w": {
+      "all": {
+        "n": 52,
+        "recall@1": 0.6730769230769231,
+        "recall@5": 0.8846153846153846,
+        "recall@5_ci": [
+          0.7884615384615384,
+          0.9615384615384616
+        ],
+        "recall@1000w": 0.9038461538461539,
+        "mrr@20": 0.7581730769230769
+      },
+      "extractive": {
+        "n": 26,
+        "recall@1": 0.9230769230769231,
+        "recall@5": 1.0,
+        "recall@5_ci": [
+          1.0,
+          1.0
+        ],
+        "recall@1000w": 1.0,
+        "mrr@20": 0.9519230769230769
+      },
+      "grower": {
+        "n": 26,
+        "recall@1": 0.4230769230769231,
+        "recall@5": 0.7692307692307693,
+        "recall@5_ci": [
+          0.614423076923077,
+          0.9230769230769231
+        ],
+        "recall@1000w": 0.8076923076923077,
+        "mrr@20": 0.5644230769230769
+      }
+    }
+  },
+  "mcnemar_recall@5_vs_bge_small": {
+    "rrf(bm25+stem, bge-small) > bge-reranker-base @ 200w": {
+      "only_first": 1,
+      "only_second": 3,
+      "p": 0.625
+    }
+  },
+  "per_question": {
+    "bge-small @ 200w": [
+      {
+        "id": "ext-01",
+        "type": "extractive",
+        "rank": 2,
+        "words_read": 85
+      },
+      {
+        "id": "ext-02",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 43
+      },
+      {
+        "id": "ext-04",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 61
+      },
+      {
+        "id": "ext-07",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 121
+      },
+      {
+        "id": "ext-08",
+        "type": "extractive",
+        "rank": 13,
+        "words_read": 1604
+      },
+      {
+        "id": "ext-12",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 197
+      },
+      {
+        "id": "ext-13",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 193
+      },
+      {
+        "id": "ext-14",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 185
+      },
+      {
+        "id": "ext-15",
+        "type": "extractive",
+        "rank": 6,
+        "words_read": 841
+      },
+      {
+        "id": "ext-16",
+        "type": "extractive",
+        "rank": 2,
+        "words_read": 193
+      },
+      {
+        "id": "ext-18",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 63
+      },
+      {
+        "id": "ext-20",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 64
+      },
+      {
+        "id": "ext-21",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 69
+      },
+      {
+        "id": "ext-24",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 188
+      },
+      {
+        "id": "ext-25",
+        "type": "extractive",
+        "rank": 2,
+        "words_read": 156
+      },
+      {
+        "id": "ext-27",
+        "type": "extractive",
+        "rank": 6,
+        "words_read": 852
+      },
+      {
+        "id": "ext-28",
+        "type": "extractive",
+        "rank": 2,
+        "words_read": 378
+      },
+      {
+        "id": "ext-29",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 99
+      },
+      {
+        "id": "ext-31",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 90
+      },
+      {
+        "id": "ext-32",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 189
+      },
+      {
+        "id": "ext-33",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 141
+      },
+      {
+        "id": "ext-35",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 44
+      },
+      {
+        "id": "ext-40",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 146
+      },
+      {
+        "id": "ext-42",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 137
+      },
+      {
+        "id": "ext-43",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 156
+      },
+      {
+        "id": "ext-44",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 42
+      },
+      {
+        "id": "grw-01",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-02",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 345
+      },
+      {
+        "id": "grw-07",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 135
+      },
+      {
+        "id": "grw-10",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-12",
+        "type": "grower",
+        "rank": 5,
+        "words_read": 606
+      },
+      {
+        "id": "grw-13",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 53
+      },
+      {
+        "id": "grw-15",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 305
+      },
+      {
+        "id": "grw-16",
+        "type": "grower",
+        "rank": 5,
+        "words_read": 774
+      },
+      {
+        "id": "grw-17",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 151
+      },
+      {
+        "id": "grw-18",
+        "type": "grower",
+        "rank": 3,
+        "words_read": 322
+      },
+      {
+        "id": "grw-19",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 104
+      },
+      {
+        "id": "grw-20",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 342
+      },
+      {
+        "id": "grw-21",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 145
+      },
+      {
+        "id": "grw-22",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 193
+      },
+      {
+        "id": "grw-26",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 186
+      },
+      {
+        "id": "grw-28",
+        "type": "grower",
+        "rank": 10,
+        "words_read": 1195
+      },
+      {
+        "id": "grw-29",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-30",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-33",
+        "type": "grower",
+        "rank": 4,
+        "words_read": 441
+      },
+      {
+        "id": "grw-34",
+        "type": "grower",
+        "rank": 3,
+        "words_read": 299
+      },
+      {
+        "id": "grw-37",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 69
+      },
+      {
+        "id": "grw-38",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 113
+      },
+      {
+        "id": "grw-39",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 176
+      },
+      {
+        "id": "grw-40",
+        "type": "grower",
+        "rank": 4,
+        "words_read": 488
+      },
+      {
+        "id": "grw-42",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 319
+      },
+      {
+        "id": "grw-43",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 80
+      },
+      {
+        "id": "una-01",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-02",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-03",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-04",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-06",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-10",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-11",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-12",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-16",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-18",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-19",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-21",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-22",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-24",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      }
+    ],
+    "rrf(bm25+stem, bge-small) > bge-reranker-base @ 200w": [
+      {
+        "id": "ext-01",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 73
+      },
+      {
+        "id": "ext-02",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 43
+      },
+      {
+        "id": "ext-04",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 61
+      },
+      {
+        "id": "ext-07",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 121
+      },
+      {
+        "id": "ext-08",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 60
+      },
+      {
+        "id": "ext-12",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 197
+      },
+      {
+        "id": "ext-13",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 193
+      },
+      {
+        "id": "ext-14",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 185
+      },
+      {
+        "id": "ext-15",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 200
+      },
+      {
+        "id": "ext-16",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 163
+      },
+      {
+        "id": "ext-18",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 63
+      },
+      {
+        "id": "ext-20",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 64
+      },
+      {
+        "id": "ext-21",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 69
+      },
+      {
+        "id": "ext-24",
+        "type": "extractive",
+        "rank": 4,
+        "words_read": 752
+      },
+      {
+        "id": "ext-25",
+        "type": "extractive",
+        "rank": 2,
+        "words_read": 156
+      },
+      {
+        "id": "ext-27",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 116
+      },
+      {
+        "id": "ext-28",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 196
+      },
+      {
+        "id": "ext-29",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 99
+      },
+      {
+        "id": "ext-31",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 90
+      },
+      {
+        "id": "ext-32",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 189
+      },
+      {
+        "id": "ext-33",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 141
+      },
+      {
+        "id": "ext-35",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 44
+      },
+      {
+        "id": "ext-40",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 146
+      },
+      {
+        "id": "ext-42",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 137
+      },
+      {
+        "id": "ext-43",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 156
+      },
+      {
+        "id": "ext-44",
+        "type": "extractive",
+        "rank": 1,
+        "words_read": 42
+      },
+      {
+        "id": "grw-01",
+        "type": "grower",
+        "rank": 10,
+        "words_read": 1504
+      },
+      {
+        "id": "grw-02",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 345
+      },
+      {
+        "id": "grw-07",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 135
+      },
+      {
+        "id": "grw-10",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-12",
+        "type": "grower",
+        "rank": 5,
+        "words_read": 691
+      },
+      {
+        "id": "grw-13",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 53
+      },
+      {
+        "id": "grw-15",
+        "type": "grower",
+        "rank": 3,
+        "words_read": 481
+      },
+      {
+        "id": "grw-16",
+        "type": "grower",
+        "rank": 4,
+        "words_read": 705
+      },
+      {
+        "id": "grw-17",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 151
+      },
+      {
+        "id": "grw-18",
+        "type": "grower",
+        "rank": 8,
+        "words_read": 1033
+      },
+      {
+        "id": "grw-19",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 104
+      },
+      {
+        "id": "grw-20",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 183
+      },
+      {
+        "id": "grw-21",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 145
+      },
+      {
+        "id": "grw-22",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 193
+      },
+      {
+        "id": "grw-26",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 186
+      },
+      {
+        "id": "grw-28",
+        "type": "grower",
+        "rank": 6,
+        "words_read": 721
+      },
+      {
+        "id": "grw-29",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-30",
+        "type": "grower",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "grw-33",
+        "type": "grower",
+        "rank": 3,
+        "words_read": 388
+      },
+      {
+        "id": "grw-34",
+        "type": "grower",
+        "rank": 3,
+        "words_read": 318
+      },
+      {
+        "id": "grw-37",
+        "type": "grower",
+        "rank": 3,
+        "words_read": 318
+      },
+      {
+        "id": "grw-38",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 289
+      },
+      {
+        "id": "grw-39",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 176
+      },
+      {
+        "id": "grw-40",
+        "type": "grower",
+        "rank": 2,
+        "words_read": 267
+      },
+      {
+        "id": "grw-42",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 130
+      },
+      {
+        "id": "grw-43",
+        "type": "grower",
+        "rank": 1,
+        "words_read": 80
+      },
+      {
+        "id": "una-01",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-02",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-03",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-04",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-06",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-10",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-11",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-12",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-16",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-18",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-19",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-21",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-22",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      },
+      {
+        "id": "una-24",
+        "type": "unanswerable",
+        "rank": null,
+        "words_read": null
+      }
+    ]
+  }
+}
