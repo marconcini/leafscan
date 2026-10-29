@@ -68,4 +68,5 @@ each with a hypothesis, a metric and a conclusion.
   The app retrieves with the question as written and uses the diagnosis to suggest questions
   - *Q: when the classifier hesitates between two diseases, should retrieval cover both?* →
     no: suggest questions about both instead
-- [ ] **Final app and write-up**
+- [x] **Final app and write-up** — README with a two-minute summary; local Gradio app with the
+  assistant (`LEAFSCAN_ASSISTANT=1`)
