@@ -66,6 +66,24 @@ Files:
 In the browser (ONNX Runtime Web, image resizing done by the canvas instead of PIL), the demo
 agrees with the Python int8 predictions on 96.1% of PlantDoc test photos.
 
+## In the LeafScan app: diagnosis, then a cited assistant
+
+👉 Try the model in your browser: [Marconcini/leafscan](https://huggingface.co/spaces/Marconcini/leafscan)
+(int8 ONNX, nothing uploaded).
+
+The project's local app goes one step further: after the diagnosis, a retrieval-augmented
+assistant answers questions from 28 Wikipedia articles with a local LLM, citing its sources
+(`LEAFSCAN_ASSISTANT=1 python -m leafscan.app`). How this model's output is used there was
+tested on 500 (question, field photo) pairs with its real predictions on PlantDoc test:
+
+- Restricting the search to the predicted disease **costs 16 points of recall@5**: a right
+  diagnosis adds 8 points, a wrong one (28% of field photos) removes the answer.
+- Restricting to the top-2 when the model is unsure recovers less than half of the loss.
+
+So the diagnosis does **not** filter the search: it suggests questions that name the disease
+(both candidates when the model says "Not sure"), which the user can see and correct.
+Details: [research log](https://github.com/marconcini/leafscan/blob/main/docs/research-log.md).
+
 ## Intended use and limitations
 
 - **Intended use:** demonstration and research on robustness of plant-disease classifiers.
