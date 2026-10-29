@@ -57,3 +57,10 @@ def test_export_roundtrip_gives_same_predictions(ckpt, tmp_path):
     a, b = Predictor(ckpt)(img, explain=False), Predictor(tmp_path / "export")(img, explain=False)
     assert [c for c, _ in a.top] == [c for c, _ in b.top]
     assert np.allclose([p for _, p in a.top], [p for _, p in b.top], atol=1e-6)
+
+
+def test_app_builds_with_the_assistant(ckpt):
+    gr = pytest.importorskip("gradio")
+    from leafscan.app import build_app
+
+    assert isinstance(build_app(Predictor(ckpt), assistant=lambda q: None), gr.Blocks)
