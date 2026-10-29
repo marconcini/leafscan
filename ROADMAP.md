@@ -54,7 +54,9 @@ each with a hypothesis, a metric and a conclusion.
   cross-encoder reranking [Nogueira & Cho 2019]: +4 grower questions on dev, −1 on test
   (winner's curse on 17 questions); bge-small kept. Next: a bigger dev set before more tuning
 - [ ] HyDE [Gao et al. 2022], contextual retrieval — after the evaluation set grows
-- [ ] **Grounded generation with citations** and hallucination measurement [Es et al. 2023]
+- [x] **Grounded generation with citations** and hallucination measurement [Es et al. 2023] —
+  local Qwen3-4B; abstains on 88% of unanswerable questions; 78% of cited sentences entailed
+  (NLI), ~12% estimated real embellishments, mostly in grower answers
   - *Q: does an LLM judge agree with human judgement? [Zheng et al. 2023]*
 - [ ] **Knowing when to say "I don't know"** [Asai et al. 2023; Yan et al. 2024]
 - [ ] **Vision ↔ RAG integration**

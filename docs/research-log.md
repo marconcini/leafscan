@@ -5,6 +5,62 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-29 — Grounded generation: the model abstains well, and embellishes grower answers
+
+Qwen3-4B-Instruct, local, 4.2 s per answer (median). 111 questions × 2 conditions
+(`reports/rag/answers_*.jsonl`, `reports/rag/generation.json`).
+
+**NLI check first.** Gold quotes against their own chunk: 92% entailed; against a random chunk
+of another page: 0%. The 8% misses are fragments that are not full statements ("the whitefly
+Bemisia tabaci"). The checker is conservative: it rarely accepts an unrelated source.
+
+**Test split, retrieved context (the real system):**
+
+| | Extractive (26) | Grower (26) | Unanswerable (14) |
+|---|---:|---:|---:|
+| Abstains | 8% | 12% | **86%** |
+| Sentences with a valid citation | 98% | 84% | – |
+| Cited sentences supported (NLI) | 84% | **74%** | – |
+| Answer cites a gold chunk (answered) | 92% | 87% | – |
+
+With the **oracle** context (gold chunk always present): grower abstention 12% → 8%,
+gold citation 87% → 96%; support of cited sentences unchanged (75%).
+
+**Hypotheses vs. results.**
+- *G1: ≥ 80% of cited sentences supported* → **not met as measured**: 78% on test answerable
+  questions (84% extractive, 74% grower). See the manual review below: the NLI under-counts.
+- *G2: abstains on fewer than half of unanswerable questions* → **refuted, in the good
+  direction**: 21 of 24 (88%). With an explicit abstention instruction and a small corpus
+  where off-topic retrievals are obvious, this model does not show the "hallucinate rather
+  than abstain" behaviour of Joren et al. (2025). Of 8 abstentions on answerable questions,
+  6 are cases where retrieval missed the gold chunk: the model said "I don't know" instead of
+  inventing, which is the right failure.
+- *G3: the oracle helps by about the retrieval miss rate, not to 100%* → **mostly
+  confirmed**: when the gold chunk is in the context, the answer cites it 96–97% of the time.
+  The generator's own failure to use the right source is small; retrieval misses mostly turn
+  into abstentions, not wrong answers.
+
+**Manual review of 14 random unsupported sentences** (test, read by the developer, an LLM:
+an indication, not a human audit):
+- 6 are correct and NLI misses them: paraphrases, two facts merged in one sentence, or a
+  correct statement citing the wrong source number.
+- 7 add something the source does not say: inferences ("so tomatoes can infect your
+  peppers"), extra advice ("disinfect tools"), an invented item in a list ("antibiotics").
+- 1 contradicts the source: asked whether leaf mold is fought differently in a greenhouse,
+  the model says yes; the source says the two are "very similar".
+
+So roughly **half of the flagged sentences are real embellishments**: an estimated ~12% of
+cited sentences say more than their source, concentrated in grower answers, where the
+question invites practical advice the encyclopaedia does not give.
+
+**Unanswerable questions that got an answer.** Pruning a peach tree: four uncited, invented
+sentences (NLI support 0 for all). Eating potatoes after late blight: a partly grounded but
+unwarranted answer. Composting mosaic-virus plants: one supported sentence followed by
+unsupported claims. In all three, **low NLI support flags the problem**, a signal for the
+abstention step.
+
+---
+
 ## 2026-10-29 — Grounded generation: plan (before running it)
 
 **Generator.** Qwen3-4B-Instruct-2507 (Apache 2.0), run locally (bf16, Apple GPU), greedy
