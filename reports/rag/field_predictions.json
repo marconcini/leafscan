@@ -1,0 +1,4334 @@
+[
+ {
+  "photo": "Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.4981428384780884
+   ],
+   [
+    "Blueberry___healthy",
+    0.312793105840683
+   ],
+   [
+    "Potato___healthy",
+    0.039836473762989044
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/early-blight-septoria-ls-fig-3.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.578948974609375
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.21395796537399292
+   ],
+   [
+    "Tomato___Early_blight",
+    0.16724523901939392
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf yellow virus/tylcv-seminar-1-638.jpg",
+  "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "top": [
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.7551860809326172
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.09281770139932632
+   ],
+   [
+    "Tomato___healthy",
+    0.05782414972782135
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/052609%20Hartman%20Crabapple%20scab%20single%20leaf.JPG.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.9479305148124695
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.008159869350492954
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.007255676668137312
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/1b321015-6e33-4f18-aade-888f4383fe92.jpeg.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.5405975580215454
+   ],
+   [
+    "Apple___Apple_scab",
+    0.2832459807395935
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.038597725331783295
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple Scab Leaf/28-500x375.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.979019045829773
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0051319655030965805
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.0034772632643580437
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/816.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9799389839172363
+   ],
+   [
+    "Apple___Apple_scab",
+    0.005857101641595364
+   ],
+   [
+    "Apple___healthy",
+    0.0010969924042001367
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/apple%20scab%20leaf.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.9553259015083313
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.009149950928986073
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.005369450896978378
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/apple%20scabnew.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.7149115800857544
+   ],
+   [
+    "Apple___Apple_scab",
+    0.19665825366973877
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.01807302050292492
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple Scab Leaf/apple-scab-5366820.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.9655141234397888
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.00900881178677082
+   ],
+   [
+    "Potato___Early_blight",
+    0.0023844558745622635
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/apples_apple-scab_01_zoom.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.9744837880134583
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.008216280490159988
+   ],
+   [
+    "Grape___Black_rot",
+    0.001618579146452248
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/apples_apple-scab_02_thm.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.9543196558952332
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.006023133173584938
+   ],
+   [
+    "Potato___Early_blight",
+    0.005375601816922426
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple Scab Leaf/apples_apple-scab_10_zoom.jpg",
+  "label": "Apple___Apple_scab",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.27317726612091064
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.2661006450653076
+   ],
+   [
+    "Grape___Black_rot",
+    0.14138494431972504
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple leaf/20180511_090912-14gtw8a-e1526047952754.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.25633248686790466
+   ],
+   [
+    "Orange___Haunglongbing_(Citrus_greening)",
+    0.16377422213554382
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.11578579246997833
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple leaf/20180511_091133-24l1vhg-e1526047988236.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.5708726048469543
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.3227806091308594
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.019332556053996086
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple leaf/20180511_091252-1gy5xf5-e1526048000596.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.9164740443229675
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.014050544239580631
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.01095665618777275
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple leaf/4120978-single-green-leaf-of-apple-tree.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.7025524973869324
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.23290927708148956
+   ],
+   [
+    "Peach___healthy",
+    0.004078421276062727
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple leaf/Apple-Leaf-Wallpaper-17.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.37454429268836975
+   ],
+   [
+    "Strawberry___healthy",
+    0.26237568259239197
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.09217014163732529
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple leaf/apple-leaf-14319997.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.7155801057815552
+   ],
+   [
+    "Apple___healthy",
+    0.11086025834083557
+   ],
+   [
+    "Soybean___healthy",
+    0.0322900228202343
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple leaf/apple-leaf-9834637.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.9705876111984253
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.003149214433506131
+   ],
+   [
+    "Tomato___healthy",
+    0.002873203717172146
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple leaf/apple-leaf-closeup-37636177.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.8807881474494934
+   ],
+   [
+    "Apple___healthy",
+    0.0342085100710392
+   ],
+   [
+    "Potato___Late_blight",
+    0.006511836778372526
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple leaf/apple-leaf-isolated-white-background-56631026.jpg",
+  "label": "Apple___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.7730549573898315
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.16951829195022583
+   ],
+   [
+    "Blueberry___healthy",
+    0.016613146290183067
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/02.-Rust-2017-207u24s.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___healthy",
+    0.7881099581718445
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.02110978029668331
+   ],
+   [
+    "Blueberry___healthy",
+    0.020703265443444252
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/0605_Rust-induced_leafspot.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9817230105400085
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.0010785022750496864
+   ],
+   [
+    "Potato___Early_blight",
+    0.0009917707648128271
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/185161-004-EAF28842.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.619939386844635
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.277804434299469
+   ],
+   [
+    "Apple___Apple_scab",
+    0.016871100291609764
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Apple rust leaf/2011-011.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.8694538474082947
+   ],
+   [
+    "Grape___Black_rot",
+    0.04634827375411987
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.02006055787205696
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/20130519cedarapplerust.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9843388795852661
+   ],
+   [
+    "Grape___Black_rot",
+    0.0025510641280561686
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.0012954619014635682
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/20130610_110514.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.7878204584121704
+   ],
+   [
+    "Apple___Apple_scab",
+    0.16712772846221924
+   ],
+   [
+    "Potato___Early_blight",
+    0.006739623378962278
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/20130802_111632.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9809897541999817
+   ],
+   [
+    "Apple___Apple_scab",
+    0.0031263960991054773
+   ],
+   [
+    "Potato___Early_blight",
+    0.0030378487426787615
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/4-apple-rust2_19011_matt-bertone.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9878711700439453
+   ],
+   [
+    "Apple___Apple_scab",
+    0.000988082611002028
+   ],
+   [
+    "Grape___Black_rot",
+    0.0007299510762095451
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/9343310-small.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9897464513778687
+   ],
+   [
+    "Apple___Apple_scab",
+    0.0008671353571116924
+   ],
+   [
+    "Apple___healthy",
+    0.0007927097612991929
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Apple rust leaf/99e886623c2080c22f6519b0e708c531.jpg",
+  "label": "Apple___Cedar_apple_rust",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.9802287817001343
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.0023411610163748264
+   ],
+   [
+    "Peach___healthy",
+    0.0013292680960148573
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/10148582-green-leaf-of-pepper.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.9178819060325623
+   ],
+   [
+    "Tomato___healthy",
+    0.026470737531781197
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.006832515355199575
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/4825902504_5fa80b65b8_z.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.4228041172027588
+   ],
+   [
+    "Soybean___healthy",
+    0.1948637068271637
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.1810501366853714
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Bell_pepper leaf/GREEN%20BELL%20PLANT%20YELLOW%20LEAF.JPG.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.9331265687942505
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.05150538682937622
+   ],
+   [
+    "Tomato___healthy",
+    0.003789847483858466
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/IMG_1629.JPG?1507122477.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.9054642915725708
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.05312248319387436
+   ],
+   [
+    "Tomato___healthy",
+    0.007994504645466805
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/RnGnC.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.9006220102310181
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.048130884766578674
+   ],
+   [
+    "Tomato___healthy",
+    0.012923698872327805
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/e33155.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.9517446756362915
+   ],
+   [
+    "Tomato___healthy",
+    0.0175040103495121
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.011914054863154888
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/pepper_leaf.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.9539399147033691
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.01805611327290535
+   ],
+   [
+    "Tomato___healthy",
+    0.005493462085723877
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf/why-are-my-pepper-plants-yellow-yellow-pepper-plants-yellow-leaves-green-veins-pepper-plants-yellow-veins.jpg",
+  "label": "Pepper,_bell___healthy",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.7545105218887329
+   ],
+   [
+    "Orange___Haunglongbing_(Citrus_greening)",
+    0.1281147003173828
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.05899137631058693
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf spot/00.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.9314539432525635
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.02144908532500267
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.011045313440263271
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf spot/000.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Tomato___Bacterial_spot",
+    0.7029871940612793
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.08679859340190887
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.04122934862971306
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Bell_pepper leaf spot/01.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.7500287890434265
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.1821223497390747
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.013669339939951897
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Bell_pepper leaf spot/Bacterial-spot-pepper2.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.9042291641235352
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.03154052793979645
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.012549417093396187
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf spot/CMVpepperLeafShock-copy-50QUALITY-1ge8umw.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.745003879070282
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.09661126136779785
+   ],
+   [
+    "Potato___Early_blight",
+    0.0641021877527237
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Bell_pepper leaf spot/H5w92.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.7122476696968079
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.2380111962556839
+   ],
+   [
+    "Tomato___healthy",
+    0.010619692504405975
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Bell_pepper leaf spot/bacterial_leaf_spot_pepper_l.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.9504983425140381
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.003581724828109145
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.003237116616219282
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf spot/pepper-spot.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.8846288323402405
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.05007704719901085
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.01295292004942894
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Bell_pepper leaf spot/pepper_bacterial-spot_03_zoom.jpg",
+  "label": "Pepper,_bell___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.9494208693504333
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.006219180766493082
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.005135367624461651
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/P1200665+Vaccinium+alaskaense+vs+ovalifolium+leaf+and++twig+cr.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.9659558534622192
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.006331510376185179
+   ],
+   [
+    "Orange___Haunglongbing_(Citrus_greening)",
+    0.0029938500374555588
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/P1200701+Vaccinium+ovalifolium+Oval-leaf+Blueberry+leaf+margin+Heather+Meadows+cr.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.295765221118927
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.18423278629779816
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.12574684619903564
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Blueberry leaf/blueberrysilverleaf16-1372b.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.9767943024635315
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0014102760469540954
+   ],
+   [
+    "Potato___Early_blight",
+    0.0013427335070446134
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/leaf-blueberry-15281271.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.8980598449707031
+   ],
+   [
+    "Soybean___healthy",
+    0.06481273472309113
+   ],
+   [
+    "Peach___healthy",
+    0.005105121526867151
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/northern-highbush-blueberry-blue-huckleberry-vaccinium-corymbosum-EHNXRR.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.9209523797035217
+   ],
+   [
+    "Potato___Early_blight",
+    0.008982288651168346
+   ],
+   [
+    "Potato___Late_blight",
+    0.00811526644974947
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/stock-photo-blueberry-leaf-closeup-isolated-on-white-306486470.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.968887448310852
+   ],
+   [
+    "Peach___healthy",
+    0.0037590726278722286
+   ],
+   [
+    "Apple___healthy",
+    0.00335568655282259
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/stock-photo-green-blueberry-leaf-isolated-with-clipping-path-550344304.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.8130081295967102
+   ],
+   [
+    "Blueberry___healthy",
+    0.09126860648393631
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.01658729650080204
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/stock-photo-two-sides-of-blueberry-leaf-isolated-on-white-15582232.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.9720168113708496
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.002309235278517008
+   ],
+   [
+    "Peach___healthy",
+    0.0022386498749256134
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Blueberry leaf/vaccinium-angustifolium-low-bush-blueberry_0830_124221.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.4957215487957001
+   ],
+   [
+    "Apple___healthy",
+    0.37718459963798523
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.019005008041858673
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Blueberry leaf/vaccinium_angustifolium_leaf2.JPG.jpg",
+  "label": "Blueberry___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.9619580507278442
+   ],
+   [
+    "Potato___Late_blight",
+    0.0035288482904434204
+   ],
+   [
+    "Peach___healthy",
+    0.0028033084236085415
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Cherry leaf/d7b79dbc0bca0eb3e63fbe5dfb256ccd53d90a4eb1413_1260x1260.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.6680386066436768
+   ],
+   [
+    "Peach___healthy",
+    0.17629316449165344
+   ],
+   [
+    "Tomato___healthy",
+    0.017738649621605873
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Cherry leaf/e52bbb9a08ede2948ba0c006f02fe7b053ad7831d1df6_1260x1260.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.5378159284591675
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.2870555520057678
+   ],
+   [
+    "Orange___Haunglongbing_(Citrus_greening)",
+    0.041269708424806595
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Cherry leaf/ed12ff77ce021883de241830dee55e2e53d2c93231699_1260x1260.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.9873320460319519
+   ],
+   [
+    "Apple___healthy",
+    0.0036160058807581663
+   ],
+   [
+    "Peach___healthy",
+    0.0009834893280640244
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Cherry leaf/fc729af279e9087d00bd32d89a1552a756a3ad9de7f2b_1260x1260.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.9611483812332153
+   ],
+   [
+    "Apple___healthy",
+    0.013949832879006863
+   ],
+   [
+    "Blueberry___healthy",
+    0.0019981202203780413
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Cherry leaf/five-cherry-tree-green-leaves-white-isolated-background-34493587.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Blueberry___healthy",
+    0.43541592359542847
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.4159400165081024
+   ],
+   [
+    "Peach___healthy",
+    0.04835404083132744
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Cherry leaf/prunsero_leaf1.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.7690123915672302
+   ],
+   [
+    "Peach___healthy",
+    0.06589603424072266
+   ],
+   [
+    "Blueberry___healthy",
+    0.06185464188456535
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Cherry leaf/prunsero_leaf2.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.8251597881317139
+   ],
+   [
+    "Apple___healthy",
+    0.0863303393125534
+   ],
+   [
+    "Peach___healthy",
+    0.03536941111087799
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Cherry leaf/prunus-virginiana-le-gmittelhauser.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Apple___Apple_scab",
+    0.34774094820022583
+   ],
+   [
+    "Apple___healthy",
+    0.2828865647315979
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.22945094108581543
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Cherry leaf/red-cherry-tree-leaf-isolated-crisp-white-background-35742030.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.3182770907878876
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.3071829378604889
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.10121878981590271
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Cherry leaf/three-vibrant-leaves-bird-cherry-tree-13905898.jpg",
+  "label": "Cherry_(including_sour)___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.7024929523468018
+   ],
+   [
+    "Blueberry___healthy",
+    0.1706056147813797
+   ],
+   [
+    "Peach___healthy",
+    0.051169030368328094
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Corn Gray leaf spot/rsz0803Figure6.jpg",
+  "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.9566543102264404
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.0037117255851626396
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.002653636271134019
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn Gray leaf spot/show_picture.asp?id=aaaaaaaaaaogcqq&w2=420&h2=378&clip=center,420,378&meta=0.jpg",
+  "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "top": [
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.7005155682563782
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.23865889012813568
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.016608672216534615
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Corn Gray leaf spot/strom5.jpg",
+  "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.8330033421516418
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.12744852900505066
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.010922927409410477
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/02c.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.9573751091957092
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.013946672901511192
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.011570404283702374
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/0796.20graylssymt.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.6302388310432434
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.3253982961177826
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.002606871770694852
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Corn leaf blight/07c.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.7693786025047302
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.20582355558872223
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.002140697790309787
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/0c.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.9787614345550537
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.0025439837481826544
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.0009306722204200923
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/1321189.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.7541660666465759
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.21422964334487915
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.0017806146061047912
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/160314_web.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.9452584385871887
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.005582726560533047
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.0037391199730336666
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/2013Corn_GrayLeafSpot_0815_0003.JPG.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.5901389718055725
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.35719040036201477
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.01645335741341114
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Corn leaf blight/Common%20Diseases%20Figure%201.JPG.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.9548754096031189
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.01075709518045187
+   ],
+   [
+    "Peach___healthy",
+    0.0014509736793115735
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn leaf blight/Corn-SCLB-2017-1.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.6983035206794739
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.18143752217292786
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.07127504795789719
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Corn leaf blight/corn-disease-update-fig-3-gray-leaf-spot.jpg",
+  "label": "Corn_(maize)___Northern_Leaf_Blight",
+  "top": [
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.7756491303443909
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.18619804084300995
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.0023242246825248003
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/0796.39maizerust.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9844217300415039
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.00130076939240098
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.0010662032291293144
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/0796.40comrust.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9689294099807739
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.0022663373965770006
+   ],
+   [
+    "Tomato___Early_blight",
+    0.0016246904851868749
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/0796.47southrust.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9583467245101929
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.006822299212217331
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.0015609444817528129
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/0796.52srusttelia.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.791022539138794
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.1193133220076561
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.02638121321797371
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/12-19striprustJIM.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9405261278152466
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.026087751612067223
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.007493216078728437
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/1355.50commonrust.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9671789407730103
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.0022138955537229776
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.0018189146649092436
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/2256-body-1501555581-1.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9595212936401367
+   ],
+   [
+    "Strawberry___healthy",
+    0.0016575016779825091
+   ],
+   [
+    "Orange___Haunglongbing_(Citrus_greening)",
+    0.0016305195167660713
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/393.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9646254777908325
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.002602534368634224
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.002244740491732955
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/5496239405_d95bdb97d1_z.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.9724707007408142
+   ],
+   [
+    "Corn_(maize)___Northern_Leaf_Blight",
+    0.0037458273582160473
+   ],
+   [
+    "Grape___Esca_(Black_Measles)",
+    0.0010775787523016334
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Corn rust leaf/80104747.jpg",
+  "label": "Corn_(maize)___Common_rust_",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.8624401092529297
+   ],
+   [
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    0.06336848437786102
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.018349725753068924
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Peach leaf/00pe.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Apple___healthy",
+    0.6711469292640686
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.2059250771999359
+   ],
+   [
+    "Apple___Apple_scab",
+    0.01953624002635479
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Peach leaf/7190f27ead55c0f6e3ff8b982972810a5446a9713a49d_1260x1260.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.5207070112228394
+   ],
+   [
+    "Peach___Bacterial_spot",
+    0.2999824285507202
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.034147944301366806
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Peach leaf/depositphotos_3786198-Peach-leaf.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.9447032809257507
+   ],
+   [
+    "Blueberry___healthy",
+    0.003233312163501978
+   ],
+   [
+    "Apple___healthy",
+    0.003205785993486643
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Peach leaf/peach-leaf-10223898.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.5379801988601685
+   ],
+   [
+    "Blueberry___healthy",
+    0.24413403868675232
+   ],
+   [
+    "Apple___healthy",
+    0.02434530295431614
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Peach leaf/peach-leaf-16690421.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.9779134392738342
+   ],
+   [
+    "Apple___healthy",
+    0.0028434633277356625
+   ],
+   [
+    "Tomato___healthy",
+    0.0020146118476986885
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Peach leaf/peach-leaf-isolated-white-background-42295220.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.9713472127914429
+   ],
+   [
+    "Tomato___healthy",
+    0.003249633125960827
+   ],
+   [
+    "Apple___healthy",
+    0.002950293943285942
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Peach leaf/rose_tree_220430.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.582314133644104
+   ],
+   [
+    "Peach___healthy",
+    0.18705029785633087
+   ],
+   [
+    "Blueberry___healthy",
+    0.14523082971572876
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Peach leaf/stock-photo-peach-leaf-isolated-on-white-background-281097503.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.948625385761261
+   ],
+   [
+    "Peach___Bacterial_spot",
+    0.01693516969680786
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.0025482196360826492
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Peach leaf/stock-photo-peach-tree-leaf-isolated-over-white-background-back-side-64472731.jpg",
+  "label": "Peach___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.9540421366691589
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.0027422038838267326
+   ],
+   [
+    "Tomato___healthy",
+    0.002676298376172781
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf early blight/3023.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Potato___Late_blight",
+    0.7206845879554749
+   ],
+   [
+    "Potato___Early_blight",
+    0.2505955696105957
+   ],
+   [
+    "Tomato___Early_blight",
+    0.0045696222223341465
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Potato leaf early blight/early-blight-alternaria-alternata-leaf-spotting-on-potato-leaf-X91XJE.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Potato___Early_blight",
+    0.9702104330062866
+   ],
+   [
+    "Potato___Late_blight",
+    0.00740007171407342
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.006395201664417982
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf early blight/early-blight-or-target-spot-alternaria-solani-lesions-on-a-tomato-AXK6AY.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.8189918994903564
+   ],
+   [
+    "Potato___Early_blight",
+    0.1095368042588234
+   ],
+   [
+    "Tomato___Late_blight",
+    0.027702167630195618
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf early blight/earlyblightpotato.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Potato___Early_blight",
+    0.7780137658119202
+   ],
+   [
+    "Tomato___Early_blight",
+    0.13432498276233673
+   ],
+   [
+    "Potato___Late_blight",
+    0.04173210635781288
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf early blight/potato-blight-phytophthora-infestans-close-up-of-upper-surface-of-BMMRXC.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Potato___Late_blight",
+    0.49686262011528015
+   ],
+   [
+    "Potato___Early_blight",
+    0.4494335353374481
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.013216206803917885
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Potato leaf early blight/potato-early-blight-alternaria-alternata-lesion-on-a-potato-leaf-a1w1em.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Potato___Early_blight",
+    0.9834070801734924
+   ],
+   [
+    "Potato___Late_blight",
+    0.002173867542296648
+   ],
+   [
+    "Tomato___Early_blight",
+    0.0016462082276120782
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf early blight/potatobd001.jpg",
+  "label": "Potato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.7541038990020752
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.12097063660621643
+   ],
+   [
+    "Potato___Early_blight",
+    0.05290783941745758
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf late blight/20090710-lateblight.jpg",
+  "label": "Potato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.8396751880645752
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.06541431695222855
+   ],
+   [
+    "Potato___Late_blight",
+    0.01985233835875988
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf late blight/2540_600.jpg",
+  "label": "Potato___Late_blight",
+  "top": [
+   [
+    "Potato___Late_blight",
+    0.7923991084098816
+   ],
+   [
+    "Potato___Early_blight",
+    0.0934079959988594
+   ],
+   [
+    "Tomato___Late_blight",
+    0.03239497169852257
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf late blight/B2750109-Late_blight_on_a_potato_plant-SPL.jpg",
+  "label": "Potato___Late_blight",
+  "top": [
+   [
+    "Potato___Late_blight",
+    0.7386785745620728
+   ],
+   [
+    "Potato___Early_blight",
+    0.21077871322631836
+   ],
+   [
+    "Tomato___Late_blight",
+    0.014531836844980717
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Potato leaf late blight/LateBlight04.jpg",
+  "label": "Potato___Late_blight",
+  "top": [
+   [
+    "Potato___Late_blight",
+    0.7808250188827515
+   ],
+   [
+    "Potato___Early_blight",
+    0.17779800295829773
+   ],
+   [
+    "Tomato___Late_blight",
+    0.007865183986723423
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Potato leaf late blight/potato-late-blight.jpg",
+  "label": "Potato___Late_blight",
+  "top": [
+   [
+    "Potato___Late_blight",
+    0.847450315952301
+   ],
+   [
+    "Potato___Early_blight",
+    0.09736815094947815
+   ],
+   [
+    "Tomato___Late_blight",
+    0.00912416074424982
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Raspberry leaf/Raspberry-leaf.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.9735763072967529
+   ],
+   [
+    "Strawberry___healthy",
+    0.0021167488303035498
+   ],
+   [
+    "Grape___healthy",
+    0.0021078167483210564
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Raspberry leaf/depositphotos_1323264-Raspberry-leaf-on-white.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.9679461121559143
+   ],
+   [
+    "Strawberry___healthy",
+    0.005065576639026403
+   ],
+   [
+    "Grape___healthy",
+    0.0020137254614382982
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Raspberry leaf/depositphotos_1323551-stock-photo-raspberry-leaves.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.7108049988746643
+   ],
+   [
+    "Strawberry___healthy",
+    0.24127885699272156
+   ],
+   [
+    "Grape___healthy",
+    0.00477787246927619
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Raspberry leaf/depositphotos_2795312-stock-photo-green-raspberry-leaf.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.9864585995674133
+   ],
+   [
+    "Tomato___healthy",
+    0.0010949617717415094
+   ],
+   [
+    "Strawberry___healthy",
+    0.0010152820032089949
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Raspberry leaf/iron-deficiency-raspberry-leaf-chlorosis-isolated-32457798.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.9792059659957886
+   ],
+   [
+    "Strawberry___healthy",
+    0.0028253891505301
+   ],
+   [
+    "Tomato___healthy",
+    0.0013815254205837846
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Raspberry leaf/leaves-of-raspberry-stock-picture-2529053.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.9551486372947693
+   ],
+   [
+    "Strawberry___healthy",
+    0.0042883665300905704
+   ],
+   [
+    "Cherry_(including_sour)___healthy",
+    0.0029489228036254644
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Raspberry leaf/three-raspberry-green-leaves-isolated-white-background-62022932.jpg",
+  "label": "Raspberry___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.8966548442840576
+   ],
+   [
+    "Strawberry___healthy",
+    0.054068371653556824
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.003325591329485178
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Soyabean leaf/07feb_ma_sbr3.JPG.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.23314045369625092
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.16830509901046753
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.13274388015270233
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Soyabean leaf/Soybean%20edamame%20leaf1.JPG.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.9644026756286621
+   ],
+   [
+    "Potato___Late_blight",
+    0.0024190593976527452
+   ],
+   [
+    "Tomato___healthy",
+    0.0024009987246245146
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Soyabean leaf/fresh-soy-leaves-isolated-on-260nw-667193923.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Peach___healthy",
+    0.5095713138580322
+   ],
+   [
+    "Soybean___healthy",
+    0.15193039178848267
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.14512386918067932
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Soyabean leaf/leaf-raspberry-isolated-on-a-white-stock-photography-image-10106222-1625198.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Raspberry___healthy",
+    0.5465494990348816
+   ],
+   [
+    "Soybean___healthy",
+    0.39699500799179077
+   ],
+   [
+    "Tomato___healthy",
+    0.005948108155280352
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Soyabean leaf/resistance1c.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Cherry_(including_sour)___healthy",
+    0.23159487545490265
+   ],
+   [
+    "Blueberry___healthy",
+    0.2111026793718338
+   ],
+   [
+    "Soybean___healthy",
+    0.12921400368213654
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Soyabean leaf/stock-photo-fresh-soy-leaves-isolated-on-white-94266130.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.9233789443969727
+   ],
+   [
+    "Blueberry___healthy",
+    0.024390265345573425
+   ],
+   [
+    "Tomato___healthy",
+    0.006663336418569088
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Soyabean leaf/stock-photo-fresh-soy-leaves-isolated-on-white-94700095.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.9464721083641052
+   ],
+   [
+    "Blueberry___healthy",
+    0.009755575098097324
+   ],
+   [
+    "Tomato___healthy",
+    0.0033072377555072308
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Soyabean leaf/stock-photo-soy-leaf-isolated-on-white-background-120961801.jpg",
+  "label": "Soybean___healthy",
+  "top": [
+   [
+    "Soybean___healthy",
+    0.9680705070495605
+   ],
+   [
+    "Strawberry___healthy",
+    0.0025897137820720673
+   ],
+   [
+    "Raspberry___healthy",
+    0.0020447189453989267
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Squash Powdery mildew leaf/Powdery-Mildew-on-squash.jpg",
+  "label": "Squash___Powdery_mildew",
+  "top": [
+   [
+    "Squash___Powdery_mildew",
+    0.9754717350006104
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.0016969643766060472
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0014849200379103422
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Squash Powdery mildew leaf/powdery-mildew-erysiphe-plantani-on-young-sycamore-leaves-b774tm.jpg",
+  "label": "Squash___Powdery_mildew",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.5001616477966309
+   ],
+   [
+    "Tomato___Late_blight",
+    0.18523170053958893
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.07537880539894104
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Squash Powdery mildew leaf/powdery-mildew-on-pumpkin-leaves-close-up-2.jpg",
+  "label": "Squash___Powdery_mildew",
+  "top": [
+   [
+    "Squash___Powdery_mildew",
+    0.9700927138328552
+   ],
+   [
+    "Strawberry___healthy",
+    0.0020863660611212254
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.0016110606957226992
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Squash Powdery mildew leaf/powdery-mildew-sphaerotheca-fuliginea-infection-on-pumpkin-leaves-ajdkkx.jpg",
+  "label": "Squash___Powdery_mildew",
+  "top": [
+   [
+    "Squash___Powdery_mildew",
+    0.9671943187713623
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.0019846425857394934
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.001895214430987835
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Squash Powdery mildew leaf/squash-leave-w-powd-mild.jpg",
+  "label": "Squash___Powdery_mildew",
+  "top": [
+   [
+    "Squash___Powdery_mildew",
+    0.9702052474021912
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.00197476614266634
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.0018029025522992015
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Squash Powdery mildew leaf/surface.jpg",
+  "label": "Squash___Powdery_mildew",
+  "top": [
+   [
+    "Squash___Powdery_mildew",
+    0.9239320158958435
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.03124861605465412
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0045491731725633144
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaf--stock-photo-1431216.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.969528317451477
+   ],
+   [
+    "Potato___Late_blight",
+    0.0017445909325033426
+   ],
+   [
+    "Apple___healthy",
+    0.0012528555234894156
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaf-22360816.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.9620753526687622
+   ],
+   [
+    "Soybean___healthy",
+    0.002145343692973256
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0019372954266145825
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaves-collection-white-background-36684676.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.9636473655700684
+   ],
+   [
+    "Soybean___healthy",
+    0.0029173805378377438
+   ],
+   [
+    "Grape___healthy",
+    0.0028010536916553974
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaves-isolated-white-17473157.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.968535304069519
+   ],
+   [
+    "Soybean___healthy",
+    0.0020630599465221167
+   ],
+   [
+    "Potato___Late_blight",
+    0.0017356427852064371
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaves-isolated-white-34722259.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.9651811122894287
+   ],
+   [
+    "Potato___Late_blight",
+    0.002064029686152935
+   ],
+   [
+    "Grape___healthy",
+    0.001878446084447205
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaves-stock-image-948674.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.9672849774360657
+   ],
+   [
+    "Corn_(maize)___Common_rust_",
+    0.0013144983677193522
+   ],
+   [
+    "Apple___healthy",
+    0.0013001098996028304
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/strawberry-leaves-stock-picture-948708.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.9591256380081177
+   ],
+   [
+    "Raspberry___healthy",
+    0.004349397961050272
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0018998131854459643
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Strawberry leaf/wild-strawberry-leaf-top-view-rotated-KTBXCY.jpg",
+  "label": "Strawberry___healthy",
+  "top": [
+   [
+    "Strawberry___healthy",
+    0.9770311713218689
+   ],
+   [
+    "Potato___Late_blight",
+    0.0013658006209880114
+   ],
+   [
+    "Peach___healthy",
+    0.0010243069846183062
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Early blight leaf/039b47d574bc4bb8a14259a1cd96a741.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.4149211645126343
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.2248348593711853
+   ],
+   [
+    "Tomato___Late_blight",
+    0.12050072103738785
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/100983448.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.34344378113746643
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.32032865285873413
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.17131271958351135
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/1234080-Early-Blight.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Bacterial_spot",
+    0.42339950799942017
+   ],
+   [
+    "Tomato___Early_blight",
+    0.3212254047393799
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.16436101496219635
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/Shoemaker_7068.JPG.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.4495124816894531
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.280495285987854
+   ],
+   [
+    "Potato___Early_blight",
+    0.12091261148452759
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/bugs-and-blight-061.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.47050049901008606
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.14987649023532867
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.12733516097068787
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/dscn3175.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.715808093547821
+   ],
+   [
+    "Potato___Early_blight",
+    0.13261476159095764
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.04124794527888298
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/early_blight1-150x150.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.6566856503486633
+   ],
+   [
+    "Potato___Early_blight",
+    0.17190344631671906
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.018026240170001984
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/earlyblight21_.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.6845290660858154
+   ],
+   [
+    "Potato___Early_blight",
+    0.1611776053905487
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.02601327933371067
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Early blight leaf/tomato_early-blight_01_zoom.jpg",
+  "label": "Tomato___Early_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.7840110659599304
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.07712598890066147
+   ],
+   [
+    "Potato___Early_blight",
+    0.049444135278463364
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/0.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.9048945903778076
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.06189245358109474
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.00903274491429329
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/2STEM.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.46106594800949097
+   ],
+   [
+    "Potato___Early_blight",
+    0.2319680154323578
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.22050045430660248
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/2septoria-tomato.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.8219845294952393
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.09281257539987564
+   ],
+   [
+    "Potato___Early_blight",
+    0.027321765199303627
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/55830b60a7cf2.image.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.7066226005554199
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.12393123656511307
+   ],
+   [
+    "Tomato___Early_blight",
+    0.08386141061782837
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/6134794031202304.jpeg.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.8381545543670654
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.10601487010717392
+   ],
+   [
+    "Tomato___Early_blight",
+    0.025799186900258064
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/636227737977191231-septoria-leaf-spot-VT.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.7594692707061768
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.12195601314306259
+   ],
+   [
+    "Tomato___Early_blight",
+    0.06766969710588455
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/6447731_orig.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Bacterial_spot",
+    0.9039151072502136
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.062476906925439835
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.014192926697432995
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/7-17-Photo3_Septoria-MARY.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.5142090916633606
+   ],
+   [
+    "Potato___Early_blight",
+    0.17765286564826965
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.11436554789543152
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/RARZ4.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.8305050730705261
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.11015716940164566
+   ],
+   [
+    "Tomato___Early_blight",
+    0.028336171060800552
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato Septoria leaf spot/sept4disease-019.jpg",
+  "label": "Tomato___Septoria_leaf_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.6740910410881042
+   ],
+   [
+    "Tomato___Early_blight",
+    0.15629613399505615
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.11770322918891907
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf/1684.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.8154116272926331
+   ],
+   [
+    "Raspberry___healthy",
+    0.056961603462696075
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.037801001220941544
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf/2013-08-20-06.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.8768534660339355
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.037636008113622665
+   ],
+   [
+    "Tomato___healthy",
+    0.03590207174420357
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf/90e2c0.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.6652541756629944
+   ],
+   [
+    "Tomato___healthy",
+    0.22382986545562744
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.034143317490816116
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf/DSCN1015.JPG.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.734819769859314
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.16087952256202698
+   ],
+   [
+    "Strawberry___healthy",
+    0.024340437725186348
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf/IMG_1246.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.4325374960899353
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.2776355445384979
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.1456831991672516
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf/Tomato59.JPG.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.7120474576950073
+   ],
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.17027100920677185
+   ],
+   [
+    "Tomato___healthy",
+    0.02121751941740513
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf/Tomato_leaf.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.3652009963989258
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.3349801301956177
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.07333484292030334
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf/main-qimg-d9c2a93f60568485c989670d9bbf703b.jpg",
+  "label": "Tomato___healthy",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.936951756477356
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.02542429231107235
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.012441260740160942
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/%2320+Bacterial+Spot+and+Speck.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Apple___Cedar_apple_rust",
+    0.6236878633499146
+   ],
+   [
+    "Potato___Early_blight",
+    0.08829937875270844
+   ],
+   [
+    "Peach___healthy",
+    0.04912257567048073
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/07.17.18-Common_Tomato_Diseases_Canker-258x300.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.6205579042434692
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.24705106019973755
+   ],
+   [
+    "Potato___Early_blight",
+    0.06440314650535583
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/Bacterial_spots563.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.36219459772109985
+   ],
+   [
+    "Potato___Early_blight",
+    0.31175845861434937
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.09133605659008026
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/Tom_Bact3.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.8744250535964966
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.02331189624965191
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.01945977285504341
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/Tom_Bact7.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.6930126547813416
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.23540598154067993
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.03345233574509621
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/Tomato%2BBacterial%2BSpot%2Bon%2BLeaves.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.608230710029602
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.2373465746641159
+   ],
+   [
+    "Tomato___Early_blight",
+    0.10440211743116379
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/bact-spot-fig-1.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.9480579495429993
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.00685803173109889
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.0042344690300524235
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf bacterial spot/tomato_bacterial-speck_01_zoom.jpg",
+  "label": "Tomato___Bacterial_spot",
+  "top": [
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.6861994862556458
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.1632528305053711
+   ],
+   [
+    "Tomato___Early_blight",
+    0.0735286995768547
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf late blight/110822-206-Tomato-blight.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.9251301884651184
+   ],
+   [
+    "Potato___Late_blight",
+    0.034874651581048965
+   ],
+   [
+    "Potato___Early_blight",
+    0.010101557709276676
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/18c.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.9360952377319336
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.020426539704203606
+   ],
+   [
+    "Potato___Early_blight",
+    0.010643057525157928
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/636368370164094909-late-blight-15-.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.9391920566558838
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.01583709567785263
+   ],
+   [
+    "Potato___Late_blight",
+    0.00964430533349514
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/70.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.5980804562568665
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.11394191533327103
+   ],
+   [
+    "Potato___Early_blight",
+    0.0747595727443695
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf late blight/E%29Tomato-late-blight-foliar.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.9450829029083252
+   ],
+   [
+    "Potato___Late_blight",
+    0.012609561905264854
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.010418078862130642
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/IMG_5808.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.38593554496765137
+   ],
+   [
+    "Potato___Late_blight",
+    0.333711713552475
+   ],
+   [
+    "Potato___Early_blight",
+    0.131974995136261
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf late blight/LateBlt09_06.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.8373011350631714
+   ],
+   [
+    "Potato___Early_blight",
+    0.03786538541316986
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.03366020694375038
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/dsc_8148cs.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.9040896892547607
+   ],
+   [
+    "Potato___Late_blight",
+    0.024494949728250504
+   ],
+   [
+    "Potato___Early_blight",
+    0.0208369642496109
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/image.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.7611516118049622
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.13933907449245453
+   ],
+   [
+    "Potato___Late_blight",
+    0.020863808691501617
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf late blight/late_blight_tomato_leaf_spore1x1200.jpg",
+  "label": "Tomato___Late_blight",
+  "top": [
+   [
+    "Tomato___Late_blight",
+    0.9525511264801025
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.008729511871933937
+   ],
+   [
+    "Potato___Late_blight",
+    0.004405507352203131
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/9511.img.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.7463040351867676
+   ],
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.12373123317956924
+   ],
+   [
+    "Tomato___healthy",
+    0.06264973431825638
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/D%29AlfMov.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.598308801651001
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.12052786350250244
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.11016739159822464
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/Tomato-Mosaic-1wdr2jx-300x225.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Corn_(maize)___Common_rust_",
+    0.24169012904167175
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.16937778890132904
+   ],
+   [
+    "Peach___healthy",
+    0.08687783032655716
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/everystockphoto-21099455-l.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.9440301060676575
+   ],
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.011479584500193596
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.00843758787959814
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/ill-tomato-of-tomato-mosaic-virus-DBE17N.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Pepper,_bell___healthy",
+    0.8995760679244995
+   ],
+   [
+    "Tomato___healthy",
+    0.049797289073467255
+   ],
+   [
+    "Pepper,_bell___Bacterial_spot",
+    0.012317917309701443
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/page_2.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.48248612880706787
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.07883048057556152
+   ],
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.05361900106072426
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/tmv-tomato-34.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.5136562585830688
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.3371635377407074
+   ],
+   [
+    "Pepper,_bell___healthy",
+    0.040240149945020676
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/tmv-tomato-9.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.6317882537841797
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.1875172257423401
+   ],
+   [
+    "Tomato___healthy",
+    0.0933450236916542
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/toma_TMV.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.5505944490432739
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.09379459172487259
+   ],
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.06574378162622452
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf mosaic virus/tomato_virus_04_zoom.jpg",
+  "label": "Tomato___Tomato_mosaic_virus",
+  "top": [
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.518742024898529
+   ],
+   [
+    "Tomato___healthy",
+    0.3783544898033142
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.025374341756105423
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf yellow virus/11-40580_5.jpg",
+  "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "top": [
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.9178664088249207
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.027406569570302963
+   ],
+   [
+    "Peach___healthy",
+    0.003045544493943453
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf yellow virus/17fc47.jpg",
+  "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "top": [
+   [
+    "Tomato___healthy",
+    0.3331564664840698
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.2536529004573822
+   ],
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.19157026708126068
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato leaf yellow virus/8226402877_9abf151b5b_b.jpg",
+  "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "top": [
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.8834426999092102
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.07902166247367859
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.0045315418392419815
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf yellow virus/fwa2013313115151.jpg",
+  "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "top": [
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.903598964214325
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.040746577084064484
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.002953899558633566
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato leaf yellow virus/glyphosate.jpg",
+  "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "top": [
+   [
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    0.890415608882904
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.06196768581867218
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.013569623231887817
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato mold leaf/49%20Leafmold%20Bottom.jpg",
+  "label": "Tomato___Leaf_Mold",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.8962165117263794
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.062189050018787384
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.01094073336571455
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato mold leaf/50%20Leafmold%20Top.jpg",
+  "label": "Tomato___Leaf_Mold",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.9346299767494202
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.022986412048339844
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.011393981985747814
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato mold leaf/BIGSD.jpg",
+  "label": "Tomato___Leaf_Mold",
+  "top": [
+   [
+    "Peach___healthy",
+    0.09996000677347183
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.0994691476225853
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.07683344185352325
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato mold leaf/black_leaf_mold_in_zina_tina.jpg",
+  "label": "Tomato___Leaf_Mold",
+  "top": [
+   [
+    "Tomato___Early_blight",
+    0.3745274245738983
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.2960401773452759
+   ],
+   [
+    "Tomato___Leaf_Mold",
+    0.077681764960289
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "Tomato mold leaf/dscn6689.jpg",
+  "label": "Tomato___Leaf_Mold",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.9407926797866821
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.04148925468325615
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.0018446272006258368
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "Tomato mold leaf/fungus-univ-of-minnesoeta.jpg",
+  "label": "Tomato___Leaf_Mold",
+  "top": [
+   [
+    "Tomato___Leaf_Mold",
+    0.7210990786552429
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.11717451363801956
+   ],
+   [
+    "Tomato___Tomato_mosaic_virus",
+    0.030133532360196114
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "grape leaf/0000.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9598686695098877
+   ],
+   [
+    "Grape___Black_rot",
+    0.010126396082341671
+   ],
+   [
+    "Tomato___healthy",
+    0.0034089998807758093
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/730-grape-leaf-2560x1600-nature-wallpaper.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9739781618118286
+   ],
+   [
+    "Grape___Black_rot",
+    0.0033638360910117626
+   ],
+   [
+    "Tomato___healthy",
+    0.0015370632754638791
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/DSCN7317.JPG.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.5732027888298035
+   ],
+   [
+    "Tomato___healthy",
+    0.1112673282623291
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.051683276891708374
+   ]
+  ],
+  "confident": false
+ },
+ {
+  "photo": "grape leaf/P1130286.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9711130857467651
+   ],
+   [
+    "Raspberry___healthy",
+    0.002695975126698613
+   ],
+   [
+    "Tomato___healthy",
+    0.0026516288053244352
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/depositphotos_3443387-stock-photo-the-green-grape-leaf-on.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9643759727478027
+   ],
+   [
+    "Raspberry___healthy",
+    0.010947478003799915
+   ],
+   [
+    "Strawberry___healthy",
+    0.003560432465746999
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/depositphotos_6898486-stock-photo-grape-leaves.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9765482544898987
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.0017115718219429255
+   ],
+   [
+    "Tomato___healthy",
+    0.0017096094088628888
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/grape-leaf-14309623.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.940915584564209
+   ],
+   [
+    "Strawberry___healthy",
+    0.010356646962463856
+   ],
+   [
+    "Grape___Black_rot",
+    0.008665751665830612
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/grape-leaf-picture-id119212425?k=6&m=119212425&s=612x612&w=0&h=8RZBWGcvXe4tAwhhvYZVFzWyRyiN5iTxKfWBpPT1FcU=.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9741746187210083
+   ],
+   [
+    "Tomato___healthy",
+    0.001973480684682727
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.0017238508444279432
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/grapes-leaves.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9460551142692566
+   ],
+   [
+    "Grape___Black_rot",
+    0.005226035136729479
+   ],
+   [
+    "Strawberry___healthy",
+    0.003935249522328377
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/grapevine-leaf-7466071.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9714709520339966
+   ],
+   [
+    "Strawberry___healthy",
+    0.004337615333497524
+   ],
+   [
+    "Grape___Black_rot",
+    0.0026925946585834026
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/latest?cb=20100621160325.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9660187363624573
+   ],
+   [
+    "Strawberry___healthy",
+    0.0027257113251835108
+   ],
+   [
+    "Tomato___healthy",
+    0.0026001057121902704
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf/vitis-riparia-le-ahaines-b.jpg",
+  "label": "Grape___healthy",
+  "top": [
+   [
+    "Grape___healthy",
+    0.9664582014083862
+   ],
+   [
+    "Grape___Black_rot",
+    0.008503923192620277
+   ],
+   [
+    "Tomato___healthy",
+    0.0025030868127942085
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/03gb.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.986602783203125
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.00295081315562129
+   ],
+   [
+    "Grape___healthy",
+    0.0013129310682415962
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/35589125035_662dd5b258_b.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.975639283657074
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.0020993168000131845
+   ],
+   [
+    "Raspberry___healthy",
+    0.0017913349438458681
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/5-29black-rot-chardRR.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.965679407119751
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.004224838223308325
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.002595950849354267
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/Black%20rot%20on%20foliage.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.9658651947975159
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.005473579745739698
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.0035190479829907417
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/Black%20rot%20on%20foliage2.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.9649918079376221
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.005216795485466719
+   ],
+   [
+    "Grape___healthy",
+    0.0024446186143904924
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/brleaf2_zoom.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.9815794229507446
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0017621327424421906
+   ],
+   [
+    "Squash___Powdery_mildew",
+    0.0009681717492640018
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/grape_F15a.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.8899305462837219
+   ],
+   [
+    "Tomato___Bacterial_spot",
+    0.0744134783744812
+   ],
+   [
+    "Tomato___Septoria_leaf_spot",
+    0.010807213373482227
+   ]
+  ],
+  "confident": true
+ },
+ {
+  "photo": "grape leaf black rot/piano%20gully%20spray%20seed%20damage%2006%20%289%29.JPG.jpg",
+  "label": "Grape___Black_rot",
+  "top": [
+   [
+    "Grape___Black_rot",
+    0.9673415422439575
+   ],
+   [
+    "Grape___healthy",
+    0.016207098960876465
+   ],
+   [
+    "Apple___Cedar_apple_rust",
+    0.0018251636065542698
+   ]
+  ],
+  "confident": true
+ }
+]
