@@ -1,6 +1,7 @@
 # 🌿 LeafScan
 
-**Plant disease detection from leaf photos — and, later, a RAG assistant that explains how to treat it.**
+**Diagnose a plant disease from a leaf photo, then ask questions about it to an assistant that
+cites its sources — and measure honestly where both break.**
 
 [![CI](https://github.com/marconcini/leafscan/actions/workflows/ci.yml/badge.svg)](https://github.com/marconcini/leafscan/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
@@ -8,18 +9,51 @@
 [![Demo](https://img.shields.io/badge/demo-in%20your%20browser-2f7d4f)](https://huggingface.co/spaces/Marconcini/leafscan)
 [![Model](https://img.shields.io/badge/%F0%9F%A4%97%20model-leafscan--convnext--tiny-yellow)](https://huggingface.co/Marconcini/leafscan-convnext-tiny)
 
-> 🚧 Work in progress — built step by step, see the [roadmap](#roadmap).
 
-## Overview
+## In two minutes
 
-LeafScan is an end-to-end applied AI project built in two phases:
+A student research project in two phases, each run like a small study: **hypotheses written
+before the experiments**, a dev/test split for every decision, confidence intervals, and a
+[research log](docs/research-log.md) that keeps the negative results.
 
-1. **Vision** — fine-tune pretrained image models (CNNs and Vision Transformers) to recognise
-   **38 crop/disease classes** from a single leaf photo, compare them rigorously, and explain
-   predictions with Grad-CAM.
-2. **RAG** — given the detected disease, answer the user's questions ("how do I treat it?",
-   "is it contagious?") from a curated corpus of agronomic fact sheets, **citing sources**, with
-   a proper evaluation of retrieval quality and hallucinations.
+```mermaid
+flowchart LR
+    A[Leaf photo] --> B["ConvNeXt-T<br/>38 classes"]
+    B --> C["Calibrated top-3<br/>or 'Not sure'"]
+    C --> D[Suggested questions]
+    D --> E[Question]
+    E --> F["Retrieval<br/>bge-small, 240 chunks<br/>of 28 Wikipedia articles"]
+    F --> G["Qwen3-4B, local<br/>answer with [n] citations<br/>or 'I don't know'"]
+    G --> H["NLI check<br/>⚠️ on unsupported sentences"]
+```
+
+**What I found**
+
+| | Finding | Number |
+|---|---|---|
+| Vision | Lab accuracy says nothing about real photos | **99.7%** on PlantVillage → **31%** on field photos (PlantDoc) |
+| | A little field data beats a lot of lab data | 233 field photos: 39% → **60%**; all 2,323: **74–76%** |
+| | Grad-CAM suggested a background shortcut; a causal test ruled it out | background-only images: chance level (1–5%) |
+| | Confidence calibrated in the lab breaks in the field | lab threshold: 99.9% right in the lab, **56%** in the field |
+| RAG | Evaluating on synthetic questions would have picked the wrong retriever | BM25 recall@5: **0.96** on copied wording, **0.58** on grower wording (dense: 0.81) |
+| | Tuning that won on dev did not hold on test | reranking: +4 grower questions on dev, −1 on test → kept the simple pipeline |
+| | The model knows when it doesn't know; extra safety nets don't pay | abstains on **86%** of unanswerable questions; gate / NLI filter: 1 more question caught for ~10% of answers lost |
+| | Answers are mostly grounded, not always | **78%** of cited sentences entailed by their source (NLI), ~12% real embellishments |
+| Both | Letting the diagnosis steer retrieval hurts | filtering on the predicted disease: **−16 points** of recall@5 (a wrong diagnosis removes the answer) |
+
+**What it shows about how I work**: leak-free splits checked by tests, statistical tests instead
+of eyeballing (McNemar, bootstrap CIs), sanity checks before trusting a metric (random-weights
+Grad-CAM, NLI on random chunks), licences respected (the PlantVillage website is not scraped:
+its robots.txt asks AI crawlers not to), and results reported even when they refute the
+hypothesis. 83 unit tests, CI on every push.
+
+**Try it**: 👉 [in-browser demo](https://huggingface.co/spaces/Marconcini/leafscan) (vision only,
+nothing uploaded) · [model on the Hub](https://huggingface.co/Marconcini/leafscan-convnext-tiny) ·
+full app with the assistant: [run it locally](#demo).
+
+---
+
+# Phase 1 — Vision
 
 ## Data
 
@@ -173,6 +207,92 @@ Details per model in [`reports/`](reports) · full analysis in the [research log
 > Lab scores above are on PlantVillage images with uniform backgrounds; see
 > [Lab → field](#lab--field-the-number-that-matters) for real photos.
 
+# Phase 2 — RAG assistant
+
+Given the diagnosis, answer the grower's questions from a fixed corpus, **citing sources**, and
+say "I don't know" when the corpus does not answer. Every step below has a plan written before
+its results in the [research log](docs/research-log.md).
+
+### Corpus: what we may reuse decides what we can answer
+
+28 English Wikipedia articles (CC BY-SA 4.0, pinned by revision id) covering the 26 disease
+classes, split into **240 section-aware chunks** of ≤ 200 words. The PlantVillage website was
+excluded (its robots.txt blocks AI crawlers), extension-service fact sheets are copyrighted.
+The price: coverage is uneven (grape leaf blight has 24 words; 4 diseases have no management
+section), and the assistant can only be as good as this.
+
+### Evaluation set: 111 questions, three kinds
+
+| Type | n | What it tests | Words shared with the evidence |
+|---|---:|---|---:|
+| Extractive | 44 | written from the passage, reusing its wording | 46% |
+| Grower-style | 43 | how a grower would ask ("brown rings on my tomato leaves…") | 15% |
+| Unanswerable | 24 | plausible, but the corpus does not answer | – |
+
+Gold labels are **quotes**, not chunk ids, so they stay valid for any chunking. 40% dev (all
+tuning), 60% test (reported), stratified by type. Limitation: all questions are LLM-written;
+a human-written subset is the main open item.
+
+### Retrieval: the wording gap decides
+
+Recall@5 on the test split (relevant chunk in the top 5):
+
+| Retriever | All | Extractive | Grower |
+|---|---:|---:|---:|
+| BM25 | 0.77 | **0.96** | 0.58 |
+| all-MiniLM-L6-v2 | 0.71 | 0.81 | 0.62 |
+| **bge-small-en-v1.5** (kept) | **0.85** | 0.88 | **0.81** |
+| bge-m3 (568M) | 0.85 | 0.92 | 0.77 |
+
+- BM25 loses 31 points more than bge-small when growers rephrase (95% CI 8–54): an evaluation
+  on extractive questions alone would have chosen it.
+- Hybrid search (RRF), stemming, chunk size and cross-encoder reranking were tested on dev.
+  The best pipeline gained 4 grower questions on dev and **lost** one on test: with 17 dev
+  questions per type, that is the winner's curse. The simplest strong system was kept.
+
+### Grounded generation: abstains well, embellishes a little
+
+Qwen3-4B-Instruct (Apache 2.0) runs locally, greedy decoding, top-5 chunks, one citation per
+sentence required. Support is checked by an NLI model (DeBERTa-v3-large), validated first:
+it entails 92% of gold quotes by their own chunk and 0% by a random chunk.
+
+| Test split | Extractive | Grower | Unanswerable |
+|---|---:|---:|---:|
+| Says "I don't know" | 8% | 12% | **86%** |
+| Cited sentences entailed by their source | 84% | 74% | – |
+| Answer cites the gold chunk | 92% | 87% | – |
+
+- Most wrong abstentions (6 of 8, both splits) happen when retrieval missed the answer: the
+  model is right not to answer from what it was given.
+- A manual review of the 14 sentences the NLI rejected: 6 correct paraphrases, 7 embellishments,
+  1 contradiction → about **12%** of answer sentences add something the source does not say, mostly in grower answers.
+
+**Two extra safety nets** (a similarity gate on retrieval, an NLI filter on sentences) each
+catch **one** more unanswerable question and cost ~10% of the good answers. Not adopted: the
+app **flags** unsupported sentences with ⚠️ instead of hiding them. The two remaining failures
+(e.g. "can I eat potatoes after late blight?") are built from true facts on a question the corpus
+never addresses, which sentence-level checks cannot see.
+
+### Vision ↔ RAG: the diagnosis should not steer retrieval
+
+Simulated on 500 (question, field photo) pairs with the classifier's real outputs on PlantDoc
+test photos (recall@5, test):
+
+| Retrieval | Recall@5 |
+|---|---:|
+| **Question as written** (kept) | **0.83** |
+| Filtered to the predicted disease | 0.67 |
+| Filtered to the top-2 when the classifier is unsure | 0.74 |
+| Predicted disease name prepended to the question | 0.67 |
+| Filtered to the true disease (upper bound) | 0.86 |
+
+A right diagnosis adds 8 points; a wrong one (28% of field photos) removes 50–60. Prepending the
+disease name hurts even when it is right: it pulls the query toward the page's general
+sections. So the diagnosis is shown, and used to **suggest questions that name the disease**
+(both candidates when unsure), which the user sees and can correct.
+
+---
+
 ## Demo
 
 👉 **[Try it in your browser](https://huggingface.co/spaces/Marconcini/leafscan)** — the model
@@ -193,6 +313,27 @@ python -m leafscan.app         # http://127.0.0.1:7860
 - Below the field-fitted threshold it answers **"Not sure"** instead of guessing.
 - On PlantDoc test photos: **72.4%** right overall; it answers 65% of them, and **87%** of those
   answers are right. Lab photos: 96.6% (99.7% before field fine-tuning).
+
+**With the assistant** (local only: the LLM and NLI models are ~10 GB, ~5 s per answer on a laptop):
+
+```bash
+pip install -e ".[app,rag]"
+LEAFSCAN_ASSISTANT=1 python -m leafscan.app
+```
+
+After the diagnosis, pick a suggested question or type your own: the answer comes with `[n]`
+citations, links to the cited Wikipedia sections, and ⚠️ on sentences the NLI check finds
+unsupported — a check that misses some inventions, so read the sources before acting.
+
+## Limitations
+
+- **Field accuracy is 72%.** Good enough for a research demo, not for a decision. The model only
+  knows 38 classes and will answer one of them for any leaf.
+- **The corpus is Wikipedia.** It is uneven, general, and not a substitute for local extension
+  advice (products, doses and regulations vary by country).
+- **The evaluation set is small and LLM-written** (66 test questions). Differences of a few
+  points are within noise; the CIs in the research log say how much.
+- **The NLI check has false positives**, especially on questions the corpus does not address.
 
 ## Quickstart
 
@@ -216,6 +357,18 @@ python -m leafscan.field models/convnext_tiny/best.pt
 python -m leafscan.field_finetune --init plantvillage --fraction 0.25 --seed 0
 python -m leafscan.field_finetune --summary
 python -m leafscan.reliability models/convnext_tiny/best.pt   # needs Flowers-102 & DTD in data/ood
+```
+
+```bash
+# Phase 2 (pip install -e ".[rag]")
+python -m leafscan.rag.corpus stats                    # corpus/wikipedia.jsonl is versioned
+python -m leafscan.rag.evalset check
+python -m leafscan.rag.retrieval_eval                  # baselines
+python -m leafscan.rag.retrieval_experiments --split dev
+python -m leafscan.rag.generate --condition retrieved  # local LLM, ~4 s per question
+python -m leafscan.rag.attribution                     # NLI support of each sentence
+python -m leafscan.rag.abstention
+python -m leafscan.rag.diagnosis predict && python -m leafscan.rag.diagnosis evaluate
 ```
 
 Quick sanity run (a few minutes): `python -m leafscan.train --config configs/efficientnet_b0.yaml --limit-per-class 20 --epochs 1`
@@ -243,6 +396,18 @@ src/leafscan/
 ├── app.py           # Gradio demo
 ├── export.py        # safetensors export / loading from the Hugging Face Hub
 └── onnx_export.py   # ONNX export, int8 quantisation, recalibration
+└── rag/
+    ├── corpus.py        # Wikipedia snapshot (pinned revisions), section-aware chunking
+    ├── evalset.py       # question set checks, quote-based gold labels, dev/test split
+    ├── retrieval.py     # BM25, dense, RRF fusion, cross-encoder reranking
+    ├── retrieval_eval.py, retrieval_experiments.py
+    ├── generate.py      # grounded generation with citations (local LLM)
+    ├── attribution.py   # NLI support check of cited sentences
+    ├── abstention.py    # retrieval gate and support filter
+    ├── diagnosis.py     # using the photo diagnosis in retrieval (simulation)
+    └── assistant.py     # the app's assistant: retrieve, answer, flag
+corpus/              # the Wikipedia snapshot and its attribution
+evaluation/          # the 111 questions
 web/index.html       # in-browser demo (ONNX Runtime Web), deployed as a static Space
 configs/          # one YAML per compared model
 tests/            # unit tests + end-to-end pipeline test on a synthetic dataset
@@ -266,11 +431,19 @@ Detailed plan with research questions: [ROADMAP.md](ROADMAP.md) · experiment jo
 - [x] Public demo: in-browser (ONNX Runtime Web) on Hugging Face Spaces, weights on the Hub
 
 **Phase 2 — RAG assistant**
-- [ ] Corpus of agronomic fact sheets per disease
-- [ ] Retrieval pipeline (embeddings + vector store) and grounded generation with citations
-- [ ] Evaluation: test question set, retrieval metrics, faithfulness / hallucination rate
-- [ ] Full app: photo → diagnosis → Q&A
+- [x] Corpus: 28 Wikipedia articles, 240 chunks, licence-checked sources
+- [x] Evaluation set: 111 questions, quote-based gold labels, dev/test split
+- [x] Retrieval: BM25 vs dense, hybrid, chunk size, reranking
+- [x] Grounded generation with citations, NLI support check
+- [x] Abstention: the model's own "I don't know" vs retrieval gate and support filter
+- [x] Full app: photo → diagnosis → suggested questions → cited answers
+
+**Open**: human-written questions, a question-level "sufficient context" check, more field
+data for the classifier. Details in [ROADMAP.md](ROADMAP.md).
 
 ## License
 
 Code: MIT. Datasets: PlantVillage (CC BY-SA 3.0); PlantDoc (CC BY 4.0, images not redistributed here).
+Corpus: English Wikipedia (CC BY-SA 4.0, attribution in [corpus/README.md](corpus/README.md)).
+Models used: Qwen3-4B-Instruct-2507 (Apache 2.0), BAAI/bge-small-en-v1.5 (MIT),
+DeBERTa-v3-large NLI by MoritzLaurer (MIT).
