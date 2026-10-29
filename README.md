@@ -26,7 +26,7 @@ flowchart TB
         direction LR
         D["Suggested questions<br/>naming the disease"] --> F["Retrieval: bge-small<br/>28 Wikipedia articles"] --> G["Qwen3-4B (local)<br/>cited answer or<br/>'I don't know'"] --> H["NLI check<br/>⚠️ unsupported sentences"]
     end
-    C --> D
+    V --> R
 ```
 
 **What I found**
