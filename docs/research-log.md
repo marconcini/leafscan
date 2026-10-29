@@ -5,6 +5,30 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-29 — Abstention: plan (before running it)
+
+The model already abstains on 88% of unanswerable questions by itself. Two safety nets are
+added on top, applied to the answers already generated (no new LLM run):
+
+- **Retrieval gate**: abstain without calling the LLM when the top-1 bge-small similarity is
+  below τ. τ is fixed on dev as the 10th percentile of the top-1 scores of dev answerable
+  questions (we accept losing ~10% of answerable questions), then applied once on test.
+- **Support filter**: drop every sentence whose NLI support by its cited sources is ≤ 0.5
+  (uncited sentences included); abstain if nothing is left.
+
+**Outcomes per policy** (model alone, gate, filter, gate + filter): share of unanswerable
+questions that still get an answer; share of answerable questions answered; share of
+sentences removed from answerable answers (the filter's cost: half of the flagged sentences
+were correct in the manual review).
+
+**Hypotheses.**
+- *A1*: the gate adds < 5 points of abstention on unanswerable questions, for a ~10% loss on
+  answerable ones: not worth it given the model's own abstention.
+- *A2*: the filter turns at least 2 of the 3 answered unanswerable questions into
+  abstentions, and removes ≤ 25% of the sentences of answerable answers.
+
+---
+
 ## 2026-10-29 — Grounded generation: the model abstains well, and embellishes grower answers
 
 Qwen3-4B-Instruct, local, 4.2 s per answer (median). 111 questions × 2 conditions
