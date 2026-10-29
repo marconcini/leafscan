@@ -5,6 +5,53 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-29 — Abstention: the safety nets catch one question, and cost a tenth of the answers
+
+τ fitted on dev = 0.704 (cosine similarity of the best chunk). Test split, 26 + 26 answerable
+and 14 unanswerable questions (`reports/rag/abstention.json`):
+
+| Policy | Unanswerable still answered | Answerable answered | Sentences removed from answerable answers |
+|---|---:|---:|---:|
+| Model alone | 14% (2) | 90% | – |
+| + retrieval gate | 7% (1) | 81% | – |
+| + support filter | 7% (1) | 81% | 31% |
+| + both | 7% (1) | 73% | 31% |
+
+**Hypotheses vs. results.**
+- *A1: the gate adds < 5 points of abstention* → **refuted by one question**: it adds 7
+  points (the peach-pruning question) for 9 points of answerable questions lost. On dev it
+  catches nothing and still costs 8 points.
+- *A2: the filter catches ≥ 2 of the 3 answered unanswerable questions and removes ≤ 25% of
+  sentences* → **refuted on both counts**: it catches the same single question as the gate,
+  and removes 28–31% of the sentences of answerable answers (half of which the manual review
+  found correct).
+
+**Why the two remaining failures pass every check.** They are not invented from nothing:
+- *Can I eat potatoes after late blight?* The answer ("yes, if the tubers are not
+  infected…") is built from true facts about late blight, and the NLI model rates three of its
+  four sentences as entailed (0.85–0.98) although no source says anything about eating
+  potatoes. Sentence-level NLI checks each fact, not whether the facts answer the question.
+- *Can I compost mosaic-virus plants?* The first sentence passes the NLI check (0.91);
+  the next three, which carry the actual advice, do not. The filter keeps a confident
+  "No, you should not compost" without its (unsupported) reasons.
+
+So the NLI checker makes errors in both directions: it rejects correct paraphrases (previous
+entry) and accepts claims the sources do not make. Detecting "answers a question the sources
+do not address" needs a question-level check (does the context contain the answer?), the
+"sufficient context" idea of Joren et al. (2025), which is left for future work.
+
+**Decision for the app.**
+- No retrieval gate: one question caught on test, none on dev, for ~10% of answers lost.
+- No removal of sentences. Instead, **sentences the NLI model does not find in their sources
+  are shown with a warning** ("not found in the cited source"). This keeps the half of them
+  that are correct, and tells the user what to double-check.
+- The model's own "I don't know" (86–90% on unanswerable questions) stays the main safety net.
+
+Caveat: with 14 unanswerable test questions, every difference in this table is one or two
+questions.
+
+---
+
 ## 2026-10-29 — Abstention: plan (before running it)
 
 The model already abstains on 88% of unanswerable questions by itself. Two safety nets are

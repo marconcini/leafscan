@@ -58,7 +58,10 @@ each with a hypothesis, a metric and a conclusion.
   local Qwen3-4B; abstains on 88% of unanswerable questions; 78% of cited sentences entailed
   (NLI), ~12% estimated real embellishments, mostly in grower answers
   - *Q: does an LLM judge agree with human judgement? [Zheng et al. 2023]*
-- [ ] **Knowing when to say "I don't know"** [Asai et al. 2023; Yan et al. 2024]
+- [x] **Knowing when to say "I don't know"** [Asai et al. 2023; Yan et al. 2024] — the model's own
+  abstention does most of the work; a retrieval gate and an NLI filter each catch one more
+  question for ~10% of answers lost. Unsupported sentences are flagged, not removed
+  - [ ] question-level "sufficient context" check [Joren et al. 2025]
 - [ ] **Vision ↔ RAG integration**
   - *Q: when the classifier hesitates between two diseases, should retrieval cover both?*
 - [ ] **Final app and write-up**
