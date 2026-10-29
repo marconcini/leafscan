@@ -17,14 +17,16 @@ before the experiments**, a dev/test split for every decision, confidence interv
 [research log](docs/research-log.md) that keeps the negative results.
 
 ```mermaid
-flowchart LR
-    A[Leaf photo] --> B["ConvNeXt-T<br/>38 classes"]
-    B --> C["Calibrated top-3<br/>or 'Not sure'"]
-    C --> D[Suggested questions]
-    D --> E[Question]
-    E --> F["Retrieval<br/>bge-small, 240 chunks<br/>of 28 Wikipedia articles"]
-    F --> G["Qwen3-4B, local<br/>answer with [n] citations<br/>or 'I don't know'"]
-    G --> H["NLI check<br/>⚠️ on unsupported sentences"]
+flowchart TB
+    subgraph V["Phase 1 — Vision"]
+        direction LR
+        A[Leaf photo] --> B["ConvNeXt-T, 38 classes"] --> C["Calibrated top-3<br/>or 'Not sure'"]
+    end
+    subgraph R["Phase 2 — RAG assistant"]
+        direction LR
+        D["Suggested questions<br/>naming the disease"] --> F["Retrieval: bge-small<br/>28 Wikipedia articles"] --> G["Qwen3-4B (local)<br/>cited answer or<br/>'I don't know'"] --> H["NLI check<br/>⚠️ unsupported sentences"]
+    end
+    C --> D
 ```
 
 **What I found**
