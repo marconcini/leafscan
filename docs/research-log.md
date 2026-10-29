@@ -51,6 +51,14 @@ silently remove the answer.
 suggested questions are the workaround, not a measured solution. 25 of 87 answerable questions
 have no PlantDoc photo of their disease and are not covered.
 
+**In the app** (`LEAFSCAN_ASSISTANT=1 python -m leafscan.app`). Photo → diagnosis → suggested
+questions (two diseases when the classifier is unsure) → answer with citations, ⚠️ on
+sentences their source does not entail, and links to the cited sections; ~5 s per answer on
+a laptop. A first manual try reproduced the failure mode of the abstention study: *"Is it safe
+to eat tomatoes from a plant with late blight?"* got an invented answer ("P. infestans can
+produce toxins"), and the NLI model scored it 0.65 "entailed" by a chunk about outbreaks in
+Australia and the US. The warning in the app says so: the ⚠️ check misses some inventions.
+
 ---
 
 ## 2026-10-29 — Vision ↔ RAG: plan (before running it)

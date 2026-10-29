@@ -62,6 +62,10 @@ each with a hypothesis, a metric and a conclusion.
   abstention does most of the work; a retrieval gate and an NLI filter each catch one more
   question for ~10% of answers lost. Unsupported sentences are flagged, not removed
   - [ ] question-level "sufficient context" check [Joren et al. 2025]
-- [ ] **Vision ↔ RAG integration**
-  - *Q: when the classifier hesitates between two diseases, should retrieval cover both?*
+- [x] **Vision ↔ RAG integration** — simulated on 500 (question, field photo) pairs: filtering
+  retrieval by the diagnosis costs 16 points of recall@5 (a wrong diagnosis removes the answer);
+  top-2 when unsure recovers less than half; even prepending a *right* disease name hurts.
+  The app retrieves with the question as written and uses the diagnosis to suggest questions
+  - *Q: when the classifier hesitates between two diseases, should retrieval cover both?* →
+    no: suggest questions about both instead
 - [ ] **Final app and write-up**
