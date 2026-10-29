@@ -5,6 +5,54 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-29 — Vision ↔ RAG: the diagnosis should not touch retrieval
+
+Recall@5 of bge-small over (question, field photo) pairs, averaged per question
+(`reports/rag/diagnosis.json`). The classifier's top-1 is right for 67% of the pairs.
+
+| Split | Questions | none | oracle | top-1 | adaptive | prefix |
+|---|---:|---:|---:|---:|---:|---:|
+| dev | 26 | 0.85 | 0.92 | 0.70 | 0.74 | 0.78 |
+| test | 36 | 0.83 | 0.86 | 0.67 | 0.74 | 0.67 |
+
+Test, paired difference vs none (95% CI): top-1 −16 points (−24 to −7), adaptive −9 (−15 to −2),
+prefix −16 (−27 to −6), oracle +3 (0 to +8).
+
+**Where it comes from** (all 500 pairs, both splits):
+
+| Diagnosis | Pairs | none | top-1 | adaptive | prefix |
+|---|---:|---:|---:|---:|---:|
+| right, confident | 261 | 0.83 | 0.91 | 0.91 | 0.74 |
+| right, unsure | 80 | 0.74 | 0.80 | 0.78 | 0.68 |
+| wrong, confident | 59 | 0.85 | 0.34 | 0.34 | 0.63 |
+| wrong, unsure | 100 | 0.86 | 0.22 | 0.58 | 0.69 |
+
+**Hypotheses vs. results.**
+- *V1: top-1 loses ≥ 10 points* → **confirmed** (−14 dev, −16 test). A right diagnosis gains
+  8 points; a wrong one loses 50–60. Even on confident photos alone, the wrong ones (18%) cost
+  more than the right ones bring.
+- *V2 / H4: adaptive recovers at least half of the loss* → **refuted**: it recovers 29% (dev)
+  and 43% (test). When unsure, the true disease is in the top-2 for 76% of photos, but the
+  filter still fails on the other quarter, and on the confident mistakes, which it never
+  questions.
+- *V3: prefix within ±3 points* → **refuted**, and the surprise of this step: prepending the
+  disease name hurts **even when the diagnosis is right** (0.83 → 0.74). The name pulls the
+  query embedding towards the page's general chunks (introduction, symptoms) and away from the
+  specific section the question is about.
+
+**Decision (rule written in the plan).** No condition beats none on dev, and prefix is 7
+points below → **the app retrieves with the question as written.** The diagnosis is used
+outside retrieval, where the user can see and correct it: the app proposes questions that
+name the disease (the top-1, or the top-2 when the classifier is unsure), which the user can
+edit before asking. The topic thus stays explicit, and a wrong diagnosis can no longer
+silently remove the answer.
+
+**Limits.** "It"-questions ("how do I treat it?") are not in the evaluation set; the
+suggested questions are the workaround, not a measured solution. 25 of 87 answerable questions
+have no PlantDoc photo of their disease and are not covered.
+
+---
+
 ## 2026-10-29 — Vision ↔ RAG: plan (before running it)
 
 **Question (H4 from the Phase 2 kickoff).** In the app, the user asks questions *after* a photo
