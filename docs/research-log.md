@@ -5,6 +5,46 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-29 — Vision ↔ RAG: plan (before running it)
+
+**Question (H4 from the Phase 2 kickoff).** In the app, the user asks questions *after* a photo
+has been diagnosed. Should the diagnosis restrict retrieval to that disease's pages? A filter
+removes off-topic chunks when the classifier is right, and removes the answer when it is wrong
+(28% of field photos).
+
+**Simulation with real classifier outputs.** For each answerable question whose disease has
+photos in PlantDoc test (62 of 87 questions, 18 diseases; 26 dev / 36 test), pair it with every
+PlantDoc test photo of that disease (3–11 photos) and take the deployed model's calibrated
+top-3 and "confident" flag on that photo. A pair stands for: *a grower photographs this leaf,
+then asks this question*. Metric: recall@5 of bge-small (200-word chunks), averaged over the
+photos of a question, then over questions; bootstrap CIs resample questions.
+
+Conditions:
+- **none**: the question alone (current system);
+- **oracle**: filter on the true disease (upper bound);
+- **top-1**: filter on the predicted disease;
+- **adaptive**: top-1 if the classifier is confident, top-2 otherwise (H4);
+- **prefix**: no filter; the predicted disease name is prepended to the query.
+
+A filter keeps the chunks of pages mapped to the allowed classes; if none (a "healthy"
+prediction), it falls back to all chunks.
+
+**Predictions.**
+- *V1*: top-1 loses ≥ 10 points of recall@5 vs none: our questions already name the crop or
+  the disease, so the filter has little to add, and a wrong diagnosis removes the answer.
+- *V2*: adaptive recovers at least half of that loss (H4), but stays below none.
+- *V3*: prefix is within ±3 points of none.
+
+**Caveat.** In the app, follow-ups like "how do I treat it?" name nothing, and there the
+diagnosis is the only topic signal. These questions are not in the evaluation set, so this
+simulation measures the *cost* of a wrong diagnosis more than the benefit of a right one.
+
+**Decision rule (dev).** The app uses the best condition other than oracle; if no condition
+beats none, it uses prefix when it is within 2 points of none (it is the only one that helps
+"it"-questions) and none otherwise.
+
+---
+
 ## 2026-10-29 — Abstention: the safety nets catch one question, and cost a tenth of the answers
 
 τ fitted on dev = 0.704 (cosine similarity of the best chunk). Test split, 26 + 26 answerable
