@@ -5,6 +5,46 @@ Negative or surprising results are kept on purpose.
 
 ---
 
+## 2026-10-29 — Grounded generation: plan (before running it)
+
+**Generator.** Qwen3-4B-Instruct-2507 (Apache 2.0), run locally (bf16, Apple GPU), greedy
+decoding: free, no API key, reproducible. ~9 tokens/s on the development laptop.
+
+**Prompt.** The top 5 chunks from bge-small (200 words), numbered [1]–[5] with their section
+path; instructions: answer in at most 4 sentences using only the sources, put the source
+number(s) after every sentence, and reply exactly "I don't know based on the available
+sources." if they do not contain the answer. The prompt is fixed before the run; it may be
+changed only to fix a format failure seen on dev.
+
+**Conditions.**
+- **retrieved**: the top 5 chunks, as the system would run.
+- **oracle**: the same, but if no chunk contains a gold quote, the 5th is replaced by the gold
+  chunk. The gap between the two is the cost of retrieval misses; what fails even with the
+  gold chunk present is the generator's own failure (Joren et al. 2025).
+
+**Metrics** (automatic, no LLM judge):
+- **Abstention** on answerable vs unanswerable questions.
+- **Citation format**: share of sentences carrying a valid citation.
+- **Gold citation**: for answered answerable questions, does the answer cite a chunk that
+  contains a gold quote?
+- **Support (hallucination proxy)**: a sentence is supported if an NLI model
+  (DeBERTa-v3-large, MNLI/FEVER/ANLI/LingNLI/WANLI) finds it entailed by one of the chunks it
+  cites (probability > 0.5). Reported as the share of supported sentences. NLI is itself
+  checked first: gold quotes against their own chunk must be entailed, against a random other
+  chunk must not.
+
+Not measured automatically: whether an answer is *correct and complete*. A sample of test
+answers is read and described qualitatively.
+
+**Hypotheses.**
+- *G1*: ≥ 80% of cited sentences are supported by their citations (retrieved condition).
+- *G2*: the model abstains on fewer than half of the unanswerable questions: given
+  insufficient context, models hallucinate rather than abstain (Joren et al. 2025).
+- *G3*: the oracle raises the gold-citation rate by about the retrieval miss rate, but not to
+  100%: some failures are the generator's, even with the answer in front of it.
+
+---
+
 ## 2026-10-28 — Retrieval experiments: big gains on dev, none on test for grower questions
 
 **Dev** (17 grower + 18 extractive answerable questions; one grower question = 6 points),
